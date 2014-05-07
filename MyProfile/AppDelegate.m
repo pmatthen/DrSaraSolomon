@@ -15,10 +15,6 @@
 {    
     [Parse setApplicationId:@"sg0S2sXCo3hsLKmdfEZsH3be3BLSCCcLKAkD8gLT" clientKey:@"kXUT03o75PdfdGMe6ZDOVEKPcTtdDmLgx6czaj1l"];
     
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor clearColor]];
-    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"drawerIcon.png"]];
-    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"drawerIcon.png"]];
-    
     return YES;
 }
 							
