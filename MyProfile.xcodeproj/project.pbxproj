@@ -29,6 +29,8 @@
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
 		B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7948B1917CEBF007ADE7B /* MenuViewTableViewCell.m */; };
+		B1E64206191BB1AA00E6E6E4 /* graphImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E64205191BB1AA00E6E6E4 /* graphImage.png */; };
+		B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E64207191BB4B700E6E6E4 /* pickerImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
 		B1B7948A1917CEBF007ADE7B /* MenuViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewTableViewCell.h; sourceTree = "<group>"; };
 		B1B7948B1917CEBF007ADE7B /* MenuViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewTableViewCell.m; sourceTree = "<group>"; };
+		B1E64205191BB1AA00E6E6E4 /* graphImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graphImage.png; sourceTree = "<group>"; };
+		B1E64207191BB4B700E6E6E4 /* pickerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		B1269710191A1835002425C3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B1E64207191BB4B700E6E6E4 /* pickerImage.png */,
+				B1E64205191BB1AA00E6E6E4 /* graphImage.png */,
 				B1269711191A1F72002425C3 /* separatorLine.png */,
 				B126970E191A182B002425C3 /* downArrow.png */,
 				B126970C191A16E8002425C3 /* upArrow.png */,
@@ -273,10 +279,12 @@
 			files = (
 				B1681B4919174DF500923BB3 /* Images.xcassets in Resources */,
 				B126970D191A16E8002425C3 /* upArrow.png in Resources */,
+				B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */,
 				B1681B3B19174DF500923BB3 /* InfoPlist.strings in Resources */,
 				B126970F191A182B002425C3 /* downArrow.png in Resources */,
 				B1269712191A1F72002425C3 /* separatorLine.png in Resources */,
 				B1681B4419174DF500923BB3 /* Main.storyboard in Resources */,
+				B1E64206191BB1AA00E6E6E4 /* graphImage.png in Resources */,
 				B1653C071918D21E007A73B7 /* drawerIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

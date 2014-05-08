@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *myTitleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *myImageView;
+@property (strong, nonatomic) IBOutlet UIView *cellContentView;
 
 @end
