@@ -34,7 +34,6 @@
     permanentSeparatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
     permanentSeparatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
     
-    
     isFirstTime = YES;
     isFirstClick = YES;
 }
@@ -140,8 +139,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     if ([indexPath row] == currentSelection) {
         return 208;
     }
@@ -176,33 +173,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

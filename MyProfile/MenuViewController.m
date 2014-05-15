@@ -8,8 +8,9 @@
 
 #import "MenuViewController.h"
 #import "MenuViewTableViewCell.h"
+#import "InitialViewController.h"
 
-@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *categoryArray;
 
@@ -30,6 +31,29 @@
     [super viewDidAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    if (![PFUser currentUser]) {
+//        PFLogInViewController *login = [PFLogInViewController new];
+//        login.delegate = self;
+//        login.signUpController.delegate = self;
+//        [self presentViewController:login animated:animated completion:nil];
+        
+        UINavigationController *myInitialNavigationController = [UINavigationController new];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        myInitialNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
+
+        [self presentViewController:myInitialNavigationController animated:animated completion:nil];
+    }
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+{
+    [signUpController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [logInController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -45,7 +69,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    NSLog(@"sender = %@", sender);
 }
 
 #pragma mark - tableview
@@ -73,7 +97,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.title = [categoryArray[indexPath.row] capitalizedString];
+    if (indexPath.row == 4) {
+        [self performSegueWithIdentifier:@"MoreSegue" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"MyProfileSegue" sender:self];
+    }
 }
 
 @end
