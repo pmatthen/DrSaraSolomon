@@ -13,7 +13,7 @@
 		B126970F191A182B002425C3 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B126970E191A182B002425C3 /* downArrow.png */; };
 		B1269712191A1F72002425C3 /* separatorLine.png in Resources */ = {isa = PBXBuildFile; fileRef = B1269711191A1F72002425C3 /* separatorLine.png */; };
 		B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA519249976009D1FD2 /* InitialViewControlllerTableViewCell.m */; };
-		B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewController.m */; };
+		B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */; };
 		B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */; };
 		B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1653BFC1918BFAF007A73B7 /* MyProfileViewController.m */; };
 		B1653C071918D21E007A73B7 /* drawerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1653C061918D21E007A73B7 /* drawerIcon.png */; };
@@ -32,6 +32,11 @@
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
 		B1895C241924F89E0023A377 /* roundedrectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = B1895C231924F89E0023A377 /* roundedrectangle.png */; };
+		B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */ = {isa = PBXBuildFile; fileRef = B1921138192634400017F4ED /* ParseSignUpViewControllerStep1.m */; };
+		B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */ = {isa = PBXBuildFile; fileRef = B192113B192634520017F4ED /* ParseSignUpViewControllerStep2.m */; };
+		B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */ = {isa = PBXBuildFile; fileRef = B192113E192634620017F4ED /* ParseSignUpViewControllerStep4.m */; };
+		B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */ = {isa = PBXBuildFile; fileRef = B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */; };
+		B19211461926400C0017F4ED /* ParseSignUpViewControllerStep6.m in Sources */ = {isa = PBXBuildFile; fileRef = B19211451926400C0017F4ED /* ParseSignUpViewControllerStep6.m */; };
 		B19EF08219247E450000AC09 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF07F19247E450000AC09 /* page3.png */; };
 		B19EF08319247E450000AC09 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08019247E450000AC09 /* page2.png */; };
 		B19EF08419247E450000AC09 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08119247E450000AC09 /* page1.png */; };
@@ -62,8 +67,8 @@
 		B1269711191A1F72002425C3 /* separatorLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separatorLine.png; sourceTree = "<group>"; };
 		B13A9CA419249976009D1FD2 /* InitialViewControlllerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewControlllerTableViewCell.h; sourceTree = "<group>"; };
 		B13A9CA519249976009D1FD2 /* InitialViewControlllerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewControlllerTableViewCell.m; sourceTree = "<group>"; };
-		B13A9CA71924AE1A009D1FD2 /* ParseSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewController.h; sourceTree = "<group>"; };
-		B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewController.m; sourceTree = "<group>"; };
+		B13A9CA71924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep3.h; sourceTree = "<group>"; };
+		B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep3.m; sourceTree = "<group>"; };
 		B13A9CAA1924AE2C009D1FD2 /* ParseLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLogInViewController.h; sourceTree = "<group>"; };
 		B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLogInViewController.m; sourceTree = "<group>"; };
 		B1653BFB1918BFAF007A73B7 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -89,6 +94,16 @@
 		B1681B5919174DF500923BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
 		B1895C231924F89E0023A377 /* roundedrectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundedrectangle.png; sourceTree = "<group>"; };
+		B1921137192634400017F4ED /* ParseSignUpViewControllerStep1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep1.h; sourceTree = "<group>"; };
+		B1921138192634400017F4ED /* ParseSignUpViewControllerStep1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep1.m; sourceTree = "<group>"; };
+		B192113A192634520017F4ED /* ParseSignUpViewControllerStep2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep2.h; sourceTree = "<group>"; };
+		B192113B192634520017F4ED /* ParseSignUpViewControllerStep2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep2.m; sourceTree = "<group>"; };
+		B192113D192634620017F4ED /* ParseSignUpViewControllerStep4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep4.h; sourceTree = "<group>"; };
+		B192113E192634620017F4ED /* ParseSignUpViewControllerStep4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep4.m; sourceTree = "<group>"; };
+		B1921140192634750017F4ED /* ParseSignUpViewControllerStep5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep5.h; sourceTree = "<group>"; };
+		B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep5.m; sourceTree = "<group>"; };
+		B19211441926400C0017F4ED /* ParseSignUpViewControllerStep6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep6.h; sourceTree = "<group>"; };
+		B19211451926400C0017F4ED /* ParseSignUpViewControllerStep6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep6.m; sourceTree = "<group>"; };
 		B19EF07F19247E450000AC09 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		B19EF08019247E450000AC09 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		B19EF08119247E450000AC09 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
@@ -178,8 +193,7 @@
 				B1C5A0D119237DD300799705 /* InitialViewController.m */,
 				B13A9CA419249976009D1FD2 /* InitialViewControlllerTableViewCell.h */,
 				B13A9CA519249976009D1FD2 /* InitialViewControlllerTableViewCell.m */,
-				B13A9CA71924AE1A009D1FD2 /* ParseSignUpViewController.h */,
-				B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewController.m */,
+				B19211431926347A0017F4ED /* ParseSignUpViewControllers */,
 				B13A9CAA1924AE2C009D1FD2 /* ParseLogInViewController.h */,
 				B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */,
 				B1681B4519174DF500923BB3 /* MenuViewController.h */,
@@ -227,6 +241,25 @@
 				B1681B5819174DF500923BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B19211431926347A0017F4ED /* ParseSignUpViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1921137192634400017F4ED /* ParseSignUpViewControllerStep1.h */,
+				B1921138192634400017F4ED /* ParseSignUpViewControllerStep1.m */,
+				B192113A192634520017F4ED /* ParseSignUpViewControllerStep2.h */,
+				B192113B192634520017F4ED /* ParseSignUpViewControllerStep2.m */,
+				B13A9CA71924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.h */,
+				B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */,
+				B192113D192634620017F4ED /* ParseSignUpViewControllerStep4.h */,
+				B192113E192634620017F4ED /* ParseSignUpViewControllerStep4.m */,
+				B1921140192634750017F4ED /* ParseSignUpViewControllerStep5.h */,
+				B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */,
+				B19211441926400C0017F4ED /* ParseSignUpViewControllerStep6.h */,
+				B19211451926400C0017F4ED /* ParseSignUpViewControllerStep6.m */,
+			);
+			name = ParseSignUpViewControllers;
 			sourceTree = "<group>";
 		};
 		B19EF08519247E490000AC09 /* Slideshow */ = {
@@ -398,12 +431,17 @@
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
+				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
+				B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */,
+				B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */,
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
+				B19211461926400C0017F4ED /* ParseSignUpViewControllerStep6.m in Sources */,
+				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
-				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewController.m in Sources */,
+				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,
 				B1681B3D19174DF500923BB3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

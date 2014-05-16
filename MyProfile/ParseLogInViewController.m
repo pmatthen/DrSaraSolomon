@@ -9,7 +9,7 @@
 #import "ParseLogInViewController.h"
 #import "MenuViewController.h"
 
-@interface ParseLogInViewController ()
+@interface ParseLogInViewController () <UITextFieldDelegate>
 
 @end
 
@@ -24,6 +24,11 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
     return YES;
 }
 
