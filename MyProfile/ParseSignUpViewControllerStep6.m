@@ -40,9 +40,11 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"User signed up");
-            } else {
-                NSString *errorString = [error userInfo][@"error"];
-            }
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"error = %@", errorString);
+        }
     }];
 }
+
 @end

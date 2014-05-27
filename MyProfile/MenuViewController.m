@@ -33,11 +33,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
     if (![PFUser currentUser]) {
-//        PFLogInViewController *login = [PFLogInViewController new];
-//        login.delegate = self;
-//        login.signUpController.delegate = self;
-//        [self presentViewController:login animated:animated completion:nil];
-        
         UINavigationController *myInitialNavigationController = [UINavigationController new];
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         myInitialNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
@@ -97,10 +92,24 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 4) {
-        [self performSegueWithIdentifier:@"MoreSegue" sender:self];
-    } else {
-        [self performSegueWithIdentifier:@"MyProfileSegue" sender:self];
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"MyProfileSegue" sender:self];
+            break;
+        case 1:
+            //
+            break;
+        case 2:
+            [self performSegueWithIdentifier:@"RecipeSegue" sender:self];
+            break;
+        case 3:
+            //
+            break;
+        case 4:
+            [self performSegueWithIdentifier:@"MoreSegue" sender:self];
+            break;
+        default:
+            break;
     }
 }
 

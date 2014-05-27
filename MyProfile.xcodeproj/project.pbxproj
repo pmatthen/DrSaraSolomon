@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8FF6380D39CD4168923C8525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502340235F374596A7810DF6 /* libPods.a */; };
+		B11B559919303F78000426E2 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559819303F78000426E2 /* RecipeViewController.m */; };
+		B11B559C1930419F000426E2 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559B1930419F000426E2 /* RecipeTableViewCell.m */; };
+		B11B559F1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */; };
 		B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B126970A191A1363002425C3 /* MyProfileTableViewCell.m */; };
 		B126970D191A16E8002425C3 /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B126970C191A16E8002425C3 /* upArrow.png */; };
 		B126970F191A182B002425C3 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B126970E191A182B002425C3 /* downArrow.png */; };
@@ -60,6 +63,12 @@
 /* Begin PBXFileReference section */
 		301D1E42605B4E359204793F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		502340235F374596A7810DF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11B559719303F78000426E2 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
+		B11B559819303F78000426E2 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
+		B11B559A1930419F000426E2 /* RecipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewCell.h; sourceTree = "<group>"; };
+		B11B559B1930419F000426E2 /* RecipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewCell.m; sourceTree = "<group>"; };
+		B11B559D1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		B1269709191A1363002425C3 /* MyProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileTableViewCell.h; sourceTree = "<group>"; };
 		B126970A191A1363002425C3 /* MyProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileTableViewCell.m; sourceTree = "<group>"; };
 		B126970C191A16E8002425C3 /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
@@ -204,6 +213,12 @@
 				B1653BFC1918BFAF007A73B7 /* MyProfileViewController.m */,
 				B1269709191A1363002425C3 /* MyProfileTableViewCell.h */,
 				B126970A191A1363002425C3 /* MyProfileTableViewCell.m */,
+				B11B559719303F78000426E2 /* RecipeViewController.h */,
+				B11B559819303F78000426E2 /* RecipeViewController.m */,
+				B11B559A1930419F000426E2 /* RecipeTableViewCell.h */,
+				B11B559B1930419F000426E2 /* RecipeTableViewCell.m */,
+				B11B559D1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.h */,
+				B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
 				B1681B4819174DF500923BB3 /* Images.xcassets */,
@@ -431,6 +446,7 @@
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
+				B11B559F1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
 				B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */,
 				B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */,
@@ -438,11 +454,13 @@
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
 				B19211461926400C0017F4ED /* ParseSignUpViewControllerStep6.m in Sources */,
+				B11B559C1930419F000426E2 /* RecipeTableViewCell.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
 				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,
 				B1681B3D19174DF500923BB3 /* main.m in Sources */,
+				B11B559919303F78000426E2 /* RecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
