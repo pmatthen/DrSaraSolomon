@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		8FF6380D39CD4168923C8525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502340235F374596A7810DF6 /* libPods.a */; };
 		B11B559919303F78000426E2 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559819303F78000426E2 /* RecipeViewController.m */; };
-		B11B559C1930419F000426E2 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559B1930419F000426E2 /* RecipeTableViewCell.m */; };
-		B11B559F1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */; };
+		B122652C193D7F960037C6C9 /* SearchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B122652B193D7F960037C6C9 /* SearchButton.png */; };
 		B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B126970A191A1363002425C3 /* MyProfileTableViewCell.m */; };
 		B126970D191A16E8002425C3 /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B126970C191A16E8002425C3 /* upArrow.png */; };
 		B126970F191A182B002425C3 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B126970E191A182B002425C3 /* downArrow.png */; };
@@ -34,6 +33,8 @@
 		B1681B5219174DF500923BB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1681B3419174DF500923BB3 /* UIKit.framework */; };
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
+		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
+		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
 		B1895C241924F89E0023A377 /* roundedrectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = B1895C231924F89E0023A377 /* roundedrectangle.png */; };
 		B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */ = {isa = PBXBuildFile; fileRef = B1921138192634400017F4ED /* ParseSignUpViewControllerStep1.m */; };
 		B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */ = {isa = PBXBuildFile; fileRef = B192113B192634520017F4ED /* ParseSignUpViewControllerStep2.m */; };
@@ -65,10 +66,7 @@
 		502340235F374596A7810DF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11B559719303F78000426E2 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		B11B559819303F78000426E2 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
-		B11B559A1930419F000426E2 /* RecipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewCell.h; sourceTree = "<group>"; };
-		B11B559B1930419F000426E2 /* RecipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewCell.m; sourceTree = "<group>"; };
-		B11B559D1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewHeaderFooterView.h; sourceTree = "<group>"; };
-		B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		B122652B193D7F960037C6C9 /* SearchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchButton.png; sourceTree = "<group>"; };
 		B1269709191A1363002425C3 /* MyProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileTableViewCell.h; sourceTree = "<group>"; };
 		B126970A191A1363002425C3 /* MyProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileTableViewCell.m; sourceTree = "<group>"; };
 		B126970C191A16E8002425C3 /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
@@ -102,6 +100,10 @@
 		B1681B5719174DF500923BB3 /* MyProfileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyProfileTests-Info.plist"; sourceTree = "<group>"; };
 		B1681B5919174DF500923BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
+		B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleViewController.h; sourceTree = "<group>"; };
+		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
+		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
+		B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleTableViewCell.m; sourceTree = "<group>"; };
 		B1895C231924F89E0023A377 /* roundedrectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundedrectangle.png; sourceTree = "<group>"; };
 		B1921137192634400017F4ED /* ParseSignUpViewControllerStep1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep1.h; sourceTree = "<group>"; };
 		B1921138192634400017F4ED /* ParseSignUpViewControllerStep1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep1.m; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		B1269710191A1835002425C3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B122652B193D7F960037C6C9 /* SearchButton.png */,
 				B1895C231924F89E0023A377 /* roundedrectangle.png */,
 				B1B8F79A1923877C00A40D78 /* AccordionImages */,
 			);
@@ -215,10 +218,10 @@
 				B126970A191A1363002425C3 /* MyProfileTableViewCell.m */,
 				B11B559719303F78000426E2 /* RecipeViewController.h */,
 				B11B559819303F78000426E2 /* RecipeViewController.m */,
-				B11B559A1930419F000426E2 /* RecipeTableViewCell.h */,
-				B11B559B1930419F000426E2 /* RecipeTableViewCell.m */,
-				B11B559D1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.h */,
-				B11B559E1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m */,
+				B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */,
+				B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */,
+				B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */,
+				B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
 				B1681B4819174DF500923BB3 /* Images.xcassets */,
@@ -383,6 +386,7 @@
 				B19EF08419247E450000AC09 /* page1.png in Resources */,
 				B1895C241924F89E0023A377 /* roundedrectangle.png in Resources */,
 				B19EF08319247E450000AC09 /* page2.png in Resources */,
+				B122652C193D7F960037C6C9 /* SearchButton.png in Resources */,
 				B19EF08219247E450000AC09 /* page3.png in Resources */,
 				B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */,
 				B1681B3B19174DF500923BB3 /* InfoPlist.strings in Resources */,
@@ -446,15 +450,15 @@
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
-				B11B559F1930EEAD000426E2 /* RecipeTableViewHeaderFooterView.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
+				B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */,
 				B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */,
 				B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */,
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
+				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B19211461926400C0017F4ED /* ParseSignUpViewControllerStep6.m in Sources */,
-				B11B559C1930419F000426E2 /* RecipeTableViewCell.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
