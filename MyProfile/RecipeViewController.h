@@ -12,8 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *myAccordionScrollView;
 
-
-
 - (IBAction)backButtonTouched:(id)sender;
 
 @end

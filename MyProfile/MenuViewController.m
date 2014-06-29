@@ -97,7 +97,7 @@
             [self performSegueWithIdentifier:@"MyProfileSegue" sender:self];
             break;
         case 1:
-            //
+            [self performSegueWithIdentifier:@"DailyTrackerSegue" sender:self];
             break;
         case 2:
             [self performSegueWithIdentifier:@"RecipeSegue" sender:self];

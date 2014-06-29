@@ -17,6 +17,12 @@
 		B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA519249976009D1FD2 /* InitialViewControlllerTableViewCell.m */; };
 		B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */; };
 		B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */; };
+		B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */; };
+		B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D21960014E00C1E6AF /* leftArrow.png */; };
+		B156C3D51960015200C1E6AF /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D41960015200C1E6AF /* rightArrow.png */; };
+		B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */; };
+		B156C3DB1960398000C1E6AF /* AddFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3DA1960398000C1E6AF /* AddFoodViewController.m */; };
+		B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */; };
 		B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1653BFC1918BFAF007A73B7 /* MyProfileViewController.m */; };
 		B1653C071918D21E007A73B7 /* drawerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1653C061918D21E007A73B7 /* drawerIcon.png */; };
 		B1681B3119174DF500923BB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1681B3019174DF500923BB3 /* Foundation.framework */; };
@@ -78,6 +84,16 @@
 		B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep3.m; sourceTree = "<group>"; };
 		B13A9CAA1924AE2C009D1FD2 /* ParseLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLogInViewController.h; sourceTree = "<group>"; };
 		B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLogInViewController.m; sourceTree = "<group>"; };
+		B156C3CF195FF43700C1E6AF /* DailyTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTrackerViewController.h; sourceTree = "<group>"; };
+		B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTrackerViewController.m; sourceTree = "<group>"; };
+		B156C3D21960014E00C1E6AF /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		B156C3D41960015200C1E6AF /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		B156C3D6196006FA00C1E6AF /* DailyTrackerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTrackerTableViewCell.h; sourceTree = "<group>"; };
+		B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTrackerTableViewCell.m; sourceTree = "<group>"; };
+		B156C3D91960398000C1E6AF /* AddFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodViewController.h; sourceTree = "<group>"; };
+		B156C3DA1960398000C1E6AF /* AddFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewController.m; sourceTree = "<group>"; };
+		B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExerciseViewController.h; sourceTree = "<group>"; };
+		B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExerciseViewController.m; sourceTree = "<group>"; };
 		B1653BFB1918BFAF007A73B7 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		B1653BFC1918BFAF007A73B7 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		B1653C061918D21E007A73B7 /* drawerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawerIcon.png; sourceTree = "<group>"; };
@@ -156,6 +172,8 @@
 		B1269710191A1835002425C3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B156C3D41960015200C1E6AF /* rightArrow.png */,
+				B156C3D21960014E00C1E6AF /* leftArrow.png */,
 				B122652B193D7F960037C6C9 /* SearchButton.png */,
 				B1895C231924F89E0023A377 /* roundedrectangle.png */,
 				B1B8F79A1923877C00A40D78 /* AccordionImages */,
@@ -216,6 +234,14 @@
 				B1653BFC1918BFAF007A73B7 /* MyProfileViewController.m */,
 				B1269709191A1363002425C3 /* MyProfileTableViewCell.h */,
 				B126970A191A1363002425C3 /* MyProfileTableViewCell.m */,
+				B156C3CF195FF43700C1E6AF /* DailyTrackerViewController.h */,
+				B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */,
+				B156C3D6196006FA00C1E6AF /* DailyTrackerTableViewCell.h */,
+				B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */,
+				B156C3D91960398000C1E6AF /* AddFoodViewController.h */,
+				B156C3DA1960398000C1E6AF /* AddFoodViewController.m */,
+				B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */,
+				B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */,
 				B11B559719303F78000426E2 /* RecipeViewController.h */,
 				B11B559819303F78000426E2 /* RecipeViewController.m */,
 				B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */,
@@ -383,6 +409,7 @@
 			files = (
 				B1681B4919174DF500923BB3 /* Images.xcassets in Resources */,
 				B126970D191A16E8002425C3 /* upArrow.png in Resources */,
+				B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */,
 				B19EF08419247E450000AC09 /* page1.png in Resources */,
 				B1895C241924F89E0023A377 /* roundedrectangle.png in Resources */,
 				B19EF08319247E450000AC09 /* page2.png in Resources */,
@@ -390,6 +417,7 @@
 				B19EF08219247E450000AC09 /* page3.png in Resources */,
 				B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */,
 				B1681B3B19174DF500923BB3 /* InfoPlist.strings in Resources */,
+				B156C3D51960015200C1E6AF /* rightArrow.png in Resources */,
 				B126970F191A182B002425C3 /* downArrow.png in Resources */,
 				B1269712191A1F72002425C3 /* separatorLine.png in Resources */,
 				B1681B4419174DF500923BB3 /* Main.storyboard in Resources */,
@@ -450,6 +478,7 @@
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
+				B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
 				B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */,
 				B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */,
@@ -459,11 +488,14 @@
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B19211461926400C0017F4ED /* ParseSignUpViewControllerStep6.m in Sources */,
+				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
+				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
 				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,
 				B1681B3D19174DF500923BB3 /* main.m in Sources */,
+				B156C3DB1960398000C1E6AF /* AddFoodViewController.m in Sources */,
 				B11B559919303F78000426E2 /* RecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

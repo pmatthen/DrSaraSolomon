@@ -54,15 +54,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.myTitleLabel.text = categoryArray[indexPath.row];
 
-//    switch (indexPath.row) {
-//        case 0:
-//            <#statements#>
-//            break;
-//            
-//        default:
-//            break;
-//    }
-
     if (isFirstTime) {
         cell.myImageView.image = [UIImage imageNamed:@"downArrow.png"];
         [cell.contentView addSubview:permanentSeparatorImageView];
@@ -79,7 +70,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (isFirstClick) {
         NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         RecipeSampleTableViewCell *cell = (RecipeSampleTableViewCell *)[tableView cellForRowAtIndexPath:myIndexPath];
@@ -95,6 +85,7 @@
     RecipeSampleTableViewCell* cell = (RecipeSampleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell.contentView addSubview:separatorImageView];
     cell.myImageView.image = [UIImage imageNamed:@"downArrow.png"];
+    cell.myTitleLabel.text = categoryArray[indexPath.row];
     
     [tableView beginUpdates];
     [tableView endUpdates];
@@ -103,6 +94,7 @@
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipeSampleTableViewCell* cell = (RecipeSampleTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+    cell.myTitleLabel.text = categoryArray[indexPath.row];
     
     [tableView beginUpdates];
     [tableView endUpdates];

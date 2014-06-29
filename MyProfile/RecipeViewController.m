@@ -30,8 +30,7 @@
     mealTypes = @[@"BREAKFAST", @"LUNCH", @"DINNER", @"DESSERT", @"SNACKS"];
     
     [self checkScreenSize];
-    [self setTableOuter:2];
-    
+    [self setTableOuter:2];    
 }
 
 -(void) checkScreenSize
