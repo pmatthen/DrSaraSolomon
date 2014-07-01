@@ -10,11 +10,12 @@
 
 @interface ParseSignUpViewControllerStep2 : UIViewController
 
-- (IBAction)backButtonTouched:(id)sender;
-- (IBAction)nextStepbuttonTouched:(id)sender;
-
-
-@property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 @property NSMutableArray *heightArray;
+@property NSString *name;
+@property NSString *email;
+@property NSString *username;
+@property NSString *password;
+
+- (IBAction)backButtonTouched:(id)sender;
 
 @end

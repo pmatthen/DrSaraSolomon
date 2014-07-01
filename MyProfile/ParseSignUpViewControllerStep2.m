@@ -13,7 +13,7 @@
 @end
 
 @implementation ParseSignUpViewControllerStep2
-@synthesize myPickerView, heightArray;
+@synthesize heightArray, name, email, username, password;
 
 - (void)viewDidLoad
 {
@@ -23,6 +23,48 @@
     for (int i = 0; i < 100; i++) {
         [heightArray addObject:[NSNumber numberWithInt:i]];
     }
+    
+    UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(60, 56, 140, 35)];
+    stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+    stepsCountLabelA.textColor = [UIColor whiteColor];
+    stepsCountLabelA.text = @"Just 3 more steps to a ";
+    [stepsCountLabelA sizeToFit];
+    
+    UILabel *stepsCountLabelB = [[UILabel alloc] initWithFrame:CGRectMake(193, 50, 40, 35)];
+    stepsCountLabelB.font = [UIFont fontWithName:@"Norican-Regular" size:25];
+    stepsCountLabelB.textColor = [UIColor whiteColor];
+    stepsCountLabelB.text = @"sexier";
+    [stepsCountLabelB sizeToFit];
+    
+    UILabel *stepsCountLabelC = [[UILabel alloc] initWithFrame:CGRectMake(243, 56, 30, 35)];
+    stepsCountLabelC.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+    stepsCountLabelC.textColor = [UIColor whiteColor];
+    stepsCountLabelC.text = @" you.";
+    [stepsCountLabelC sizeToFit];
+    
+    UILabel *stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 149, 60, 40)];
+    stepLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
+    stepLabel.textColor = [UIColor whiteColor];
+    stepLabel.text = @"Step 2";
+    [stepLabel sizeToFit];
+    
+    UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(132, 163, 60, 40)];
+    instructionsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
+    instructionsLabel.textColor = [UIColor whiteColor];
+    instructionsLabel.text = @"ENTER CURRENT WEIGHT";
+    [instructionsLabel sizeToFit];
+    
+    [self.view addSubview:stepsCountLabelA];
+    [self.view addSubview:stepsCountLabelB];
+    [self.view addSubview:stepsCountLabelC];
+    [self.view addSubview:stepLabel];
+    [self.view addSubview:instructionsLabel];
+    
+    NSLog(@"%@, %@, %@, %@", name, email, username, password);
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -43,9 +85,6 @@
 
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)nextStepbuttonTouched:(id)sender {
 }
 
 @end

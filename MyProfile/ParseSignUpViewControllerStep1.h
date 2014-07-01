@@ -10,11 +10,13 @@
 
 @interface ParseSignUpViewControllerStep1 : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+
+- (IBAction)continueButtonTouched:(id)sender;
 - (IBAction)backButtonTouched:(id)sender;
-- (IBAction)nextStepButtonTouched:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
-
-@property NSArray *genderArray;
 
 @end
