@@ -73,6 +73,8 @@
 }
 
 -(void)setTableInner:(NSUInteger)numberOfRows forViewWithTag:(NSUInteger)tagForView {
+// To fix the animation change the addSubview commands to add the subview to a UIView. Then implement a transform animation that matched the speed of the upper menu view.
+    
     float yValue = YValueInitial;
     float yValueForSubviews = 0;
     

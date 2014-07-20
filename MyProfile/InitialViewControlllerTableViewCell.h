@@ -11,5 +11,6 @@
 @interface InitialViewControlllerTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *choiceTitleLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *initialViewControllerTableViewCellImageView;
 
 @end

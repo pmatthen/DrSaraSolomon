@@ -11,9 +11,9 @@
 @interface ParseSignUpViewControllerStep4 : UIViewController
 
 - (IBAction)backButtonTouched:(id)sender;
-- (IBAction)nextStepButtonTouched:(id)sender;
+- (IBAction)continueButtonTouched:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
-@property NSMutableArray *idealWeightArray;
+@property NSArray *genderArray;
 
 @end

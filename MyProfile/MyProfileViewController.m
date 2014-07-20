@@ -13,15 +13,13 @@
 
 @property (nonatomic, strong) NSArray *categoryArray;
 @property int currentSelection;
-@property UIImageView *separatorImageView;
-@property UIImageView *permanentSeparatorImageView;
 @property BOOL isFirstTime;
 @property BOOL isFirstClick;
 
 @end
 
 @implementation MyProfileViewController
-@synthesize categoryArray, currentSelection, myTableView, separatorImageView, permanentSeparatorImageView, isFirstTime, isFirstClick;
+@synthesize categoryArray, currentSelection, myTableView, isFirstTime, isFirstClick;
 
 - (void)viewDidLoad
 {
@@ -29,21 +27,34 @@
     
     categoryArray = @[@"STATUS", @"PROGRESS", @"RECORD WEIGHT"];
     
-    separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
-    separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
-    permanentSeparatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
-    permanentSeparatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
-    
     isFirstTime = YES;
     isFirstClick = YES;
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 9, 100, 40)];
+    titleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = @"MY PROFILE";
+    
+    UILabel *imageInstructionLabel = [[UILabel alloc] initWithFrame:CGRectMake(112, 131, 39, 30)];
+    imageInstructionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    imageInstructionLabel.textColor = [UIColor whiteColor];
+    imageInstructionLabel.text = @"ADD PROFILE PHOTO";
+    [imageInstructionLabel sizeToFit];
+    
+    UIImageView *cameraIconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera_icon@2x.png"]];
+    cameraIconImageView.frame = CGRectMake(138, 94, 39, 30);
+    
+    [self.view addSubview:titleLabel];
+    [self.view addSubview:imageInstructionLabel];
+    [self.view addSubview:cameraIconImageView];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(void)viewDidLayoutSubviews
@@ -56,8 +67,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyProfileTableViewCell *cell = (MyProfileTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MyProfileCell"];
     
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.myTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+    cell.myTitleLabel.textColor = [UIColor whiteColor];
     cell.myTitleLabel.text = categoryArray[indexPath.row];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
 
     switch (indexPath.row) {
         {case 0:
@@ -94,11 +112,10 @@
     }
     
     if (isFirstTime) {
-        cell.myImageView.image = [UIImage imageNamed:@"downArrow.png"];
-        [cell.contentView addSubview:permanentSeparatorImageView];
+        cell.myImageView.image = [UIImage imageNamed:@"upArrow@2x.png"];
         isFirstTime = NO;
     } else {
-        cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+        cell.myImageView.image = [UIImage imageNamed:@"downArrow@2x.png"];
     }
     
     return cell;
@@ -113,18 +130,16 @@
     if (isFirstClick) {
         NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         MyProfileTableViewCell *cell = (MyProfileTableViewCell *)[tableView cellForRowAtIndexPath:myIndexPath];
-        cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+        cell.myImageView.image = [UIImage imageNamed:@"downArrow@2x.png"];
         isFirstClick = NO;
     }
     
-    int row = [indexPath row];
+    int row = (int) [indexPath row];
     currentSelection = row;
     
-    [separatorImageView removeFromSuperview];
     
     MyProfileTableViewCell* cell = (MyProfileTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell.contentView addSubview:separatorImageView];
-    cell.myImageView.image = [UIImage imageNamed:@"downArrow.png"];
+    cell.myImageView.image = [UIImage imageNamed:@"upArrow@2x.png"];
 
     [tableView beginUpdates];
     [tableView endUpdates];
@@ -132,7 +147,7 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     MyProfileTableViewCell* cell = (MyProfileTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+    cell.myImageView.image = [UIImage imageNamed:@"downArrow@2x.png"];
     
     [tableView beginUpdates];
     [tableView endUpdates];
@@ -140,10 +155,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath row] == currentSelection) {
-        return 208;
+        return 269;
     }
     else {
-        return 80;
+        return 55;
     }
 }
 

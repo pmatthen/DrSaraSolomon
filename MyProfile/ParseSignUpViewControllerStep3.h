@@ -11,10 +11,11 @@
 @interface ParseSignUpViewControllerStep3 : UIViewController
 
 - (IBAction)backButtonTouched:(id)sender;
-- (IBAction)nextStepButtonTouched:(id)sender;
+- (IBAction)continueButtonTouched:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 
-@property NSMutableArray *weightArray;
+@property NSMutableArray *feetHeightArray;
+@property NSMutableArray *inchesHeightArray;
 
 @end

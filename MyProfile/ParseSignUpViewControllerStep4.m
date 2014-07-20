@@ -13,16 +13,56 @@
 @end
 
 @implementation ParseSignUpViewControllerStep4
-@synthesize myPickerView, idealWeightArray;
+@synthesize myPickerView, genderArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIColor *myFontColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
 
-    idealWeightArray = [NSMutableArray new];
-    for (int i = 0; i < 500; i++) {
-        [idealWeightArray addObject:[NSNumber numberWithInt:i]];
-    }
+    genderArray = [NSArray new];
+    genderArray = @[@"female", @"male"];
+    
+    UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(60, 56, 140, 35)];
+    stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+    stepsCountLabelA.textColor = myFontColor;
+    stepsCountLabelA.text = @"Just 1 more step to a ";
+    [stepsCountLabelA sizeToFit];
+    
+    UILabel *stepsCountLabelB = [[UILabel alloc] initWithFrame:CGRectMake(184, 50, 40, 35)];
+    stepsCountLabelB.font = [UIFont fontWithName:@"Norican-Regular" size:25];
+    stepsCountLabelB.textColor = myFontColor;
+    stepsCountLabelB.text = @"sexier";
+    [stepsCountLabelB sizeToFit];
+    
+    UILabel *stepsCountLabelC = [[UILabel alloc] initWithFrame:CGRectMake(234, 56, 30, 35)];
+    stepsCountLabelC.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+    stepsCountLabelC.textColor = myFontColor;
+    stepsCountLabelC.text = @" you.";
+    [stepsCountLabelC sizeToFit];
+    
+    UILabel *stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 149, 60, 40)];
+    stepLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
+    stepLabel.textColor = myFontColor;
+    stepLabel.text = @"Step 4";
+    [stepLabel sizeToFit];
+    
+    UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(132, 163, 60, 40)];
+    instructionsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
+    instructionsLabel.textColor = myFontColor;
+    instructionsLabel.text = @"ENTER GENDER";
+    [instructionsLabel sizeToFit];
+    
+    [self.view addSubview:stepsCountLabelA];
+    [self.view addSubview:stepsCountLabelB];
+    [self.view addSubview:stepsCountLabelC];
+    [self.view addSubview:stepLabel];
+    [self.view addSubview:instructionsLabel];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -30,11 +70,26 @@
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [idealWeightArray count];
+    return [genderArray count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%@ lbs", [[idealWeightArray objectAtIndex:row] description]];
+    return genderArray[row];
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 100;
+}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont fontWithName:@"Oswald" size:70];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = genderArray[row];
+    
+    return label;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -45,6 +100,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)nextStepButtonTouched:(id)sender {
+- (IBAction)continueButtonTouched:(id)sender {
+    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];    
 }
+
 @end

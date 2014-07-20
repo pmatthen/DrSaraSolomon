@@ -11,11 +11,12 @@
 
 @interface ParseLogInViewController : UIViewController
 
-- (IBAction)backButtonTouched:(id)sender;
-- (IBAction)logInButtonTouched:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
+
+
+- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)loginButtonTouched:(id)sender;
 
 @end

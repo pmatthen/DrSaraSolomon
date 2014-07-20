@@ -9,7 +9,7 @@
 #import "MyProfileTableViewCell.h"
 
 @implementation MyProfileTableViewCell
-@synthesize myImageView, myTitleLabel, cellContentView;
+@synthesize myTitleLabel, myImageView, cellContentView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -51,15 +51,15 @@
     [logInController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
-
 -(void)viewDidLayoutSubviews
 {
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -72,11 +72,37 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MenuViewTableViewCell *cell = (MenuViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    
+    cell.categoryTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:26];
     cell.categoryTitleLabel.text = categoryArray[indexPath.row];
+    cell.categoryTitleLabel.textColor = [UIColor whiteColor];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(255, 40, 43, 48)];
+    arrowImageView.image = [UIImage imageNamed:@"MainMenu - arrow@2x.png"];
+    [cell addSubview:arrowImageView];
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_rectangle@2x.png"]];
 
-    cell.myImageView.layer.cornerRadius = cell.myImageView.frame.size.height/2;
-    cell.myImageView.layer.masksToBounds = YES;
-    cell.myImageView.layer.borderWidth = 0;
+    switch (indexPath.row) {
+        case 0:
+            cell.myImageView.image = [UIImage imageNamed:@"myprofile_icon@2x.png"];
+            break;
+        case 1:
+            cell.myImageView.image = [UIImage imageNamed:@"dailytracker_icon@2x.png"];
+            break;
+        case 2:
+            cell.myImageView.image = [UIImage imageNamed:@"recipes_icon@2x.png"];
+            break;
+        case 3:
+            cell.myImageView.image = [UIImage imageNamed:@"workouts_icon@2x.png"];
+            break;
+        case 4:
+            cell.myImageView.image = [UIImage imageNamed:@"more_icon@2x.png"];
+            break;
+        default:
+            break;
+    }
     
     return cell;
 }
@@ -84,10 +110,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [categoryArray count];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
