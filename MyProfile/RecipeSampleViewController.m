@@ -77,7 +77,7 @@
         isFirstClick = NO;
     }
     
-    int row = [indexPath row];
+    int row = (int)[indexPath row];
     currentSelection = row;
     
     [separatorImageView removeFromSuperview];

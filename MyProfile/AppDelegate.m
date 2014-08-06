@@ -8,12 +8,27 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import <FatSecretKit/FSClient.h>
+#import "FSFood.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [Parse setApplicationId:@"sg0S2sXCo3hsLKmdfEZsH3be3BLSCCcLKAkD8gLT" clientKey:@"kXUT03o75PdfdGMe6ZDOVEKPcTtdDmLgx6czaj1l"];
+    
+    [FSClient sharedClient].oauthConsumerKey = @"2fb6164b75774378867a87cb92c2a0be";
+    [FSClient sharedClient].oauthConsumerSecret = @"08812a0266a54999916213b04beff83a";
+    
+    [[FSClient sharedClient] searchFoods:@"banana"
+                              completion:^(NSArray *foods, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
+                                  // Use data as you will.
+                                  
+                                  for (int i = 0; i < [foods count]; i++) {
+                                      FSFood *tempFood = foods[i];
+                                      NSLog(@"food #%d = %@, %@", i, tempFood.name, tempFood.foodDescription);
+                                  }
+                              }];
     
     return YES;
 }

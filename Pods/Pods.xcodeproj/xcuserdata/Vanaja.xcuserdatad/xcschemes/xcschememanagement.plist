@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FatSecretKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SVHTTPRequest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>978AAACAA44A43C1A6D15966</key>
+		<key>2136259E072646B3A361DECE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2F5F22AED8448AAA328D33B</key>
+		<key>44F557F0DDEE44EAA894CCDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF6B5713A37449BF936AD96C</key>
+		<key>4E1D3A7A9BD74279B0430992</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1F7AB7088A541CF9BB67AC5</key>
+		<key>9C3D0612CC1C473292D54DA6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8F8C5B2954E4FD99AE7E5F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BDBAC8FF02424761B3BBC090</key>
 		<dict>
 			<key>primary</key>
 			<true/>
