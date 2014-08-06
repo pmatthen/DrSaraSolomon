@@ -7,6 +7,7 @@
 //
 
 #import "ParseSignUpViewControllerStep5.h"
+#import "ParseSignUpViewControllerStep6.h"
 #import "ILTranslucentView.h"
 
 @interface ParseSignUpViewControllerStep5 () <UIPickerViewDelegate, UIPickerViewDataSource> {
@@ -25,6 +26,8 @@
     myFontColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
     
     [super viewDidLoad];
+    
+    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i, inchesHeight = %i, gender = %i", self.name, self.email, self.username, self.password, self.weight, self.inchesHeight, self.gender);
 
     neatArray = [NSArray new];
     neatArray = @[@"beginner", @"advanced", @"hardcore"];
@@ -191,6 +194,19 @@
 
 -(void) closePopUpViewButtonPressed:(UIButton *)sender {
     [translucentView removeFromSuperview];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ParseSignUpViewControllerStep6 *nextStepController = (ParseSignUpViewControllerStep6 *) segue.destinationViewController;
+    
+    nextStepController.name = self.name;
+    nextStepController.email = self.email;
+    nextStepController.username = self.username;
+    nextStepController.password = self.password;
+    nextStepController.weight = self.weight;
+    nextStepController.inchesHeight = self.inchesHeight;
+    nextStepController.gender = self.gender;
+    nextStepController.neat = (int)[myPickerView selectedRowInComponent:0];
 }
 
 @end

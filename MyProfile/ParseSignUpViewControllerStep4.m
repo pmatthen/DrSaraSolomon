@@ -7,6 +7,7 @@
 //
 
 #import "ParseSignUpViewControllerStep4.h"
+#import "ParseSignUpViewControllerStep5.h"
 
 @interface ParseSignUpViewControllerStep4 () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -18,6 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i, inchesHeight = %i", self.name, self.email, self.username, self.password, self.weight, self.inchesHeight);
     
     UIColor *myFontColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
 
@@ -102,6 +105,18 @@
 
 - (IBAction)continueButtonTouched:(id)sender {
     [self performSegueWithIdentifier:@"NextStepSegue" sender:self];    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ParseSignUpViewControllerStep5 *nextStepController = (ParseSignUpViewControllerStep5 *) segue.destinationViewController;
+    
+    nextStepController.name = self.name;
+    nextStepController.email = self.email;
+    nextStepController.username = self.username;
+    nextStepController.password = self.password;
+    nextStepController.weight = self.weight;
+    nextStepController.inchesHeight = self.inchesHeight;
+    nextStepController.gender = (int)[myPickerView selectedRowInComponent:0];
 }
 
 @end

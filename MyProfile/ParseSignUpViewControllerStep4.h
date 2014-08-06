@@ -14,6 +14,13 @@
 - (IBAction)continueButtonTouched:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
+
 @property NSArray *genderArray;
+@property NSString *name;
+@property NSString *email;
+@property NSString *username;
+@property NSString *password;
+@property int weight;
+@property int inchesHeight;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ParseSignUpViewControllerStep3.h"
+#import "ParseSignUpViewControllerStep4.h"
 
 @interface ParseSignUpViewControllerStep3 () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -19,6 +20,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i", self.name, self.email, self.username, self.password, self.weight);
+    
     UIColor *myFontColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
     
     feetHeightArray = [NSMutableArray new];
@@ -30,6 +33,9 @@
     for (int i = 0; i < 12; i++) {
         [inchesHeightArray addObject:[NSNumber numberWithInt:i]];
     }
+    
+    [myPickerView selectRow:5 inComponent:0 animated:NO];
+    [myPickerView selectRow:5 inComponent:1 animated:NO];
     
     UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(60, 56, 140, 35)];
     stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
@@ -135,6 +141,17 @@
 
 - (IBAction)continueButtonTouched:(id)sender {
     [self performSegueWithIdentifier:@"NextStepSegue" sender:self];    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ParseSignUpViewControllerStep4 *nextStepController = (ParseSignUpViewControllerStep4 *) segue.destinationViewController;
+    
+    nextStepController.name = self.name;
+    nextStepController.email = self.email;
+    nextStepController.username = self.username;
+    nextStepController.password = self.password;
+    nextStepController.weight = self.weight;
+    nextStepController.inchesHeight = (int)(([myPickerView selectedRowInComponent:0] * 12) + [myPickerView selectedRowInComponent:1]);
 }
 
 @end

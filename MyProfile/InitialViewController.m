@@ -20,6 +20,19 @@
 {
     [super viewDidLoad];
     
+    int weight = 76;
+    float lbsWeight = 167.551;
+    float cmHeight = 180.34;
+    float inchesHeight = 71;
+    int age = 31;
+    float factor = 1.375;
+
+    
+    NSLog(@"original Harris–Benedict equation = %f", (66.4730 + (13.7516 * weight) + (5.0033 * cmHeight) + (6.7550 * age) * factor) );
+    
+    NSLog(@"Harris–Benedict equations revised by Roza and Shizgal in 1984 = %f", (88.362 + (13.397 * weight) + (4.799 * cmHeight) + (5.677 * age) * factor) );
+    NSLog(@"Using Sara's RMR formula = %f", (66 + (6.23 * lbsWeight) + (12.7 * inchesHeight) - (6.8 * age)) * factor);
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     choiceArray = @[@"SIGN UP TODAY", @"Already have an account? Log in here"];
@@ -87,6 +100,8 @@
     }
     
     myScrollView.contentSize = CGSizeMake(width, myScrollView.frame.size.height);
+    
+    [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:3.0];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -97,6 +112,10 @@
     CGFloat pageWidth = myScrollView.frame.size.width;
     int page = (myScrollView.contentOffset.x + (0.5f * pageWidth))/pageWidth;
     myPageControl.currentPage = page;
+    
+    if (scrollView.isDragging) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(nextSlide:) object:nil];
+    }
 }
 
 -(InitialViewControlllerTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,6 +163,15 @@
         [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
     } else {
         [self performSegueWithIdentifier:@"LogInSegue" sender:self];        
+    }
+}
+
+-(IBAction)nextSlide:(id)sender {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(nextSlide:) object:nil];
+    
+    if (myScrollView.contentOffset.x < 640) {
+         [myScrollView setContentOffset:CGPointMake(myScrollView.contentOffset.x + 320, myScrollView.contentOffset.y) animated:YES];
+        [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:3.0];
     }
 }
 

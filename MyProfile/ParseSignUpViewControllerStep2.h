@@ -10,7 +10,7 @@
 
 @interface ParseSignUpViewControllerStep2 : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIPickerView *myPicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 
 @property NSMutableArray *weightArray;
 @property NSString *name;

@@ -13,21 +13,21 @@
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *categoryArray;
+@property (nonatomic, strong) NSArray *iconImagepathArray;
 
 @end
 
 @implementation MenuViewController
-@synthesize myTableView, categoryArray;
+@synthesize myTableView, categoryArray, iconImagepathArray;
 
--(void)viewDidLoad
-{
+-(void)viewDidLoad {
     [super viewDidLoad];
     
     categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"RECIPES", @"WORKOUTS", @"MORE"];
+    iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"recipes_icon@2x.png", @"workouts_icon@2x.png", @"more_icon@2x.png"];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -41,18 +41,15 @@
     }
 }
 
--(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-{
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [signUpController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
-{
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [logInController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)viewDidLayoutSubviews
-{
+-(void)viewDidLayoutSubviews {
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -62,15 +59,13 @@
     return YES;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"sender = %@", sender);
 }
 
 #pragma mark - tableview
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuViewTableViewCell *cell = (MenuViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
     
     cell.categoryTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:26];
@@ -83,26 +78,7 @@
     [cell addSubview:arrowImageView];
     
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_rectangle@2x.png"]];
-
-    switch (indexPath.row) {
-        case 0:
-            cell.myImageView.image = [UIImage imageNamed:@"myprofile_icon@2x.png"];
-            break;
-        case 1:
-            cell.myImageView.image = [UIImage imageNamed:@"dailytracker_icon@2x.png"];
-            break;
-        case 2:
-            cell.myImageView.image = [UIImage imageNamed:@"recipes_icon@2x.png"];
-            break;
-        case 3:
-            cell.myImageView.image = [UIImage imageNamed:@"workouts_icon@2x.png"];
-            break;
-        case 4:
-            cell.myImageView.image = [UIImage imageNamed:@"more_icon@2x.png"];
-            break;
-        default:
-            break;
-    }
+    cell.myImageView.image = [UIImage imageNamed:iconImagepathArray[indexPath.row]];
     
     return cell;
 }

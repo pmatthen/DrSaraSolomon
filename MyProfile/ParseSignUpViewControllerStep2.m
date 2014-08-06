@@ -7,13 +7,14 @@
 //
 
 #import "ParseSignUpViewControllerStep2.h"
+#import "ParseSignUpViewControllerStep3.h"
 
 @interface ParseSignUpViewControllerStep2 () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
 
 @implementation ParseSignUpViewControllerStep2
-@synthesize weightArray, name, email, username, password, myPicker;
+@synthesize weightArray, name, email, username, password, myPickerView;
 
 - (void)viewDidLoad
 {
@@ -25,6 +26,8 @@
     for (int i = 0; i < 500; i++) {
         [weightArray addObject:[NSNumber numberWithInt:i]];
     }
+    
+    [myPickerView selectRow:120 inComponent:0 animated:NO];
     
     UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(60, 56, 140, 35)];
     stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
@@ -113,6 +116,16 @@
 
 - (IBAction)continueButtonTouched:(id)sender {
     [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ParseSignUpViewControllerStep3 *nextStepController = (ParseSignUpViewControllerStep3 *) segue.destinationViewController;
+    
+    nextStepController.name = name;
+    nextStepController.email = email;
+    nextStepController.username = username;
+    nextStepController.password = password;
+    nextStepController.weight = (int)[myPickerView selectedRowInComponent:0];
 }
 
 @end

@@ -11,6 +11,10 @@
 @interface DailyTrackerViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (strong, nonatomic) IBOutlet UIImageView *rightArrowImageView;
+
+- (IBAction)dateButtonPrevious:(id)sender;
+- (IBAction)dateButtonNext:(id)sender;
 
 - (IBAction)backButtonTouched:(id)sender;
 

@@ -59,46 +59,11 @@
     instructionsLabel.text = @"CREATE AN ACCOUNT";
     [instructionsLabel sizeToFit];
 
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(58, 217, 60, 30)];
-    nameLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
-    nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.text = @"name";
-    [nameLabel sizeToFit];
-    
-    UILabel *emailLabel = [[UILabel alloc] initWithFrame:CGRectMake(58, 267, 60, 30)];
-    emailLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
-    emailLabel.textColor = [UIColor whiteColor];
-    emailLabel.text = @"email";
-    [emailLabel sizeToFit];
-    
-    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(58, 314, 60, 30)];
-    usernameLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
-    usernameLabel.textColor = [UIColor whiteColor];
-    usernameLabel.text = @"username";
-    [usernameLabel sizeToFit];
-    
-    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(58, 364, 60, 30)];
-    passwordLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
-    passwordLabel.textColor = [UIColor whiteColor];
-    passwordLabel.text = @"password";
-    [passwordLabel sizeToFit];
-    
-    UILabel *confirmPasswordLabel = [[UILabel alloc] initWithFrame:CGRectMake(58, 412, 60, 30)];
-    confirmPasswordLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
-    confirmPasswordLabel.textColor = [UIColor whiteColor];
-    confirmPasswordLabel.text = @"confirm password";
-    [confirmPasswordLabel sizeToFit];
-
     [self.view addSubview:stepsCountLabelA];
     [self.view addSubview:stepsCountLabelB];
     [self.view addSubview:stepsCountLabelC];
     [self.view addSubview:stepLabel];
     [self.view addSubview:instructionsLabel];
-    [self.view addSubview:nameLabel];
-    [self.view addSubview:emailLabel];
-    [self.view addSubview:usernameLabel];
-    [self.view addSubview:passwordLabel];
-    [self.view addSubview:confirmPasswordLabel];
     
     [nameTextField setBackgroundColor:[UIColor clearColor]];
     nameTextField.font = [UIFont fontWithName:@"Oswald-Light" size:18];
@@ -119,6 +84,18 @@
     [confirmPasswordTextField setBackgroundColor:[UIColor clearColor]];
     confirmPasswordTextField.font = [UIFont fontWithName:@"Oswald-Light" size:18];
     confirmPasswordTextField.textColor = [UIColor whiteColor];
+    
+    nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"name" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
+    
+    emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"email" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
+    
+    usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"username" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
+
+    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
+    
+    confirmPasswordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"confirm password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {

@@ -17,5 +17,10 @@
 
 @property NSMutableArray *feetHeightArray;
 @property NSMutableArray *inchesHeightArray;
+@property NSString *name;
+@property NSString *email;
+@property NSString *username;
+@property NSString *password;
+@property int weight;
 
 @end

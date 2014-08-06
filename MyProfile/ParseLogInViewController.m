@@ -51,18 +51,6 @@
     UIImageView *avatarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_avatar@2x.png"]];
     avatarImageView.frame = CGRectMake(64, 138, 192, 203);
     
-    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(69, 372, 100, 100)];
-    usernameLabel.font = [UIFont fontWithName:@"Oswald-Light" size:15];
-    usernameLabel.textColor = [UIColor whiteColor];
-    usernameLabel.text = @"username";
-    [usernameLabel sizeToFit];
-    
-    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(69, 420, 100, 100)];
-    passwordLabel.font = [UIFont fontWithName:@"Oswald-Light" size:15];
-    passwordLabel.textColor = [UIColor whiteColor];
-    passwordLabel.text = @"password";
-    [passwordLabel sizeToFit];
-    
     UIButton *forgotPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(62, 455, 80, 20)];
     [forgotPasswordButton addTarget:self action:@selector(forgotPasswordButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     forgotPasswordButton.titleLabel.font = [UIFont fontWithName:@"Oswald-light" size:11];
@@ -82,9 +70,19 @@
     [self.view addSubview:stepsCountLabelB];
     [self.view addSubview:stepsCountLabelC];
     [self.view addSubview:avatarImageView];
-    [self.view addSubview:usernameLabel];
-    [self.view addSubview:passwordLabel];
     [self.view addSubview:forgotPasswordButton];
+    
+    [usernameTextField setBackgroundColor:[UIColor clearColor]];
+    usernameTextField.font = [UIFont fontWithName:@"Oswald-Light" size:17];
+    usernameTextField.textColor = [UIColor whiteColor];
+    
+    [passwordTextField setBackgroundColor:[UIColor clearColor]];
+    passwordTextField.font = [UIFont fontWithName:@"Oswald-Light" size:17];
+    passwordTextField.textColor = [UIColor whiteColor];
+    
+    usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"username" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:15]}];
+    
+    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:15]}];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

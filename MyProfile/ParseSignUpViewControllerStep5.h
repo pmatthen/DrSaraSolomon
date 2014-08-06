@@ -16,5 +16,12 @@
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 @property NSArray *neatArray;
+@property NSString *name;
+@property NSString *email;
+@property NSString *username;
+@property NSString *password;
+@property int weight;
+@property int inchesHeight;
+@property int gender;
 
 @end
