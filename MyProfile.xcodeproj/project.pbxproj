@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8FF6380D39CD4168923C8525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502340235F374596A7810DF6 /* libPods.a */; };
+		B110E342199230AF00A22102 /* FSRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = B110E341199230AF00A22102 /* FSRecipe.m */; };
 		B11B559919303F78000426E2 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559819303F78000426E2 /* RecipeViewController.m */; };
 		B122652C193D7F960037C6C9 /* SearchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B122652B193D7F960037C6C9 /* SearchButton.png */; };
 		B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B126970A191A1363002425C3 /* MyProfileTableViewCell.m */; };
@@ -182,6 +183,8 @@
 /* Begin PBXFileReference section */
 		301D1E42605B4E359204793F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		502340235F374596A7810DF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B110E340199230AF00A22102 /* FSRecipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSRecipe.h; sourceTree = "<group>"; };
+		B110E341199230AF00A22102 /* FSRecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSRecipe.m; sourceTree = "<group>"; };
 		B11B559719303F78000426E2 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		B11B559819303F78000426E2 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		B122652B193D7F960037C6C9 /* SearchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchButton.png; sourceTree = "<group>"; };
@@ -561,6 +564,8 @@
 				B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
+				B110E340199230AF00A22102 /* FSRecipe.h */,
+				B110E341199230AF00A22102 /* FSRecipe.m */,
 				B1681B4819174DF500923BB3 /* Images.xcassets */,
 				B1681B3719174DF500923BB3 /* Supporting Files */,
 			);
@@ -1131,6 +1136,7 @@
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
+				B110E342199230AF00A22102 /* FSRecipe.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
 				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
@@ -1267,8 +1273,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "\"$(PODS_ROOT)/Parse\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyProfile/MyProfile-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
+					"\"${PODS_ROOT}/Headers/FatSecretKit\"",
+					"\"${PODS_ROOT}/Headers/Parse\"",
+					"\"${PODS_ROOT}/Headers/SVHTTPRequest\"",
+					"\"$(inherited)\"",
+				);
 				INFOPLIST_FILE = "MyProfile/MyProfile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1281,8 +1298,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "\"$(PODS_ROOT)/Parse\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyProfile/MyProfile-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
+					"\"${PODS_ROOT}/Headers/FatSecretKit\"",
+					"\"${PODS_ROOT}/Headers/Parse\"",
+					"\"${PODS_ROOT}/Headers/SVHTTPRequest\"",
+					"\"$(inherited)\"",
+				);
 				INFOPLIST_FILE = "MyProfile/MyProfile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

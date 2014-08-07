@@ -1,25 +1,23 @@
 //
-//  FSFood.m
-//  Tracker
+//  FSRecipe.m
+//  Pods
 //
-//  Created by Parker Wightman on 11/27/12.
-//  Copyright (c) 2012 Mysterious Trousers. All rights reserved.
+//  Created by Poulose Matthen on 06/08/14.
+//
 //
 
-#import "FSFood.h"
+#import "FSRecipe.h"
 #import "FSServing.h"
 
-@implementation FSFood
+@implementation FSRecipe
 
 - (id) initWithJSON:(NSDictionary *)json {
 	self = [super init];
 	if (self) {
-		_name            = [json objectForKey:@"food_name"];
-		_foodDescription = [json objectForKey:@"food_description"];
-		_type			 = [json objectForKey:@"food_type"];
-		_url			 = [json objectForKey:@"food_url"];
-		_identifier		 = [[json objectForKey:@"food_id"] integerValue];
-		_brandName		 = [json objectForKey:@"brand_name"];
+		_name            = [json objectForKey:@"recipe_name"];
+		_recipeDescription = [json objectForKey:@"recipe_description"];
+		_url			 = [json objectForKey:@"recipe_url"];
+		_identifier		 = [[json objectForKey:@"recipe_id"] integerValue];
 		
 		id servings = [json objectForKey:@"servings"];
 		
@@ -49,7 +47,7 @@
 	return self;
 }
 
-+ (id) foodWithJSON:(NSDictionary *)json {
++ (id) recipeWithJSON:(NSDictionary *)json {
 	return [[self alloc] initWithJSON:json];
 }
 

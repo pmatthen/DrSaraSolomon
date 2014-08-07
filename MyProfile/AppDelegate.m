@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import <FatSecretKit/FSClient.h>
 #import "FSFood.h"
+#import "FSRecipe.h"
 
 @implementation AppDelegate
 
@@ -20,7 +21,7 @@
     [FSClient sharedClient].oauthConsumerKey = @"2fb6164b75774378867a87cb92c2a0be";
     [FSClient sharedClient].oauthConsumerSecret = @"08812a0266a54999916213b04beff83a";
     
-    [[FSClient sharedClient] searchFoods:@"banana"
+    [[FSClient sharedClient] searchFoods:@"Red Thai Curry Chicken"
                               completion:^(NSArray *foods, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
                                   // Use data as you will.
                                   
@@ -29,6 +30,17 @@
                                       NSLog(@"food #%d = %@, %@", i, tempFood.name, tempFood.foodDescription);
                                   }
                               }];
+    
+    [[FSClient sharedClient] searchRecipes:@"Lamb Curry"
+                                recipeType:@"Main Dishes"
+                                pageNumber:0
+                                maxResults:20
+                                completion:^(NSArray *recipes, NSInteger maxResults, NSInteger totalResults, NSInteger pagenumber) {
+                                    for (int i = 0; i < [recipes count]; i++) {
+                                        FSRecipe *tempRecipe = recipes[i];
+                                        NSLog(@"recipe #%d = %@", i, tempRecipe.name);
+                                    }
+                                }];
     
     return YES;
 }
