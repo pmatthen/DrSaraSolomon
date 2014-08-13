@@ -1,16 +1,26 @@
 PODS:
-  - Bolts (1.1.0)
-  - Facebook-iOS-SDK (3.14.0):
+  - Bolts (1.1.1)
+  - Facebook-iOS-SDK (3.17.0):
     - Bolts
+  - FatSecretKit (0.0.2):
+    - SVHTTPRequest (~> 0.3)
   - Parse (1.2.19):
     - Facebook-iOS-SDK (~> 3.11)
+  - SVHTTPRequest (0.5)
 
 DEPENDENCIES:
+  - FatSecretKit (from `~/Documents/FatSecretKit`)
   - Parse (~> 1.2)
 
+EXTERNAL SOURCES:
+  FatSecretKit:
+    :path: ~/Documents/FatSecretKit
+
 SPEC CHECKSUMS:
-  Bolts: dc620a31cf67c29bce3e3d14a07a12e797a1a154
-  Facebook-iOS-SDK: 63e19ff8d275d63b765819f492a4e71e445f9822
-  Parse: 3739f0b211c49115bad96d6b0969b804d4da2f24
+  Bolts: 0ca796081c3e7c139bd86d6903c27f1b83036a5d
+  Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
+  FatSecretKit: 4036c1f5a9f8559fbf37b00a9cffbd8afb990ec0
+  Parse: ffebaecaddd32cb52671010f81567c298ff93d04
+  SVHTTPRequest: 4fdeb78b1900f0c58409bd4930d07d051fce0160
 
 COCOAPODS: 0.32.1

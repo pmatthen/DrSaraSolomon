@@ -10,7 +10,7 @@
 
 @interface RecipeViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIScrollView *myAccordionScrollView;
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 - (IBAction)backButtonTouched:(id)sender;
 
