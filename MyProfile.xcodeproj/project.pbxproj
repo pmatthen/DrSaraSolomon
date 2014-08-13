@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8FF6380D39CD4168923C8525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502340235F374596A7810DF6 /* libPods.a */; };
-		B110E342199230AF00A22102 /* FSRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = B110E341199230AF00A22102 /* FSRecipe.m */; };
 		B11B559919303F78000426E2 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559819303F78000426E2 /* RecipeViewController.m */; };
 		B122652C193D7F960037C6C9 /* SearchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B122652B193D7F960037C6C9 /* SearchButton.png */; };
 		B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B126970A191A1363002425C3 /* MyProfileTableViewCell.m */; };
@@ -61,6 +60,37 @@
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
 		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
 		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
+		B1745F34199BAF1C00C44221 /* mainmenurectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F0E199BAF1C00C44221 /* mainmenurectangle@2x.png */; };
+		B1745F35199BAF1C00C44221 /* divider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F10199BAF1C00C44221 /* divider@2x.png */; };
+		B1745F36199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F11199BAF1C00C44221 /* rectanglebackground@2x.png */; };
+		B1745F37199BAF1C00C44221 /* searchicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F12199BAF1C00C44221 /* searchicon@2x.png */; };
+		B1745F38199BAF1C00C44221 /* searchline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F13199BAF1C00C44221 /* searchline@2x.png */; };
+		B1745F39199BAF1C00C44221 /* selectionhighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F14199BAF1C00C44221 /* selectionhighlight@2x.png */; };
+		B1745F3A199BAF1C00C44221 /* breakfasticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F16199BAF1C00C44221 /* breakfasticon@2x.png */; };
+		B1745F3B199BAF1C00C44221 /* desserticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F17199BAF1C00C44221 /* desserticon@2x.png */; };
+		B1745F3C199BAF1C00C44221 /* dinnericon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F18199BAF1C00C44221 /* dinnericon@2x.png */; };
+		B1745F3D199BAF1C00C44221 /* lunchicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F19199BAF1C00C44221 /* lunchicon@2x.png */; };
+		B1745F3E199BAF1C00C44221 /* rectanglemenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F1A199BAF1C00C44221 /* rectanglemenu@2x.png */; };
+		B1745F3F199BAF1C00C44221 /* snacksicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F1B199BAF1C00C44221 /* snacksicon@2x.png */; };
+		B1745F40199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F1D199BAF1C00C44221 /* rectanglebackground@2x.png */; };
+		B1745F41199BAF1C00C44221 /* thickerdivider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F1E199BAF1C00C44221 /* thickerdivider@2x.png */; };
+		B1745F42199BAF1C00C44221 /* fieldline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F20199BAF1C00C44221 /* fieldline@2x.png */; };
+		B1745F43199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F21199BAF1C00C44221 /* rectanglebackground@2x.png */; };
+		B1745F44199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F23199BAF1C00C44221 /* deafult_foodpic@2x.png */; };
+		B1745F45199BAF1C00C44221 /* divider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F24199BAF1C00C44221 /* divider@2x.png */; };
+		B1745F46199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F25199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */; };
+		B1745F47199BAF1C00C44221 /* title_rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F26199BAF1C00C44221 /* title_rectangle@2x.png */; };
+		B1745F48199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F28199BAF1C00C44221 /* deafult_foodpic@2x.png */; };
+		B1745F49199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F29199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */; };
+		B1745F4A199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F2B199BAF1C00C44221 /* deafult_foodpic@2x.png */; };
+		B1745F4B199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F2C199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */; };
+		B1745F4C199BAF1C00C44221 /* watchvideo_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F2D199BAF1C00C44221 /* watchvideo_button@2x.png */; };
+		B1745F4D199BAF1C00C44221 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F2F199BAF1C00C44221 /* arrow@2x.png */; };
+		B1745F4E199BAF1C00C44221 /* drawer_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F30199BAF1C00C44221 /* drawer_icon@2x.png */; };
+		B1745F4F199BAF1C00C44221 /* pattern_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F31199BAF1C00C44221 /* pattern_background@2x.png */; };
+		B1745F50199BAF1C00C44221 /* topheader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F32199BAF1C00C44221 /* topheader@2x.png */; };
+		B1745F51199BAF1C00C44221 /* topstrip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F33199BAF1C00C44221 /* topstrip@2x.png */; };
+		B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1745F53199BB37900C44221 /* RecipeTableViewCell.m */; };
 		B178BF631990BBC100439A16 /* breakfasticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B178BF2E1990BBC100439A16 /* breakfasticon@2x.png */; };
 		B178BF641990BBC100439A16 /* datearrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B178BF2F1990BBC100439A16 /* datearrow@2x.png */; };
 		B178BF651990BBC100439A16 /* daterectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B178BF301990BBC100439A16 /* daterectangle@2x.png */; };
@@ -183,8 +213,6 @@
 /* Begin PBXFileReference section */
 		301D1E42605B4E359204793F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		502340235F374596A7810DF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B110E340199230AF00A22102 /* FSRecipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSRecipe.h; sourceTree = "<group>"; };
-		B110E341199230AF00A22102 /* FSRecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSRecipe.m; sourceTree = "<group>"; };
 		B11B559719303F78000426E2 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		B11B559819303F78000426E2 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		B122652B193D7F960037C6C9 /* SearchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchButton.png; sourceTree = "<group>"; };
@@ -254,6 +282,38 @@
 		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
 		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
 		B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleTableViewCell.m; sourceTree = "<group>"; };
+		B1745F0E199BAF1C00C44221 /* mainmenurectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainmenurectangle@2x.png"; sourceTree = "<group>"; };
+		B1745F10199BAF1C00C44221 /* divider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider@2x.png"; sourceTree = "<group>"; };
+		B1745F11199BAF1C00C44221 /* rectanglebackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectanglebackground@2x.png"; sourceTree = "<group>"; };
+		B1745F12199BAF1C00C44221 /* searchicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchicon@2x.png"; sourceTree = "<group>"; };
+		B1745F13199BAF1C00C44221 /* searchline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchline@2x.png"; sourceTree = "<group>"; };
+		B1745F14199BAF1C00C44221 /* selectionhighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectionhighlight@2x.png"; sourceTree = "<group>"; };
+		B1745F16199BAF1C00C44221 /* breakfasticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breakfasticon@2x.png"; sourceTree = "<group>"; };
+		B1745F17199BAF1C00C44221 /* desserticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "desserticon@2x.png"; sourceTree = "<group>"; };
+		B1745F18199BAF1C00C44221 /* dinnericon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dinnericon@2x.png"; sourceTree = "<group>"; };
+		B1745F19199BAF1C00C44221 /* lunchicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lunchicon@2x.png"; sourceTree = "<group>"; };
+		B1745F1A199BAF1C00C44221 /* rectanglemenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectanglemenu@2x.png"; sourceTree = "<group>"; };
+		B1745F1B199BAF1C00C44221 /* snacksicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snacksicon@2x.png"; sourceTree = "<group>"; };
+		B1745F1D199BAF1C00C44221 /* rectanglebackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectanglebackground@2x.png"; sourceTree = "<group>"; };
+		B1745F1E199BAF1C00C44221 /* thickerdivider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thickerdivider@2x.png"; sourceTree = "<group>"; };
+		B1745F20199BAF1C00C44221 /* fieldline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fieldline@2x.png"; sourceTree = "<group>"; };
+		B1745F21199BAF1C00C44221 /* rectanglebackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectanglebackground@2x.png"; sourceTree = "<group>"; };
+		B1745F23199BAF1C00C44221 /* deafult_foodpic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deafult_foodpic@2x.png"; sourceTree = "<group>"; };
+		B1745F24199BAF1C00C44221 /* divider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider@2x.png"; sourceTree = "<group>"; };
+		B1745F25199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myprofilenav_rectangles@2x.png"; sourceTree = "<group>"; };
+		B1745F26199BAF1C00C44221 /* title_rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_rectangle@2x.png"; sourceTree = "<group>"; };
+		B1745F28199BAF1C00C44221 /* deafult_foodpic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deafult_foodpic@2x.png"; sourceTree = "<group>"; };
+		B1745F29199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myprofilenav_rectangles@2x.png"; sourceTree = "<group>"; };
+		B1745F2B199BAF1C00C44221 /* deafult_foodpic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deafult_foodpic@2x.png"; sourceTree = "<group>"; };
+		B1745F2C199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myprofilenav_rectangles@2x.png"; sourceTree = "<group>"; };
+		B1745F2D199BAF1C00C44221 /* watchvideo_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchvideo_button@2x.png"; sourceTree = "<group>"; };
+		B1745F2F199BAF1C00C44221 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		B1745F30199BAF1C00C44221 /* drawer_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drawer_icon@2x.png"; sourceTree = "<group>"; };
+		B1745F31199BAF1C00C44221 /* pattern_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern_background@2x.png"; sourceTree = "<group>"; };
+		B1745F32199BAF1C00C44221 /* topheader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topheader@2x.png"; sourceTree = "<group>"; };
+		B1745F33199BAF1C00C44221 /* topstrip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topstrip@2x.png"; sourceTree = "<group>"; };
+		B1745F52199BB37900C44221 /* RecipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewCell.h; sourceTree = "<group>"; };
+		B1745F53199BB37900C44221 /* RecipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewCell.m; sourceTree = "<group>"; };
 		B178BF2E1990BBC100439A16 /* breakfasticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breakfasticon@2x.png"; sourceTree = "<group>"; };
 		B178BF2F1990BBC100439A16 /* datearrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "datearrow@2x.png"; sourceTree = "<group>"; };
 		B178BF301990BBC100439A16 /* daterectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daterectangle@2x.png"; sourceTree = "<group>"; };
@@ -528,8 +588,6 @@
 		B1681B3619174DF500923BB3 /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
-				B1E3C9E0196E40C800659A15 /* ILTranslucentView.h */,
-				B1E3C9E1196E40C800659A15 /* ILTranslucentView.m */,
 				B1681B4219174DF500923BB3 /* Main.storyboard */,
 				B1681B3F19174DF500923BB3 /* AppDelegate.h */,
 				B1681B4019174DF500923BB3 /* AppDelegate.m */,
@@ -558,14 +616,16 @@
 				B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */,
 				B11B559719303F78000426E2 /* RecipeViewController.h */,
 				B11B559819303F78000426E2 /* RecipeViewController.m */,
+				B1745F52199BB37900C44221 /* RecipeTableViewCell.h */,
+				B1745F53199BB37900C44221 /* RecipeTableViewCell.m */,
 				B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */,
 				B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */,
 				B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */,
 				B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
-				B110E340199230AF00A22102 /* FSRecipe.h */,
-				B110E341199230AF00A22102 /* FSRecipe.m */,
+				B1E3C9E0196E40C800659A15 /* ILTranslucentView.h */,
+				B1E3C9E1196E40C800659A15 /* ILTranslucentView.m */,
 				B1681B4819174DF500923BB3 /* Images.xcassets */,
 				B1681B3719174DF500923BB3 /* Supporting Files */,
 			);
@@ -575,8 +635,9 @@
 		B1681B3719174DF500923BB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1745F0C199BAF1C00C44221 /* Recipe - assets_retina */,
 				B178BF2C1990BBC100439A16 /* Daily Tracker - assets_retina */,
-				B1F895061988DE290057C4F9 /* Congrats:Results - assets_retina */,
+				B1F895061988DE290057C4F9 /* Congrats Results - assets_retina */,
 				B1BE7521197BE356005C1979 /* My Profile - assets_retina */,
 				B1CF736A197BD0A500E21F81 /* Main Menu - assets_retina */,
 				B1CF735F197B97A400E21F81 /* Login - assets_retina */,
@@ -608,6 +669,115 @@
 				B1681B5819174DF500923BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1745F0C199BAF1C00C44221 /* Recipe - assets_retina */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F0D199BAF1C00C44221 /* (1) Main Menu */,
+				B1745F0F199BAF1C00C44221 /* (2) Recipes Search */,
+				B1745F15199BAF1C00C44221 /* (3) Sort by Meal */,
+				B1745F1C199BAF1C00C44221 /* (4) Sort by Name */,
+				B1745F1F199BAF1C00C44221 /* (5) Add Custom Food */,
+				B1745F22199BAF1C00C44221 /* (6) Sample - Overview */,
+				B1745F27199BAF1C00C44221 /* (7) Sample - Ingredients */,
+				B1745F2A199BAF1C00C44221 /* (8) Sample - Directions */,
+				B1745F2E199BAF1C00C44221 /* _for all screens */,
+			);
+			path = "Recipe - assets_retina";
+			sourceTree = "<group>";
+		};
+		B1745F0D199BAF1C00C44221 /* (1) Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F0E199BAF1C00C44221 /* mainmenurectangle@2x.png */,
+			);
+			path = "(1) Main Menu";
+			sourceTree = "<group>";
+		};
+		B1745F0F199BAF1C00C44221 /* (2) Recipes Search */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F10199BAF1C00C44221 /* divider@2x.png */,
+				B1745F11199BAF1C00C44221 /* rectanglebackground@2x.png */,
+				B1745F12199BAF1C00C44221 /* searchicon@2x.png */,
+				B1745F13199BAF1C00C44221 /* searchline@2x.png */,
+				B1745F14199BAF1C00C44221 /* selectionhighlight@2x.png */,
+			);
+			path = "(2) Recipes Search";
+			sourceTree = "<group>";
+		};
+		B1745F15199BAF1C00C44221 /* (3) Sort by Meal */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F16199BAF1C00C44221 /* breakfasticon@2x.png */,
+				B1745F17199BAF1C00C44221 /* desserticon@2x.png */,
+				B1745F18199BAF1C00C44221 /* dinnericon@2x.png */,
+				B1745F19199BAF1C00C44221 /* lunchicon@2x.png */,
+				B1745F1A199BAF1C00C44221 /* rectanglemenu@2x.png */,
+				B1745F1B199BAF1C00C44221 /* snacksicon@2x.png */,
+			);
+			path = "(3) Sort by Meal";
+			sourceTree = "<group>";
+		};
+		B1745F1C199BAF1C00C44221 /* (4) Sort by Name */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F1D199BAF1C00C44221 /* rectanglebackground@2x.png */,
+				B1745F1E199BAF1C00C44221 /* thickerdivider@2x.png */,
+			);
+			path = "(4) Sort by Name";
+			sourceTree = "<group>";
+		};
+		B1745F1F199BAF1C00C44221 /* (5) Add Custom Food */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F20199BAF1C00C44221 /* fieldline@2x.png */,
+				B1745F21199BAF1C00C44221 /* rectanglebackground@2x.png */,
+			);
+			path = "(5) Add Custom Food";
+			sourceTree = "<group>";
+		};
+		B1745F22199BAF1C00C44221 /* (6) Sample - Overview */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F23199BAF1C00C44221 /* deafult_foodpic@2x.png */,
+				B1745F24199BAF1C00C44221 /* divider@2x.png */,
+				B1745F25199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */,
+				B1745F26199BAF1C00C44221 /* title_rectangle@2x.png */,
+			);
+			path = "(6) Sample - Overview";
+			sourceTree = "<group>";
+		};
+		B1745F27199BAF1C00C44221 /* (7) Sample - Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F28199BAF1C00C44221 /* deafult_foodpic@2x.png */,
+				B1745F29199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */,
+			);
+			path = "(7) Sample - Ingredients";
+			sourceTree = "<group>";
+		};
+		B1745F2A199BAF1C00C44221 /* (8) Sample - Directions */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F2B199BAF1C00C44221 /* deafult_foodpic@2x.png */,
+				B1745F2C199BAF1C00C44221 /* myprofilenav_rectangles@2x.png */,
+				B1745F2D199BAF1C00C44221 /* watchvideo_button@2x.png */,
+			);
+			path = "(8) Sample - Directions";
+			sourceTree = "<group>";
+		};
+		B1745F2E199BAF1C00C44221 /* _for all screens */ = {
+			isa = PBXGroup;
+			children = (
+				B1745F2F199BAF1C00C44221 /* arrow@2x.png */,
+				B1745F30199BAF1C00C44221 /* drawer_icon@2x.png */,
+				B1745F31199BAF1C00C44221 /* pattern_background@2x.png */,
+				B1745F32199BAF1C00C44221 /* topheader@2x.png */,
+				B1745F33199BAF1C00C44221 /* topstrip@2x.png */,
+			);
+			path = "_for all screens";
 			sourceTree = "<group>";
 		};
 		B178BF2C1990BBC100439A16 /* Daily Tracker - assets_retina */ = {
@@ -823,13 +993,14 @@
 			path = "Home - assets_retina";
 			sourceTree = "<group>";
 		};
-		B1F895061988DE290057C4F9 /* Congrats:Results - assets_retina */ = {
+		B1F895061988DE290057C4F9 /* Congrats Results - assets_retina */ = {
 			isa = PBXGroup;
 			children = (
 				B1F895071988DE290057C4F9 /* (1) Congrats Popup */,
 				B1F8950B1988DE290057C4F9 /* (2) Results */,
 				B1F895121988DE290057C4F9 /* (3) Intermittent Popup */,
 			);
+			name = "Congrats Results - assets_retina";
 			path = "Congrats:Results - assets_retina";
 			sourceTree = "<group>";
 		};
@@ -945,17 +1116,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1745F3B199BAF1C00C44221 /* desserticon@2x.png in Resources */,
+				B1745F3C199BAF1C00C44221 /* dinnericon@2x.png in Resources */,
+				B1745F48199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */,
 				B164AD991962E22C00873D6B /* Norican-Regular.ttf in Resources */,
+				B1745F37199BAF1C00C44221 /* searchicon@2x.png in Resources */,
 				B1BE752C197BE356005C1979 /* deafult_profilepic@2x.png in Resources */,
 				B164AD951962D0DC00873D6B /* Oswald-Bold.otf in Resources */,
 				B164AD961962D0DC00873D6B /* Oswald-Light.otf in Resources */,
 				B1CF7368197B97A400E21F81 /* pattern_background@2x.png in Resources */,
+				B1745F4C199BAF1C00C44221 /* watchvideo_button@2x.png in Resources */,
 				B1F8951E1988DE290057C4F9 /* pattern_background@2x.png in Resources */,
 				B178BF6B1990BBC100439A16 /* snackicon@2x.png in Resources */,
 				B178BF811990BBC100439A16 /* addicon@2x.png in Resources */,
 				B178BF8E1990BBC100439A16 /* arrow@2x.png in Resources */,
 				B164AD921962C53400873D6B /* Oswald-Regular.otf in Resources */,
 				B164AD891962C11F00873D6B /* fitness_blurryBG@2x.png in Resources */,
+				B1745F39199BAF1C00C44221 /* selectionhighlight@2x.png in Resources */,
 				B1DA3B371973D9A900DE3F3B /* slideshow_circles_filled@2x.png in Resources */,
 				B178BF7B1990BBC100439A16 /* divider@2x.png in Resources */,
 				B178BF6D1990BBC100439A16 /* addfoodbutton_activated@2x.png in Resources */,
@@ -964,6 +1141,7 @@
 				B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */,
 				B178BF821990BBC100439A16 /* backgroundrectangle@2x.png in Resources */,
 				B1DA3B311973D9A900DE3F3B /* arrow@2x.png in Resources */,
+				B1745F41199BAF1C00C44221 /* thickerdivider@2x.png in Resources */,
 				B178BF741990BBC100439A16 /* menurectanglefull@2x.png in Resources */,
 				B178BF631990BBC100439A16 /* breakfasticon@2x.png in Resources */,
 				B164AD831962C11F00873D6B /* weight_and_gender_lines@2x.png in Resources */,
@@ -990,8 +1168,13 @@
 				B1CF7378197BD0A500E21F81 /* workouts_icon@2x.png in Resources */,
 				B178BF781990BBC100439A16 /* searchline@2x.png in Resources */,
 				B1CF7376197BD0A500E21F81 /* nav_rectangle@2x.png in Resources */,
+				B1745F4D199BAF1C00C44221 /* arrow@2x.png in Resources */,
 				B1BE752D197BE356005C1979 /* drawer_icon@2x.png in Resources */,
 				B164AD8C1962C11F00873D6B /* x_icon@2x.png in Resources */,
+				B1745F46199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
+				B1745F43199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */,
+				B1745F4F199BAF1C00C44221 /* pattern_background@2x.png in Resources */,
+				B1745F40199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */,
 				B178BF8D1990BBC100439A16 /* topstrip@2x.png in Resources */,
 				B19EF08319247E450000AC09 /* page2.png in Resources */,
 				B122652C193D7F960037C6C9 /* SearchButton.png in Resources */,
@@ -1002,9 +1185,11 @@
 				B178BF751990BBC100439A16 /* mainheaderrectangle@2x.png in Resources */,
 				B1F895181988DE290057C4F9 /* startgettingsexy_button@2x.png in Resources */,
 				B1F8951B1988DE290057C4F9 /* congrats_header_rectangle@2x.png in Resources */,
+				B1745F38199BAF1C00C44221 /* searchline@2x.png in Resources */,
 				B178BF6E1990BBC100439A16 /* breakfasticon@2x.png in Resources */,
 				B178BF8B1990BBC100439A16 /* donebutton_activated@2x.png in Resources */,
 				B1CF7375197BD0A500E21F81 /* myprofile_icon@2x.png in Resources */,
+				B1745F3E199BAF1C00C44221 /* rectanglemenu@2x.png in Resources */,
 				B164AD8B1962C11F00873D6B /* questionmark_icon@2x.png in Resources */,
 				B19EF08219247E450000AC09 /* page3.png in Resources */,
 				B1F895231988DE290057C4F9 /* x_icon@2x.png in Resources */,
@@ -1023,32 +1208,43 @@
 				B178BF731990BBC100439A16 /* menurectangle@2x.png in Resources */,
 				B164AD821962C11F00873D6B /* field_line@2x.png in Resources */,
 				B1BE752F197BE356005C1979 /* myprofilenav_rectangles@2x.png in Resources */,
+				B1745F50199BAF1C00C44221 /* topheader@2x.png in Resources */,
 				B178BF861990BBC100439A16 /* selectedicon@2x.png in Resources */,
 				B1DA3B361973D9A900DE3F3B /* slideshow_circle_stroke@2x.png in Resources */,
 				B178BF871990BBC100439A16 /* thickerdivider@2x.png in Resources */,
 				B1F895201988DE290057C4F9 /* arrow@2x.png in Resources */,
+				B1745F35199BAF1C00C44221 /* divider@2x.png in Resources */,
 				B1F895191988DE290057C4F9 /* x_icon@2x.png in Resources */,
 				B164AD8F1962C11F00873D6B /* header_rectangle@2x.png in Resources */,
 				B178BF6F1990BBC100439A16 /* datearrow@2x.png in Resources */,
 				B178BF891990BBC100439A16 /* backgroundrectangle@2x.png in Resources */,
 				B178BF8A1990BBC100439A16 /* donebutton@2x.png in Resources */,
 				B178BF911990BBC100439A16 /* topheader@2x.png in Resources */,
+				B1745F45199BAF1C00C44221 /* divider@2x.png in Resources */,
 				B1CF7374197BD0A500E21F81 /* more_icon@2x.png in Resources */,
+				B1745F49199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
 				B178BF7C1990BBC100439A16 /* donebutton@2x.png in Resources */,
+				B1745F3D199BAF1C00C44221 /* lunchicon@2x.png in Resources */,
+				B1745F42199BAF1C00C44221 /* fieldline@2x.png in Resources */,
 				B126970F191A182B002425C3 /* downArrow.png in Resources */,
 				B178BF841990BBC100439A16 /* donebutton@2x.png in Resources */,
 				B1F895221988DE290057C4F9 /* intermittentfasting_blurryBG@2x.png in Resources */,
+				B1745F3A199BAF1C00C44221 /* breakfasticon@2x.png in Resources */,
 				B1BE7531197BE356005C1979 /* update_button@2x.png in Resources */,
 				B178BF8F1990BBC100439A16 /* drawer_icon@2x.png in Resources */,
+				B1745F4A199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */,
 				B178BF881990BBC100439A16 /* topstrip@2x.png in Resources */,
 				B178BF791990BBC100439A16 /* addicon@2x.png in Resources */,
 				B178BF6C1990BBC100439A16 /* addfoodbutton@2x.png in Resources */,
+				B1745F47199BAF1C00C44221 /* title_rectangle@2x.png in Resources */,
 				B178BF7D1990BBC100439A16 /* donebutton_activated@2x.png in Resources */,
 				B178BF671990BBC100439A16 /* divider@2x.png in Resources */,
 				B1BE7535197BEC90005C1979 /* downArrow@2x.png in Resources */,
 				B178BF6A1990BBC100439A16 /* menurectangle@2x.png in Resources */,
+				B1745F51199BAF1C00C44221 /* topstrip@2x.png in Resources */,
 				B1F895211988DE290057C4F9 /* dividers@2x.png in Resources */,
 				B164AD851962C11F00873D6B /* weight_and_gender_lines@2x.png in Resources */,
+				B1745F34199BAF1C00C44221 /* mainmenurectangle@2x.png in Resources */,
 				B1269712191A1F72002425C3 /* separatorLine.png in Resources */,
 				B1CF7377197BD0A500E21F81 /* recipes_icon@2x.png in Resources */,
 				B178BF651990BBC100439A16 /* daterectangle@2x.png in Resources */,
@@ -1057,6 +1253,10 @@
 				B164AD871962C11F00873D6B /* beginner_icon@2x.png in Resources */,
 				B1CF7366197B97A400E21F81 /* field_line@2x.png in Resources */,
 				B164AD8E1962C11F00873D6B /* continue_button@2x.png in Resources */,
+				B1745F4B199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
+				B1745F44199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */,
+				B1745F36199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */,
+				B1745F4E199BAF1C00C44221 /* drawer_icon@2x.png in Resources */,
 				B164AD881962C11F00873D6B /* divider_lines@2x.png in Resources */,
 				B178BF801990BBC100439A16 /* topstrip@2x.png in Resources */,
 				B178BF7F1990BBC100439A16 /* selectionhighlight@2x.png in Resources */,
@@ -1066,6 +1266,7 @@
 				B1BE752A197BE356005C1979 /* arrow@2x.png in Resources */,
 				B1BE752B197BE356005C1979 /* camera_icon@2x.png in Resources */,
 				B164AD8A1962C11F00873D6B /* hardcore_icon@2x.png in Resources */,
+				B1745F3F199BAF1C00C44221 /* snacksicon@2x.png in Resources */,
 				B178BF681990BBC100439A16 /* exerciseicon@2x.png in Resources */,
 				B1E64206191BB1AA00E6E6E4 /* graphImage.png in Resources */,
 				B178BF641990BBC100439A16 /* datearrow@2x.png in Resources */,
@@ -1136,8 +1337,8 @@
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
-				B110E342199230AF00A22102 /* FSRecipe.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
+				B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */,
 				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
 				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
@@ -1273,19 +1474,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "\"$(PODS_ROOT)/Parse\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyProfile/MyProfile-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Bolts\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
-					"\"${PODS_ROOT}/Headers/FatSecretKit\"",
-					"\"${PODS_ROOT}/Headers/Parse\"",
-					"\"${PODS_ROOT}/Headers/SVHTTPRequest\"",
-					"\"$(inherited)\"",
-				);
 				INFOPLIST_FILE = "MyProfile/MyProfile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1298,19 +1488,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "\"$(PODS_ROOT)/Parse\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyProfile/MyProfile-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Bolts\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
-					"\"${PODS_ROOT}/Headers/FatSecretKit\"",
-					"\"${PODS_ROOT}/Headers/Parse\"",
-					"\"${PODS_ROOT}/Headers/SVHTTPRequest\"",
-					"\"$(inherited)\"",
-				);
 				INFOPLIST_FILE = "MyProfile/MyProfile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

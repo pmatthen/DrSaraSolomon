@@ -1,1 +1,1 @@
-../../FatSecretKit/FatSecretKit/FatSecret/OAuthCore.h
+../../../../FatSecretKit/FatSecretKit/FatSecret/OAuthCore.h

@@ -89,57 +89,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qga-fG-ch9">
-                                <rect key="frame" x="12" y="28" width="30" height="24"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pattern_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="HNd-Vd-jqn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                <state key="normal" title="BACK">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEM-S1-SIn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="topheader.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="3bb-kP-p3E" eventType="touchUpInside" id="yoq-81-t4W"/>
+                                    <action selector="backButtonTouched:" destination="3bb-kP-p3E" eventType="touchUpInside" id="3cp-rr-VI4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cql-UR-J6D">
-                                <rect key="frame" x="0.0" y="55" width="320" height="1"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drawer_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-eZ-30p">
+                                <rect key="frame" x="15" y="21" width="20" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HtT-dM-bvY">
-                                <rect key="frame" x="0.0" y="179" width="320" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6w-GU-ANF">
-                                <rect key="frame" x="20" y="75" width="227" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="myLeftArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-0t-ixY">
+                                <rect key="frame" x="285" y="17" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0j-L9-Gg5">
-                                <rect key="frame" x="255" y="75" width="45" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topstrip.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xqd-Of-lcA">
+                                <rect key="frame" x="0.0" y="45" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="SearchButton.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCc-dN-7cL">
-                                <rect key="frame" x="0.0" y="124" width="320" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RECIPES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApO-39-qS6">
-                                <rect key="frame" x="20" y="144" width="75" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4uL-os-zgB">
+                                <rect key="frame" x="0.0" y="172" width="320" height="396"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeCell" id="MZ5-oN-0tI" customClass="RecipeTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="99"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZ5-oN-0tI" id="Ucd-Cl-7JV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainmenurectangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="D7j-yz-mdd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UYV-9I-fub">
+                                                    <rect key="frame" x="286" y="45" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="myImageView" destination="UYV-9I-fub" id="cf0-8g-zG4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3bb-kP-p3E" id="YJj-Z1-BBL"/>
+                                    <outlet property="delegate" destination="3bb-kP-p3E" id="taO-nZ-aKc"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xjv-wM-85m"/>
                     <connections>
-                        <outlet property="myAccordionScrollView" destination="HtT-dM-bvY" id="5y6-NI-W3O"/>
+                        <outlet property="myTableView" destination="4uL-os-zgB" id="xxj-ML-RRs"/>
                         <segue destination="68Z-KB-X4f" kind="push" identifier="RecipeSampleSegue" id="3za-P0-Mwo"/>
                     </connections>
                 </viewController>
@@ -477,7 +491,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drawer_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-tJ-89D">
-                                <rect key="frame" x="14" y="21" width="20" height="15"/>
+                                <rect key="frame" x="15" y="21" width="20" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="myLeftArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="apf-kK-XtA">
@@ -1405,7 +1419,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SearchButton.png" width="149" height="106"/>
         <image name="congrats_fireworks_background.png" width="320" height="568"/>
         <image name="congrats_header_rectangle.png" width="320" height="115"/>
         <image name="continue_button.png" width="189" height="59"/>
@@ -1415,6 +1428,7 @@
         <image name="drawer_icon.png" width="20" height="15"/>
         <image name="field_line.png" width="198" height="18"/>
         <image name="header_rectangle.png" width="320" height="115"/>
+        <image name="mainmenurectangle.png" width="320" height="99"/>
         <image name="myLeftArrow.png" width="13" height="12"/>
         <image name="myprofile_header.png" width="320" height="54"/>
         <image name="myprofilenav_rectangles.png" width="320" height="54"/>
@@ -1424,6 +1438,8 @@
         <image name="separatorLine.png" width="320" height="1"/>
         <image name="signup_button.png" width="320" height="54"/>
         <image name="startgettingsexy_button.png" width="198" height="60"/>
+        <image name="topheader.png" width="320" height="54"/>
+        <image name="topstrip.png" width="320" height="27"/>
         <image name="upArrow.png" width="10" height="6"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

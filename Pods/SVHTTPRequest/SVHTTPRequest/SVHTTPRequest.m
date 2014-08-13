@@ -52,8 +52,8 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 @property (nonatomic, assign) dispatch_queue_t saveDataDispatchQueue;
 @property (nonatomic, assign) dispatch_group_t saveDataDispatchGroup;
 #else
-@property (nonatomic, assign) dispatch_queue_t saveDataDispatchQueue;
-@property (nonatomic, assign) dispatch_group_t saveDataDispatchGroup;
+@property (nonatomic) dispatch_queue_t saveDataDispatchQueue;
+@property (nonatomic) dispatch_group_t saveDataDispatchGroup;
 #endif
 
 @property (nonatomic, copy) SVHTTPRequestCompletionHandler operationCompletionBlock;
