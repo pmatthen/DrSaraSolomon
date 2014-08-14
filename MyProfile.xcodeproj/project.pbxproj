@@ -60,6 +60,7 @@
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
 		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
 		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
+		B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */; };
 		B1745F34199BAF1C00C44221 /* mainmenurectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F0E199BAF1C00C44221 /* mainmenurectangle@2x.png */; };
 		B1745F35199BAF1C00C44221 /* divider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F10199BAF1C00C44221 /* divider@2x.png */; };
 		B1745F36199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1745F11199BAF1C00C44221 /* rectanglebackground@2x.png */; };
@@ -143,6 +144,7 @@
 		B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */ = {isa = PBXBuildFile; fileRef = B192113B192634520017F4ED /* ParseSignUpViewControllerStep2.m */; };
 		B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */ = {isa = PBXBuildFile; fileRef = B192113E192634620017F4ED /* ParseSignUpViewControllerStep4.m */; };
 		B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */ = {isa = PBXBuildFile; fileRef = B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */; };
+		B198D813199CB69100F39C68 /* RecipeSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B198D812199CB69100F39C68 /* RecipeSearchTableViewCell.m */; };
 		B19EF08219247E450000AC09 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF07F19247E450000AC09 /* page3.png */; };
 		B19EF08319247E450000AC09 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08019247E450000AC09 /* page2.png */; };
 		B19EF08419247E450000AC09 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08119247E450000AC09 /* page1.png */; };
@@ -282,6 +284,8 @@
 		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
 		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
 		B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleTableViewCell.m; sourceTree = "<group>"; };
+		B16D1D27199C9C5C00CBE80C /* RecipeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchViewController.h; sourceTree = "<group>"; };
+		B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchViewController.m; sourceTree = "<group>"; };
 		B1745F0E199BAF1C00C44221 /* mainmenurectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainmenurectangle@2x.png"; sourceTree = "<group>"; };
 		B1745F10199BAF1C00C44221 /* divider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider@2x.png"; sourceTree = "<group>"; };
 		B1745F11199BAF1C00C44221 /* rectanglebackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectanglebackground@2x.png"; sourceTree = "<group>"; };
@@ -370,6 +374,8 @@
 		B192113E192634620017F4ED /* ParseSignUpViewControllerStep4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep4.m; sourceTree = "<group>"; };
 		B1921140192634750017F4ED /* ParseSignUpViewControllerStep5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep5.h; sourceTree = "<group>"; };
 		B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep5.m; sourceTree = "<group>"; };
+		B198D811199CB69100F39C68 /* RecipeSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchTableViewCell.h; sourceTree = "<group>"; };
+		B198D812199CB69100F39C68 /* RecipeSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchTableViewCell.m; sourceTree = "<group>"; };
 		B19EF07F19247E450000AC09 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		B19EF08019247E450000AC09 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		B19EF08119247E450000AC09 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
@@ -614,14 +620,7 @@
 				B156C3DA1960398000C1E6AF /* AddFoodViewController.m */,
 				B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */,
 				B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */,
-				B11B559719303F78000426E2 /* RecipeViewController.h */,
-				B11B559819303F78000426E2 /* RecipeViewController.m */,
-				B1745F52199BB37900C44221 /* RecipeTableViewCell.h */,
-				B1745F53199BB37900C44221 /* RecipeTableViewCell.m */,
-				B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */,
-				B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */,
-				B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */,
-				B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */,
+				B16D1D2A199C9C7100CBE80C /* Recipe Section */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
 				B1E3C9E0196E40C800659A15 /* ILTranslucentView.h */,
@@ -669,6 +668,25 @@
 				B1681B5819174DF500923BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B16D1D2A199C9C7100CBE80C /* Recipe Section */ = {
+			isa = PBXGroup;
+			children = (
+				B11B559719303F78000426E2 /* RecipeViewController.h */,
+				B11B559819303F78000426E2 /* RecipeViewController.m */,
+				B1745F52199BB37900C44221 /* RecipeTableViewCell.h */,
+				B1745F53199BB37900C44221 /* RecipeTableViewCell.m */,
+				B16D1D27199C9C5C00CBE80C /* RecipeSearchViewController.h */,
+				B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */,
+				B198D811199CB69100F39C68 /* RecipeSearchTableViewCell.h */,
+				B198D812199CB69100F39C68 /* RecipeSearchTableViewCell.m */,
+				B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */,
+				B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */,
+				B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */,
+				B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */,
+			);
+			name = "Recipe Section";
 			sourceTree = "<group>";
 		};
 		B1745F0C199BAF1C00C44221 /* Recipe - assets_retina */ = {
@@ -1336,6 +1354,7 @@
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
+				B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */,
@@ -1345,6 +1364,7 @@
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
 				B1E3C9E2196E40C800659A15 /* ILTranslucentView.m in Sources */,
+				B198D813199CB69100F39C68 /* RecipeSearchTableViewCell.m in Sources */,
 				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,
 				B1681B3D19174DF500923BB3 /* main.m in Sources */,
 				B156C3DB1960398000C1E6AF /* AddFoodViewController.m in Sources */,

@@ -16,7 +16,7 @@
 @end
 
 @implementation RecipeViewController
-@synthesize categoryArray;
+@synthesize categoryArray, myTableView;
 
 - (void)viewDidLoad
 {
@@ -64,12 +64,35 @@
     [cellTitleLabel sizeToFit];
     
     [cell addSubview:cellTitleLabel];
-    
+        
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [categoryArray count];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"test");
+    
+    switch (indexPath.row) {
+        case 0:
+            NSLog(@"test");
+            break;
+        case 1:
+            NSLog(@"test");
+            break;
+        case 2:
+            NSLog(@"test");
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"RecipeSearchSegue" sender:self];
+            NSLog(@"test");
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (IBAction)backButtonTouched:(id)sender {

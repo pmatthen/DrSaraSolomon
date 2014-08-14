@@ -25,15 +25,15 @@
     [FSClient sharedClient].oauthConsumerKey = @"2fb6164b75774378867a87cb92c2a0be";
     [FSClient sharedClient].oauthConsumerSecret = @"08812a0266a54999916213b04beff83a";
     
-//    [[FSClient sharedClient] searchFoods:@"banana"
-//                              completion:^(NSArray *foods, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
-//                                  // Use data as you will.
-//                                  
-//                                  for (int i = 0; i < [foods count]; i++) {
-//                                      FSFood *tempFood = foods[i];
-//                                      NSLog(@"food #%d = %@, %li, %@", i, tempFood.name, (long)tempFood.identifier, tempFood.foodDescription);
-//                                  }
-//                              }];
+    [[FSClient sharedClient] searchFoods:@"roast chicken"
+                              completion:^(NSArray *foods, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
+                                  // Use data as you will.
+                                  
+                                  for (int i = 0; i < [foods count]; i++) {
+                                      FSFood *tempFood = foods[i];
+                                      NSLog(@"food #%d = %@, %li, %@", i, tempFood.name, (long)tempFood.identifier, tempFood.foodDescription);
+                                  }
+                              }];
     
 //    [[FSClient sharedClient] getFood:624623 completion:^(FSFood *food) {
 //        
@@ -46,38 +46,38 @@
 //        }
 //    }];
     
-    [[FSClient sharedClient] searchRecipes:@"Chicken Pot Pie" recipeType:@"" pageNumber:0 maxResults:20 completion:^(NSArray *recipes, NSString *recipeType, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
-        for (int i; i < [recipes count]; i++) {
-            FSRecipe *tempRecipe = recipes[i];
-            NSLog(@"Recipe #%d = %@, %@, %li", i, tempRecipe.name, tempRecipe.imageUrl, (long)tempRecipe.identifier);
-        }
-    }];
-
-    [[FSClient sharedClient] getRecipe:5679955 completion:^(FSRecipe *recipe) {
-        NSLog(@"name = %@", recipe.name);
-        NSLog(@"number of Servings = %li", (long)recipe.numberOfServings);
-        NSLog(@"image url = %@", recipe.recipeImage);
-        NSLog(@"cook time (min) = %li", (long)recipe.cookingTimeMin);
-        NSLog(@"prep time (min) = %li", (long)recipe.preparationTimeMin);
-
-        
-        for (int i = 0; i < [recipe.servings count]; i++) {
-            FSRecipeServings *recipeServings = recipe.servings[i];
-            NSLog(@"serving size = %@", recipeServings.servingSize);
-            NSLog(@"calories = %f", recipeServings.caloriesValue);
-            NSLog(@"carbohydrates = %f", recipeServings.carbohydrateValue);
-            NSLog(@"proteins = %f", recipeServings.proteinValue);
-            NSLog(@"fats = %f", recipeServings.fatValue);
-        }
-        for (int i = 0; i < [recipe.ingredients count]; i++) {
-            FSRecipeIngredients *recipeIngredients = recipe.ingredients[i];
-            NSLog(@"ingredient %i = %@", i, recipeIngredients.ingredientDescription);
-        }
-        for (int i = 0; i < [recipe.directions count]; i++) {
-            FSRecipeDirections *recipeDirections = recipe.directions[i];
-            NSLog(@"direction %i = %@", i, recipeDirections.directionDescription);
-        }
-    }];
+//    [[FSClient sharedClient] searchRecipes:@"Chicken Pot Pie" recipeType:@"" pageNumber:0 maxResults:20 completion:^(NSArray *recipes, NSString *recipeType, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
+//        for (int i; i < [recipes count]; i++) {
+//            FSRecipe *tempRecipe = recipes[i];
+//            NSLog(@"Recipe #%d = %@, %@, %li", i, tempRecipe.name, tempRecipe.imageUrl, (long)tempRecipe.identifier);
+//        }
+//    }];
+//
+//    [[FSClient sharedClient] getRecipe:5679955 completion:^(FSRecipe *recipe) {
+//        NSLog(@"name = %@", recipe.name);
+//        NSLog(@"number of Servings = %li", (long)recipe.numberOfServings);
+//        NSLog(@"image url = %@", recipe.recipeImage);
+//        NSLog(@"cook time (min) = %li", (long)recipe.cookingTimeMin);
+//        NSLog(@"prep time (min) = %li", (long)recipe.preparationTimeMin);
+//
+//        
+//        for (int i = 0; i < [recipe.servings count]; i++) {
+//            FSRecipeServings *recipeServings = recipe.servings[i];
+//            NSLog(@"serving size = %@", recipeServings.servingSize);
+//            NSLog(@"calories = %f", recipeServings.caloriesValue);
+//            NSLog(@"carbohydrates = %f", recipeServings.carbohydrateValue);
+//            NSLog(@"proteins = %f", recipeServings.proteinValue);
+//            NSLog(@"fats = %f", recipeServings.fatValue);
+//        }
+//        for (int i = 0; i < [recipe.ingredients count]; i++) {
+//            FSRecipeIngredients *recipeIngredients = recipe.ingredients[i];
+//            NSLog(@"ingredient %i = %@", i, recipeIngredients.ingredientDescription);
+//        }
+//        for (int i = 0; i < [recipe.directions count]; i++) {
+//            FSRecipeDirections *recipeDirections = recipe.directions[i];
+//            NSLog(@"direction %i = %@", i, recipeDirections.directionDescription);
+//        }
+//    }];
     
     return YES;
 }
