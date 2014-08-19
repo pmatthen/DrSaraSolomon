@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FatSecretKit/FSRecipe.h>
 
 @interface RecipeSampleViewController : UIViewController
 
+@property (nonatomic, strong) FSRecipe *myRecipe;
+
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 
 - (IBAction)backButtonTouched:(id)sender;
 

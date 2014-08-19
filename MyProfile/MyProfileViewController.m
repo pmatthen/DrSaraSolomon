@@ -134,7 +134,7 @@
         isFirstClick = NO;
     }
     
-    int row = (int) [indexPath row];
+    int row = (int)[indexPath row];
     currentSelection = row;
     
     

@@ -8,17 +8,19 @@
 
 #import "RecipeSearchViewController.h"
 #import "RecipeSearchTableViewCell.h"
+#import "RecipeSampleViewController.h"
 #import <FatSecretKit/FSClient.h>
 #import <FatSecretKit/FSRecipe.h>
 
 @interface RecipeSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *resultsArray;
+@property (nonatomic, strong) FSRecipe *recipeToSend;
 
 @end
 
 @implementation RecipeSearchViewController
-@synthesize myTableView, resultsArray, myTextField;
+@synthesize myTableView, resultsArray, myTextField, recipeToSend;
 
 - (void)viewDidLoad
 {
@@ -67,6 +69,17 @@
     return [resultsArray count];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    recipeToSend = resultsArray[indexPath.row];
+    [self performSegueWithIdentifier:@"RecipeSampleSegue" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    RecipeSampleViewController *recipeSampleViewController = (RecipeSampleViewController *) segue.destinationViewController;
+    
+    recipeSampleViewController.myRecipe = recipeToSend;
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 
     [textField resignFirstResponder];
@@ -87,4 +100,9 @@
         }];
     }
 }
+
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

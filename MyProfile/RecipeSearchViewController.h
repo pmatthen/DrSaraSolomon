@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *myTextField;
 
 - (IBAction)searchButtonPressed:(id)sender;
+- (IBAction)backButtonPressed:(id)sender;
 
 @end
