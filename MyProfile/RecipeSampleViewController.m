@@ -241,67 +241,69 @@
                 [cell.contentView addSubview:totalMinLabel];
                 [cell.contentView addSubview:totalMinLabelLabel];
                 
-                FSRecipeServings *recipeServings = recipe.servings[0];
-                
-                UILabel *caloriesLabel = [[UILabel alloc] init];
-                caloriesLabel.font = [UIFont fontWithName:@"Oswald" size:30];
-                caloriesLabel.textColor = [UIColor whiteColor];
-                caloriesLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.caloriesValue];
-                [caloriesLabel sizeToFit];
-                caloriesLabel.frame = CGRectMake(40 - (caloriesLabel.frame.size.width/2), 181, caloriesLabel.frame.size.width, caloriesLabel.frame.size.height);
-                
-                UILabel *proteinsLabel = [[UILabel alloc] init];
-                proteinsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
-                proteinsLabel.textColor = [UIColor whiteColor];
-                proteinsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.proteinValue];
-                [proteinsLabel sizeToFit];
-                
-                UILabel *proteinsLabelLabel = [[UILabel alloc] init];
-                proteinsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
-                proteinsLabelLabel.textColor = [UIColor whiteColor];
-                proteinsLabelLabel.text = @" g";
-                [proteinsLabelLabel sizeToFit];
-                
-                proteinsLabel.frame = CGRectMake(120 - ((proteinsLabel.frame.size.width + proteinsLabelLabel.frame.size.width)/2), 181, proteinsLabel.frame.size.width, proteinsLabel.frame.size.height);
-                proteinsLabelLabel.frame = CGRectMake(proteinsLabel.frame.origin.x + proteinsLabel.frame.size.width, 200, proteinsLabelLabel.frame.size.width, proteinsLabelLabel.frame.size.height);
-                
-                UILabel *carbsLabel = [[UILabel alloc] init];
-                carbsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
-                carbsLabel.textColor = [UIColor whiteColor];
-                carbsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.carbohydrateValue];
-                [carbsLabel sizeToFit];
-                
-                UILabel *carbsLabelLabel = [[UILabel alloc] init];
-                carbsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
-                carbsLabelLabel.textColor = [UIColor whiteColor];
-                carbsLabelLabel.text = @" g";
-                [carbsLabelLabel sizeToFit];
-                
-                carbsLabel.frame = CGRectMake(200 - ((carbsLabel.frame.size.width + carbsLabelLabel.frame.size.width)/2), 181, carbsLabel.frame.size.width, carbsLabel.frame.size.height);
-                carbsLabelLabel.frame = CGRectMake(carbsLabel.frame.origin.x + carbsLabel.frame.size.width, 200, carbsLabelLabel.frame.size.width, carbsLabelLabel.frame.size.height);
-                
-                UILabel *fatsLabel = [[UILabel alloc] init];
-                fatsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
-                fatsLabel.textColor = [UIColor whiteColor];
-                fatsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.fatValue];
-                [fatsLabel sizeToFit];
-                
-                UILabel *fatsLabelLabel = [[UILabel alloc] init];
-                fatsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
-                fatsLabelLabel.textColor = [UIColor whiteColor];
-                fatsLabelLabel.text = @" g";
-                [fatsLabelLabel sizeToFit];
-                
-                fatsLabel.frame = CGRectMake(280 - ((fatsLabel.frame.size.width + fatsLabelLabel.frame.size.width)/2), 181, fatsLabel.frame.size.width, fatsLabel.frame.size.height);
-                fatsLabelLabel.frame = CGRectMake(fatsLabel.frame.origin.x + fatsLabel.frame.size.width, 200, fatsLabelLabel.frame.size.width, fatsLabelLabel.frame.size.height);
-                
-                [cell.contentView addSubview:caloriesLabel];
-                [cell.contentView addSubview:proteinsLabel];
-                [cell.contentView addSubview:proteinsLabelLabel];
-                [cell.contentView addSubview:carbsLabel];
-                [cell.contentView addSubview:carbsLabelLabel];
-                [cell.contentView addSubview:fatsLabel];
-                [cell.contentView addSubview:fatsLabelLabel];
+                if ([recipe.servings count] != 0) {
+                    FSRecipeServings *recipeServings = recipe.servings[0];
+                    
+                    UILabel *caloriesLabel = [[UILabel alloc] init];
+                    caloriesLabel.font = [UIFont fontWithName:@"Oswald" size:30];
+                    caloriesLabel.textColor = [UIColor whiteColor];
+                    caloriesLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.caloriesValue];
+                    [caloriesLabel sizeToFit];
+                    caloriesLabel.frame = CGRectMake(40 - (caloriesLabel.frame.size.width/2), 181, caloriesLabel.frame.size.width, caloriesLabel.frame.size.height);
+                    
+                    UILabel *proteinsLabel = [[UILabel alloc] init];
+                    proteinsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
+                    proteinsLabel.textColor = [UIColor whiteColor];
+                    proteinsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.proteinValue];
+                    [proteinsLabel sizeToFit];
+                    
+                    UILabel *proteinsLabelLabel = [[UILabel alloc] init];
+                    proteinsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+                    proteinsLabelLabel.textColor = [UIColor whiteColor];
+                    proteinsLabelLabel.text = @" g";
+                    [proteinsLabelLabel sizeToFit];
+                    
+                    proteinsLabel.frame = CGRectMake(120 - ((proteinsLabel.frame.size.width + proteinsLabelLabel.frame.size.width)/2), 181, proteinsLabel.frame.size.width, proteinsLabel.frame.size.height);
+                    proteinsLabelLabel.frame = CGRectMake(proteinsLabel.frame.origin.x + proteinsLabel.frame.size.width, 200, proteinsLabelLabel.frame.size.width, proteinsLabelLabel.frame.size.height);
+                    
+                    UILabel *carbsLabel = [[UILabel alloc] init];
+                    carbsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
+                    carbsLabel.textColor = [UIColor whiteColor];
+                    carbsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.carbohydrateValue];
+                    [carbsLabel sizeToFit];
+                    
+                    UILabel *carbsLabelLabel = [[UILabel alloc] init];
+                    carbsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+                    carbsLabelLabel.textColor = [UIColor whiteColor];
+                    carbsLabelLabel.text = @" g";
+                    [carbsLabelLabel sizeToFit];
+                    
+                    carbsLabel.frame = CGRectMake(200 - ((carbsLabel.frame.size.width + carbsLabelLabel.frame.size.width)/2), 181, carbsLabel.frame.size.width, carbsLabel.frame.size.height);
+                    carbsLabelLabel.frame = CGRectMake(carbsLabel.frame.origin.x + carbsLabel.frame.size.width, 200, carbsLabelLabel.frame.size.width, carbsLabelLabel.frame.size.height);
+                    
+                    UILabel *fatsLabel = [[UILabel alloc] init];
+                    fatsLabel.font = [UIFont fontWithName:@"Oswald" size:30];
+                    fatsLabel.textColor = [UIColor whiteColor];
+                    fatsLabel.text = [NSString stringWithFormat:@"%.f", recipeServings.fatValue];
+                    [fatsLabel sizeToFit];
+                    
+                    UILabel *fatsLabelLabel = [[UILabel alloc] init];
+                    fatsLabelLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+                    fatsLabelLabel.textColor = [UIColor whiteColor];
+                    fatsLabelLabel.text = @" g";
+                    [fatsLabelLabel sizeToFit];
+                    
+                    fatsLabel.frame = CGRectMake(280 - ((fatsLabel.frame.size.width + fatsLabelLabel.frame.size.width)/2), 181, fatsLabel.frame.size.width, fatsLabel.frame.size.height);
+                    fatsLabelLabel.frame = CGRectMake(fatsLabel.frame.origin.x + fatsLabel.frame.size.width, 200, fatsLabelLabel.frame.size.width, fatsLabelLabel.frame.size.height);
+                    
+                    [cell.contentView addSubview:caloriesLabel];
+                    [cell.contentView addSubview:proteinsLabel];
+                    [cell.contentView addSubview:proteinsLabelLabel];
+                    [cell.contentView addSubview:carbsLabel];
+                    [cell.contentView addSubview:carbsLabelLabel];
+                    [cell.contentView addSubview:fatsLabel];
+                    [cell.contentView addSubview:fatsLabelLabel];
+                }
             }];
             
             [cell.contentView addSubview:dividerImageView];

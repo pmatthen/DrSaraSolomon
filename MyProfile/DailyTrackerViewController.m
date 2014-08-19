@@ -12,6 +12,7 @@
 @interface DailyTrackerViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *categoryArray;
+@property (nonatomic, strong) NSArray *iconImagePathArray;
 @property UIImageView *separatorImageView;
 @property UIButton *addFoodButton;
 @property UIImageView *addFoodButtonImage;
@@ -25,7 +26,7 @@
 @end
 
 @implementation DailyTrackerViewController
-@synthesize categoryArray, myTableView, separatorImageView, addFoodButton, addFoodButtonImage, addExerciseButton, addExerciseButtonImage, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval;
+@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, addFoodButtonImage, addExerciseButton, addExerciseButtonImage, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval;
 
 - (void)viewDidLoad
 {
@@ -42,7 +43,41 @@
     
     [self.view addSubview:titleLabel];
     
+    UILabel *consumedLabel = [[UILabel alloc] init];
+    consumedLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    consumedLabel.textColor = [UIColor whiteColor];
+    consumedLabel.text = @"CONSUMED";
+    [consumedLabel sizeToFit];
+    consumedLabel.frame = CGRectMake(80 - (consumedLabel.frame.size.width/2), 186, consumedLabel.frame.size.width, consumedLabel.frame.size.height);
+    
+    UILabel *burnedLabel = [[UILabel alloc] init];
+    burnedLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    burnedLabel.textColor = [UIColor whiteColor];
+    burnedLabel.text = @"BURNED";
+    [burnedLabel sizeToFit];
+    burnedLabel.frame = CGRectMake(240 - (burnedLabel.frame.size.width/2), 186, burnedLabel.frame.size.width, burnedLabel.frame.size.height);
+    
+    UILabel *firstCalorieLabel = [[UILabel alloc] init];
+    firstCalorieLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+    firstCalorieLabel.textColor = [UIColor whiteColor];
+    firstCalorieLabel.text = @"CALORIES";
+    [firstCalorieLabel sizeToFit];
+    firstCalorieLabel.frame = CGRectMake(80 - (firstCalorieLabel.frame.size.width/2), 150, firstCalorieLabel.frame.size.width, firstCalorieLabel.frame.size.height);
+    
+    UILabel *secondCalorieLabel = [[UILabel alloc] init];
+    secondCalorieLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+    secondCalorieLabel.textColor = [UIColor whiteColor];
+    secondCalorieLabel.text = @"CALORIES";
+    [secondCalorieLabel sizeToFit];
+    secondCalorieLabel.frame = CGRectMake(240 - (secondCalorieLabel.frame.size.width/2), 150, secondCalorieLabel.frame.size.width, secondCalorieLabel.frame.size.height);
+    
+    [self.view addSubview:consumedLabel];
+    [self.view addSubview:burnedLabel];
+    [self.view addSubview:firstCalorieLabel];
+    [self.view addSubview:secondCalorieLabel];
+    
     categoryArray = @[@"BREAKFAST", @"LUNCH", @"DINNER", @"SNACKS", @"EXERCISE"];
+    iconImagePathArray = @[@"breakfasticon@2x.png", @"lunchicon@2x.png", @"dinnericon@2x.png", @"snackicon@2x.png", @"exerciseicon@2x.png"];
     separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
     separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
     
@@ -117,7 +152,14 @@
     DailyTrackerTableViewCell *cell = (DailyTrackerTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"DailyTrackerCell"];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.myTitleLabel.font = [UIFont fontWithName:@"Oswald" size:16];
+    cell.myTitleLabel.textColor = [UIColor whiteColor];
     cell.myTitleLabel.text = categoryArray[indexPath.row];
+    
+    cell.myCategoryImageView.image = [UIImage imageNamed:iconImagePathArray[indexPath.row]];
+    cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+    cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
+    
     cell.isSelected = NO;
     
     return cell;
@@ -150,13 +192,15 @@
             [cell addSubview:addFoodButton];
             [cell addSubview:addFoodButtonImage];
         }
-        cell.myImageView.image = [UIImage imageNamed:@"downArrow.png"];
+        cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+        cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2 + M_PI);
         cell.myTitleLabel.text = categoryArray[indexPath.row];
         
         isACellSelected = YES;
         currentSelection = (int) indexPath.row;
     } else {
-        cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+        cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+        cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
         cell.myTitleLabel.text = categoryArray[indexPath.row];
         isACellSelected = NO;
     }
@@ -169,7 +213,8 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     DailyTrackerTableViewCell *cell = (DailyTrackerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.myImageView.image = [UIImage imageNamed:@"upArrow.png"];
+    cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+    cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
     cell.myTitleLabel.text = categoryArray[indexPath.row];
     
     [tableView beginUpdates];
