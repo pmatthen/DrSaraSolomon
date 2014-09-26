@@ -8,6 +8,7 @@
 
 #import "DailyTrackerViewController.h"
 #import "DailyTrackerTableViewCell.h"
+#import "AddFoodViewController.h"
 
 @interface DailyTrackerViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -15,18 +16,17 @@
 @property (nonatomic, strong) NSArray *iconImagePathArray;
 @property UIImageView *separatorImageView;
 @property UIButton *addFoodButton;
-@property UIImageView *addFoodButtonImage;
 @property UIButton *addExerciseButton;
-@property UIImageView *addExerciseButtonImage;
 @property BOOL isACellSelected;
 @property int currentSelection;
 @property UILabel *dateLabel;
 @property float dateInterval;
+@property NSNumber *addFoodButtonTag;
 
 @end
 
 @implementation DailyTrackerViewController
-@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, addFoodButtonImage, addExerciseButton, addExerciseButtonImage, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval;
+@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, addExerciseButton, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval, addFoodButtonTag;
 
 - (void)viewDidLoad
 {
@@ -81,22 +81,15 @@
     separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
     separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
     
-    addFoodButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    addFoodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 476, 320, 92)];
+    [addFoodButton setImage:[UIImage imageNamed:@"addfoodbutton_activated@2x.png"] forState:UIControlStateNormal];
     [addFoodButton addTarget:self action:@selector(addFoodButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [addFoodButton setTitle:@"Add Food" forState:UIControlStateNormal];
-    addFoodButton.frame = CGRectMake(40, 296, 240, 40);
     
-    addFoodButtonImage = [[UIImageView alloc] initWithFrame:CGRectMake(40, 296, 240, 40)];
-    addFoodButtonImage.image = [UIImage imageNamed:@"roundedrectangle.png"];
-    
-    addExerciseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    addExerciseButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 92)];
+    addExerciseButton.imageView.image = [UIImage imageNamed:@"addfoodbutton_activated@2x.png"];
+    addExerciseButton.titleLabel.text = @"";
     [addExerciseButton addTarget:self action:@selector(addExerciseButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [addExerciseButton setTitle:@"Add Exercise" forState:UIControlStateNormal];
-    addExerciseButton.frame = CGRectMake(40, 296, 240, 40);
-    
-    addExerciseButtonImage = [[UIImageView alloc] initWithFrame:CGRectMake(40, 296, 240, 40)];
-    addExerciseButtonImage.image = [UIImage imageNamed:@"roundedrectangle.png"];
-    
+
     isACellSelected = NO;
     currentSelection = -1;
 }
@@ -175,23 +168,11 @@
     
     if (cell.isSelected) {
         [separatorImageView removeFromSuperview];
-        if (indexPath.row == 4) {
-            [addExerciseButton removeFromSuperview];
-            [addExerciseButtonImage removeFromSuperview];
-        } else {
-            [addFoodButton removeFromSuperview];
-            [addFoodButtonImage removeFromSuperview];
-        }
+        [addFoodButton removeFromSuperview];
+        
         [cell.contentView addSubview:separatorImageView];
-        if (indexPath.row == 4) {
-            addExerciseButton.tag = indexPath.row;
-            [cell addSubview:addExerciseButton];
-            [cell addSubview:addExerciseButtonImage];
-        } else {
-            addFoodButton.tag = indexPath.row;
-            [cell addSubview:addFoodButton];
-            [cell addSubview:addFoodButtonImage];
-        }
+        addFoodButton.tag = indexPath.row;
+        [self.view addSubview:addFoodButton];
         cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
         cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2 + M_PI);
         cell.myTitleLabel.text = categoryArray[indexPath.row];
@@ -199,6 +180,7 @@
         isACellSelected = YES;
         currentSelection = (int) indexPath.row;
     } else {
+        [addFoodButton removeFromSuperview];
         cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
         cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
         cell.myTitleLabel.text = categoryArray[indexPath.row];
@@ -223,7 +205,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isACellSelected && currentSelection == indexPath.row) {
-        return 356;
+        if (indexPath.row == 4) {
+            return 356;
+        }
+        return 284.8;
     }
     else {
         return 71.2;
@@ -231,6 +216,7 @@
 }
 
 -(void) addFoodButtonPressed:(UIButton *)sender {
+    addFoodButtonTag = [NSNumber numberWithLong:sender.tag];
     [self performSegueWithIdentifier:@"AddFoodSegue" sender:self];
 }
 
@@ -250,6 +236,11 @@
 
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    AddFoodViewController *nextStepController = (AddFoodViewController *) segue.destinationViewController;
+    nextStepController.addFoodButtonTag = addFoodButtonTag;
 }
 
 @end

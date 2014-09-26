@@ -8,6 +8,9 @@
 
 #import "MyProfileViewController.h"
 #import "MyProfileTableViewCell.h"
+#import "CoreDataStack.h"
+#import "User.h"
+#import "RecordedWeight.h"
 
 @interface MyProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -15,17 +18,33 @@
 @property int currentSelection;
 @property BOOL isFirstTime;
 @property BOOL isFirstClick;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 @implementation MyProfileViewController
-@synthesize categoryArray, currentSelection, myTableView, isFirstTime, isFirstClick;
+@synthesize categoryArray, currentSelection, myTableView, isFirstTime, isFirstClick, myPickerView, weightArray, fetchedResultsController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     categoryArray = @[@"STATUS", @"PROGRESS", @"RECORD WEIGHT"];
+    
+    weightArray = [NSMutableArray new];
+    for (int i = 0; i < 500; i++) {
+        [weightArray addObject:[NSNumber numberWithInt:i]];
+    }
+    
+    myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(40, 0, 320, 215)];
+    myPickerView.showsSelectionIndicator = NO;
+    myPickerView.hidden = NO;
+    myPickerView.delegate = self;
+    
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    User *user = [[coreDataStack.managedObjectContext executeFetchRequest:[self userWeightFetchRequest] error:nil] objectAtIndex:0];
+    
+    [myPickerView selectRow:[user.initialWeight intValue] inComponent:0 animated:NO];
     
     isFirstTime = YES;
     isFirstClick = YES;
@@ -62,6 +81,15 @@
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
+}
+
+- (NSFetchRequest *)userWeightFetchRequest {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", [[PFUser currentUser] objectId]];
+    [fetchRequest setPredicate:predicate];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"objectId" ascending:NO]];
+    
+    return fetchRequest;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,10 +130,22 @@
             break;}
         {case 2:
             NSLog(@"");
-            UIImageView *pickerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 102)];
-            pickerImageView.image = [UIImage imageNamed:@"pickerImage.png"];
+            UIButton *updateButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 70, 100, 55)];
+            [updateButton setImage:[UIImage imageNamed:@"update_button.png"] forState:UIControlStateNormal];
+            [updateButton addTarget:self
+                       action:@selector(updateButtonTouched:)
+             forControlEvents:UIControlEventTouchUpInside];
             
-            [cell.cellContentView addSubview:pickerImageView];
+            UILabel *lbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 90, 50, 50)];
+            lbsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:30];
+            lbsLabel.textColor = [UIColor whiteColor];
+            lbsLabel.text = @"lbs";
+            [lbsLabel sizeToFit];
+            
+            [cell.cellContentView addSubview:myPickerView];
+            [cell.cellContentView addSubview:updateButton];
+            [cell.cellContentView addSubview:lbsLabel];
+            
             break;}
         {default:
             break;}
@@ -162,29 +202,68 @@
     }
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [weightArray count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [NSString stringWithFormat:@"%@", [[weightArray objectAtIndex:row] description]];
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 100;
+}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont fontWithName:@"Oswald" size:70];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = [NSString stringWithFormat:@"%@", weightArray[row]];
+    
+    return label;
+}
+
 -(IBAction)backButtonTouched:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
--(void)populateCell:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        {case 0:
-            NSLog(@"0");
-            UILabel *mainMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 280, 36)];
-            [mainMessageLabel setFont:[UIFont boldSystemFontOfSize:30]];
-            mainMessageLabel.text = @"You've lost 3lbs";
-            MyProfileTableViewCell *cell = (MyProfileTableViewCell *)[myTableView cellForRowAtIndexPath:indexPath];
-            [cell.cellContentView addSubview:mainMessageLabel];
-            break;}
-        {case 1:
-            NSLog(@"1");
-            break;}
-        {case 2:
-            NSLog(@"2");
-            break;}
-        {default:
-            break;}
+-(IBAction)updateButtonTouched:(id)sender {
+    // Check whether the users weight has already been recorded that day, and if so it deletes that record. Then it records a new weight and date recorded.
+    
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    NSArray *recordedWeights = [coreDataStack.managedObjectContext executeFetchRequest:[self recordedWeightFetchRequest] error:nil];
+    
+    for (RecordedWeight *recordedWeight in recordedWeights) {
+        NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:recordedWeight.date];
+        NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+        if([today day] == [otherDay day] &&
+           [today month] == [otherDay month] &&
+           [today year] == [otherDay year] &&
+           [today era] == [otherDay era]) {
+            [coreDataStack.managedObjectContext deleteObject:recordedWeight];
+            NSLog(@"Weight deleted");
+        }
     }
+    
+    RecordedWeight *weight = [NSEntityDescription insertNewObjectForEntityForName:@"RecordedWeight" inManagedObjectContext:coreDataStack.managedObjectContext];
+    weight.weight = [NSNumber numberWithInt:(int)[myPickerView selectedRowInComponent:0]];
+    weight.date = [NSDate date];
+    
+    [coreDataStack saveContext];
+    NSLog(@"Weight Added");
+}
+
+- (NSFetchRequest *)recordedWeightFetchRequest {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"RecordedWeight"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    
+    return fetchRequest;
 }
 
 @end

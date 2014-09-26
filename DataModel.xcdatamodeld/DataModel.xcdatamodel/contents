@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FoodTrackerItem" representedClassName="FoodTrackerItem" syncable="YES">
+        <attribute name="caloriesPerServing" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="mealType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfServings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="servingSize" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RecordedWeight" representedClassName="RecordedWeight" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="activityFactor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="initialWeight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maintenenceCalorieLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RecordedWeight" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="FoodTrackerItem" positionX="-54" positionY="54" width="128" height="148"/>
+    </elements>
+</model>

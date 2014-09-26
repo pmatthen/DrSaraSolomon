@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "MenuViewTableViewCell.h"
 #import "InitialViewController.h"
+#import "CoreDataStack.h"
+#import "User.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -38,6 +40,43 @@
         myInitialNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
 
         [self presentViewController:myInitialNavigationController animated:animated completion:nil];
+    } else {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[[PFUser currentUser] objectId] forKey:@"loggedOnUserID"];
+        [defaults synchronize];
+        
+        [self initializeCoreDataUser];
+    }
+}
+
+- (void) initializeCoreDataUser {
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"objectId" ascending:YES]];
+    
+    NSError *error = nil;
+    NSUInteger count = [coreDataStack.managedObjectContext countForFetchRequest:request error:&error];
+
+    if (count > 0) {
+        NSLog(@"User exists and count = %lu", (unsigned long)count);
+    } else {
+        NSLog(@"User nil");
+        User *currentUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:coreDataStack.managedObjectContext];
+        currentUser.objectId = [[PFUser currentUser] objectId];
+        currentUser.name = [[PFUser currentUser] objectForKey:@"name"];
+        currentUser.activityFactor = [[PFUser currentUser] objectForKey:@"neat"];
+        currentUser.email = [[PFUser currentUser] objectForKey:@"email"];
+        currentUser.height = [[PFUser currentUser] objectForKey:@"height"];
+        currentUser.initialWeight = [[PFUser currentUser] objectForKey:@"weight"];
+        currentUser.username = [[PFUser currentUser] objectForKey:@"username"];
+        currentUser.gender = [[PFUser currentUser] objectForKey:@"gender"];
+
+        [coreDataStack saveContext];
+        
+        NSLog(@"Initial Weight = %@", currentUser.initialWeight);
+        
     }
 }
 
@@ -98,7 +137,7 @@
             [self performSegueWithIdentifier:@"DailyTrackerSegue" sender:self];
             break;
         case 2:
-            [self performSegueWithIdentifier:@"RecipeSegue" sender:self];
+            [self performSegueWithIdentifier:@"RecipeSearchSegue" sender:self];
             break;
         case 3:
             //

@@ -36,7 +36,7 @@
     [self.view addSubview:titleLabel];
     [self.view addSubview:mainTitleLabel];
     
-    categoryArray = @[@"SORT BY MEAL", @"SORT BY NAME", @"ADD YOUR OWN", @"SEARCH FOR RECIPES"];
+    categoryArray = @[@"SORT BY MEAL", @"SORT BY NAME", @"SEARCH FOR FOOD", @"SEARCH FOR RECIPES"];
 }
 
 - (BOOL)prefersStatusBarHidden {

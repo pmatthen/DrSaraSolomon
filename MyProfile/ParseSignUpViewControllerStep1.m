@@ -80,10 +80,12 @@
     [passwordTextField setBackgroundColor:[UIColor clearColor]];
     passwordTextField.font = [UIFont fontWithName:@"Oswald-Light" size:18];
     passwordTextField.textColor = [UIColor whiteColor];
+    passwordTextField.secureTextEntry = YES;
 
     [confirmPasswordTextField setBackgroundColor:[UIColor clearColor]];
     confirmPasswordTextField.font = [UIFont fontWithName:@"Oswald-Light" size:18];
     confirmPasswordTextField.textColor = [UIColor whiteColor];
+    confirmPasswordTextField.secureTextEntry = YES;
     
     nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"name" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
     
@@ -178,6 +180,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [self continueButtonTouched:self];
     
     return YES;
 }
@@ -193,7 +196,37 @@
 }
 
 - (IBAction)continueButtonTouched:(id)sender {
-    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+    if ((![nameTextField.text  isEqual: @""]) && (![emailTextField.text  isEqual: @""]) && (![usernameTextField.text  isEqual: @""]) && (![passwordTextField.text  isEqual: @""]) && (![confirmPasswordTextField.text  isEqual: @""])) {
+        if ([passwordTextField.text isEqual:confirmPasswordTextField.text]) {
+            PFUser *user = [PFUser user];
+            user.username = usernameTextField.text;
+            user.password = passwordTextField.text;
+            user.email = emailTextField.text;
+            user[@"name"] = nameTextField.text;
+            
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+                } else {
+                    NSString *errorString = [error userInfo][@"error"];
+                    NSLog(@"error = %@", errorString);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error in the signup process, please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                }
+            }];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"Password and Confirm Password fields do not match" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            passwordTextField.text = @"";
+            confirmPasswordTextField.text = @"";
+            [alert show];
+        }
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill out all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 - (IBAction)backButtonTouched:(id)sender {

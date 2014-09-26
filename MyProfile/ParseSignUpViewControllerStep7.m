@@ -7,12 +7,14 @@
 //
 
 #import "ParseSignUpViewControllerStep7.h"
+#import "MenuViewController.h"
 
 @interface ParseSignUpViewControllerStep7 ()
 
 @end
 
 @implementation ParseSignUpViewControllerStep7
+@synthesize username, password;
 
 - (void)viewDidLoad
 {
@@ -59,6 +61,19 @@
 
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)continueButtonTouched:(id)sender {
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+        if (user) {
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            MenuViewController *myMenuViewController = [MenuViewController new];
+            myMenuViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MenuViewNavigationController"];
+            [self presentViewController:myMenuViewController animated:NO completion:nil];
+        } else {
+            NSLog(@"error = %@", error);
+        }
+    }];
 }
 
 -(float)maintenanceLevelCalories:(int)weight heightInInches:(int)height age:(int)age gender:(int)gender neat:(int)neat {

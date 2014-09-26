@@ -14,6 +14,7 @@
 @end
 
 @implementation ParseSignUpViewControllerStep6
+@synthesize inchesHeight, weight, gender, neat;
 
 - (void)viewDidLoad
 {
@@ -48,6 +49,18 @@
 }
 
 - (IBAction)startGettingSexyButtonTouched:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:[[PFUser currentUser] objectId] block:^(PFObject *user, NSError *error) {
+        user[@"height"] = [NSNumber numberWithInt:inchesHeight];
+        user[@"weight"] = [NSNumber numberWithInt:weight];
+        user[@"gender"] = [NSNumber numberWithInt:gender];
+        user[@"neat"] = [NSNumber numberWithInt:neat];
+        
+        [user saveInBackground];
+    }];
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

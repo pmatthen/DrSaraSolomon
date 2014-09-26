@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/Parse.h"
 
-@interface MyProfileViewController : UIViewController
+@interface MyProfileViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property UIPickerView *myPickerView;
+@property NSMutableArray *weightArray;
 
 -(IBAction)backButtonTouched:(id)sender;
 

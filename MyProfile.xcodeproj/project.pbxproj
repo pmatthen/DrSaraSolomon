@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8FF6380D39CD4168923C8525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 502340235F374596A7810DF6 /* libPods.a */; };
+		B11A07DB19A49FAF0006A3FE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11A07DA19A49FAF0006A3FE /* CoreData.framework */; };
+		B11A07DE19A49FE40006A3FE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B11A07DC19A49FE40006A3FE /* DataModel.xcdatamodeld */; };
 		B11B559919303F78000426E2 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11B559819303F78000426E2 /* RecipeViewController.m */; };
 		B122652C193D7F960037C6C9 /* SearchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B122652B193D7F960037C6C9 /* SearchButton.png */; };
 		B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B126970A191A1363002425C3 /* MyProfileTableViewCell.m */; };
@@ -58,6 +60,10 @@
 		B1681B5219174DF500923BB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1681B3419174DF500923BB3 /* UIKit.framework */; };
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
+		B168E3D319D5A705009A009F /* FoodTrackerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D219D5A705009A009F /* FoodTrackerItem.m */; };
+		B168E3D619D5A706009A009F /* RecordedWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D519D5A706009A009F /* RecordedWeight.m */; };
+		B168E3D919D5A706009A009F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D819D5A706009A009F /* User.m */; };
+		B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B169080819D2A67B00DE6C5A /* CoreDataStack.m */; };
 		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
 		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
 		B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */; };
@@ -149,6 +155,8 @@
 		B19EF08319247E450000AC09 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08019247E450000AC09 /* page2.png */; };
 		B19EF08419247E450000AC09 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = B19EF08119247E450000AC09 /* page1.png */; };
 		B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B7948B1917CEBF007ADE7B /* MenuViewTableViewCell.m */; };
+		B1B8CE5B19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B8CE5A19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m */; };
+		B1BCDF3C19C7097400BD6F29 /* AddFoodStep2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDF3B19C7097400BD6F29 /* AddFoodStep2TableViewCell.m */; };
 		B1BE752A197BE356005C1979 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BE7522197BE356005C1979 /* arrow@2x.png */; };
 		B1BE752B197BE356005C1979 /* camera_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BE7523197BE356005C1979 /* camera_icon@2x.png */; };
 		B1BE752C197BE356005C1979 /* deafult_profilepic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BE7524197BE356005C1979 /* deafult_profilepic@2x.png */; };
@@ -215,6 +223,8 @@
 /* Begin PBXFileReference section */
 		301D1E42605B4E359204793F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		502340235F374596A7810DF6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11A07DA19A49FAF0006A3FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B11A07DD19A49FE40006A3FE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B11B559719303F78000426E2 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		B11B559819303F78000426E2 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		B122652B193D7F960037C6C9 /* SearchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchButton.png; sourceTree = "<group>"; };
@@ -280,6 +290,14 @@
 		B1681B5719174DF500923BB3 /* MyProfileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyProfileTests-Info.plist"; sourceTree = "<group>"; };
 		B1681B5919174DF500923BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
+		B168E3D119D5A705009A009F /* FoodTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrackerItem.h; sourceTree = "<group>"; };
+		B168E3D219D5A705009A009F /* FoodTrackerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerItem.m; sourceTree = "<group>"; };
+		B168E3D419D5A706009A009F /* RecordedWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordedWeight.h; sourceTree = "<group>"; };
+		B168E3D519D5A706009A009F /* RecordedWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordedWeight.m; sourceTree = "<group>"; };
+		B168E3D719D5A706009A009F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B168E3D819D5A706009A009F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B169080719D2A67B00DE6C5A /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		B169080819D2A67B00DE6C5A /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleViewController.h; sourceTree = "<group>"; };
 		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
 		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
@@ -381,6 +399,10 @@
 		B19EF08119247E450000AC09 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		B1B7948A1917CEBF007ADE7B /* MenuViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewTableViewCell.h; sourceTree = "<group>"; };
 		B1B7948B1917CEBF007ADE7B /* MenuViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewTableViewCell.m; sourceTree = "<group>"; };
+		B1B8CE5919C6DDAF00FEB20C /* AddFoodViewControllerStep2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodViewControllerStep2.h; sourceTree = "<group>"; };
+		B1B8CE5A19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewControllerStep2.m; sourceTree = "<group>"; };
+		B1BCDF3A19C7097400BD6F29 /* AddFoodStep2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodStep2TableViewCell.h; sourceTree = "<group>"; };
+		B1BCDF3B19C7097400BD6F29 /* AddFoodStep2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodStep2TableViewCell.m; sourceTree = "<group>"; };
 		B1BE7522197BE356005C1979 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		B1BE7523197BE356005C1979 /* camera_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_icon@2x.png"; sourceTree = "<group>"; };
 		B1BE7524197BE356005C1979 /* deafult_profilepic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deafult_profilepic@2x.png"; sourceTree = "<group>"; };
@@ -444,6 +466,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11A07DB19A49FAF0006A3FE /* CoreData.framework in Frameworks */,
 				B1681B3319174DF500923BB3 /* CoreGraphics.framework in Frameworks */,
 				B1681B3519174DF500923BB3 /* UIKit.framework in Frameworks */,
 				B1681B3119174DF500923BB3 /* Foundation.framework in Frameworks */,
@@ -582,6 +605,7 @@
 		B1681B2F19174DF500923BB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B11A07DA19A49FAF0006A3FE /* CoreData.framework */,
 				B1681B3019174DF500923BB3 /* Foundation.framework */,
 				B1681B3219174DF500923BB3 /* CoreGraphics.framework */,
 				B1681B3419174DF500923BB3 /* UIKit.framework */,
@@ -594,6 +618,7 @@
 		B1681B3619174DF500923BB3 /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				B1BCE66E19C960EF001AF03C /* DataModel */,
 				B1681B4219174DF500923BB3 /* Main.storyboard */,
 				B1681B3F19174DF500923BB3 /* AppDelegate.h */,
 				B1681B4019174DF500923BB3 /* AppDelegate.m */,
@@ -618,6 +643,10 @@
 				B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */,
 				B156C3D91960398000C1E6AF /* AddFoodViewController.h */,
 				B156C3DA1960398000C1E6AF /* AddFoodViewController.m */,
+				B1B8CE5919C6DDAF00FEB20C /* AddFoodViewControllerStep2.h */,
+				B1B8CE5A19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m */,
+				B1BCDF3A19C7097400BD6F29 /* AddFoodStep2TableViewCell.h */,
+				B1BCDF3B19C7097400BD6F29 /* AddFoodStep2TableViewCell.m */,
 				B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */,
 				B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */,
 				B16D1D2A199C9C7100CBE80C /* Recipe Section */,
@@ -950,6 +979,22 @@
 				B1653C061918D21E007A73B7 /* drawerIcon.png */,
 			);
 			name = AccordionImages;
+			sourceTree = "<group>";
+		};
+		B1BCE66E19C960EF001AF03C /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B169080719D2A67B00DE6C5A /* CoreDataStack.h */,
+				B169080819D2A67B00DE6C5A /* CoreDataStack.m */,
+				B11A07DC19A49FE40006A3FE /* DataModel.xcdatamodeld */,
+				B168E3D719D5A706009A009F /* User.h */,
+				B168E3D819D5A706009A009F /* User.m */,
+				B168E3D419D5A706009A009F /* RecordedWeight.h */,
+				B168E3D519D5A706009A009F /* RecordedWeight.m */,
+				B168E3D119D5A705009A009F /* FoodTrackerItem.h */,
+				B168E3D219D5A705009A009F /* FoodTrackerItem.m */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 		B1BE7521197BE356005C1979 /* My Profile - assets_retina */ = {
@@ -1342,16 +1387,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1C5A0D219237DD300799705 /* InitialViewController.m in Sources */,
+				B11A07DE19A49FE40006A3FE /* DataModel.xcdatamodeld in Sources */,
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
 				B1F895261988DF030057C4F9 /* ParseSignUpViewControllerStep6.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
 				B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */,
+				B168E3D619D5A706009A009F /* RecordedWeight.m in Sources */,
+				B1B8CE5B19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
 				B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */,
 				B1921139192634400017F4ED /* ParseSignUpViewControllerStep1.m in Sources */,
 				B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */,
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
+				B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */,
+				B168E3D919D5A706009A009F /* User.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
 				B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */,
@@ -1359,9 +1409,11 @@
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */,
 				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
+				B1BCDF3C19C7097400BD6F29 /* AddFoodStep2TableViewCell.m in Sources */,
 				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
+				B168E3D319D5A705009A009F /* FoodTrackerItem.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
 				B1E3C9E2196E40C800659A15 /* ILTranslucentView.m in Sources */,
 				B198D813199CB69100F39C68 /* RecipeSearchTableViewCell.m in Sources */,
@@ -1587,6 +1639,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B11A07DC19A49FE40006A3FE /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B11A07DD19A49FE40006A3FE /* DataModel.xcdatamodel */,
+			);
+			currentVersion = B11A07DD19A49FE40006A3FE /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B1681B2519174DF500923BB3 /* Project object */;
 }

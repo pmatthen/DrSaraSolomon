@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/Parse.h"
 
 @interface ParseSignUpViewControllerStep7 : UIViewController
 
 - (IBAction)backButtonTouched:(id)sender;
+- (IBAction)continueButtonTouched:(id)sender;
 
 @property NSString *name;
 @property NSString *email;

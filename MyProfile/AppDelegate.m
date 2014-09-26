@@ -35,16 +35,16 @@
                                   }
                               }];
     
-//    [[FSClient sharedClient] getFood:624623 completion:^(FSFood *food) {
-//        
-//        NSLog(@"food = %@, %@", food.name, food.foodDescription);
-//        for (int i = 0; i < [food.servings count]; i++) {
-//            FSServing *tempServing = food.servings[i];
-//            NSLog(@"protein = %@", tempServing.protein);
-//            NSLog(@"proteinValue = %f", tempServing.proteinValue);
-//            NSLog(@"serving size = %@", tempServing.servingDescription);
-//        }
-//    }];
+    [[FSClient sharedClient] getFood:624623 completion:^(FSFood *food) {
+        
+        NSLog(@"food = %@, %@", food.name, food.foodDescription);
+        for (int i = 0; i < [food.servings count]; i++) {
+            FSServing *tempServing = food.servings[i];
+            NSLog(@"protein = %@", tempServing.protein);
+            NSLog(@"proteinValue = %f", tempServing.proteinValue);
+            NSLog(@"serving size = %@", tempServing.servingDescription);
+        }
+    }];
     
 //    [[FSClient sharedClient] searchRecipes:@"Chicken Pot Pie" recipeType:@"" pageNumber:0 maxResults:20 completion:^(NSArray *recipes, NSString *recipeType, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber) {
 //        for (int i; i < [recipes count]; i++) {

@@ -52,7 +52,7 @@
         
         switch (i) {
             case 0:
-                iconImageView.image = [UIImage imageNamed:@"ss_logo@2x.png"];
+                iconImageView.image = [UIImage imageNamed:@"ss_logo.png"];
                 iconTitleLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
                 iconTitleLabel.textColor = [UIColor whiteColor];
                 iconTitleLabel.text = @"Intermittent Fasting";
@@ -63,7 +63,7 @@
                 [iconSubTitleLabel sizeToFit];
                 break;
             case 1:
-                iconImageView.image = [UIImage imageNamed:@"track_calories_icon@2x.png"];
+                iconImageView.image = [UIImage imageNamed:@"track_calories_icon.png"];
                 iconTitleLabel.font = [UIFont fontWithName:@"Norican-Regular" size:28];
                 iconTitleLabel.frame = CGRectMake(62, 283, 80, 40);
                 iconTitleLabel.textColor = [UIColor whiteColor];
@@ -76,7 +76,7 @@
                 [iconSubTitleLabel sizeToFit];
                 break;
             case 2:
-                iconImageView.image = [UIImage imageNamed:@"reachgoals_icon@2x.png"];
+                iconImageView.image = [UIImage imageNamed:@"reachgoals_icon.png"];
                 iconTitleLabel.font = [UIFont fontWithName:@"Norican-Regular" size:28];
                 iconTitleLabel.frame = CGRectMake(72, 283, 80, 40);
                 iconTitleLabel.textColor = [UIColor whiteColor];
@@ -125,14 +125,14 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     
     UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(285, 17, 25, 24)];
-    arrowImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+    arrowImageView.image = [UIImage imageNamed:@"arrow.png"];
     [cell addSubview:arrowImageView];
     
     if (indexPath.row == 0) {
         [cell.choiceTitleLabel setFont:[UIFont fontWithName:@"Oswald" size:14]];
         cell.choiceTitleLabel.textColor = [UIColor whiteColor];
 
-        [cell.initialViewControllerTableViewCellImageView setImage:[UIImage imageNamed:@"signup_button@2x.png"]];
+        [cell.initialViewControllerTableViewCellImageView setImage:[UIImage imageNamed:@"signup_button.png"]];
     } else {
         UIFont *oswaldLightFont = [UIFont fontWithName:@"Oswald-Light" size:14];
         UIFont *oswaldFont = [UIFont fontWithName:@"Oswald" size:14];
@@ -148,7 +148,7 @@
         [cell.choiceTitleLabel setAttributedText:attributedText];
         cell.choiceTitleLabel.textColor = [UIColor whiteColor];        
 
-        [cell.initialViewControllerTableViewCellImageView setImage:[UIImage imageNamed:@"login_button@2x.png"]];
+        [cell.initialViewControllerTableViewCellImageView setImage:[UIImage imageNamed:@"login_button.png"]];
     }
     
     return cell;
