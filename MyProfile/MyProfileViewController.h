@@ -14,7 +14,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property UIPickerView *myPickerView;
 @property NSMutableArray *weightArray;
+@property (strong, nonatomic) IBOutlet UIButton *myCameraButton;
 
 -(IBAction)backButtonTouched:(id)sender;
+- (IBAction)cameraButtonTouched:(id)sender;
 
 @end

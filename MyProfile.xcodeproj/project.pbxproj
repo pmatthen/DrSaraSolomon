@@ -19,6 +19,7 @@
 		B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA519249976009D1FD2 /* InitialViewControlllerTableViewCell.m */; };
 		B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */; };
 		B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */; };
+		B14C3FB619DBC7A700071DDF /* SaveImageNSValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = B14C3FB519DBC7A700071DDF /* SaveImageNSValueTransformer.m */; };
 		B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */; };
 		B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D21960014E00C1E6AF /* leftArrow.png */; };
 		B156C3D51960015200C1E6AF /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D41960015200C1E6AF /* rightArrow.png */; };
@@ -60,10 +61,10 @@
 		B1681B5219174DF500923BB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1681B3419174DF500923BB3 /* UIKit.framework */; };
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
-		B168E3D319D5A705009A009F /* FoodTrackerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D219D5A705009A009F /* FoodTrackerItem.m */; };
-		B168E3D619D5A706009A009F /* RecordedWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D519D5A706009A009F /* RecordedWeight.m */; };
-		B168E3D919D5A706009A009F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B168E3D819D5A706009A009F /* User.m */; };
 		B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B169080819D2A67B00DE6C5A /* CoreDataStack.m */; };
+		B16A5BBC19EC06B2009BE533 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BBB19EC06B2009BE533 /* User.m */; };
+		B16A5BBF19EC06B3009BE533 /* FoodTrackerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */; };
+		B16A5BC219EC06B3009BE533 /* RecordedWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BC119EC06B3009BE533 /* RecordedWeight.m */; };
 		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
 		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
 		B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */; };
@@ -180,6 +181,8 @@
 		B1CF7376197BD0A500E21F81 /* nav_rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF736F197BD0A500E21F81 /* nav_rectangle@2x.png */; };
 		B1CF7377197BD0A500E21F81 /* recipes_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF7370197BD0A500E21F81 /* recipes_icon@2x.png */; };
 		B1CF7378197BD0A500E21F81 /* workouts_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF7371197BD0A500E21F81 /* workouts_icon@2x.png */; };
+		B1D4E73119DECEF30093AA08 /* intermittent_eatingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D4E72F19DECEF30093AA08 /* intermittent_eatingtimer_active.png */; };
+		B1D4E73219DECEF30093AA08 /* intermittent_fastingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D4E73019DECEF30093AA08 /* intermittent_fastingtimer_active.png */; };
 		B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D635771920B9CB004C3249 /* MoreViewController.m */; };
 		B1DA3B311973D9A900DE3F3B /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DA3B281973D9A900DE3F3B /* arrow@2x.png */; };
 		B1DA3B321973D9A900DE3F3B /* login_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DA3B291973D9A900DE3F3B /* login_button@2x.png */; };
@@ -190,6 +193,34 @@
 		B1DA3B371973D9A900DE3F3B /* slideshow_circles_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DA3B2E1973D9A900DE3F3B /* slideshow_circles_filled@2x.png */; };
 		B1DA3B381973D9A900DE3F3B /* ss_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DA3B2F1973D9A900DE3F3B /* ss_logo@2x.png */; };
 		B1DA3B391973D9A900DE3F3B /* track_calories_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DA3B301973D9A900DE3F3B /* track_calories_icon@2x.png */; };
+		B1DF1E2919E96A110080C247 /* IntermittentFastingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DF1E2819E96A110080C247 /* IntermittentFastingViewController.m */; };
+		B1DF1E4C19E973180080C247 /* intermittent_eatingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E2C19E973180080C247 /* intermittent_eatingtimer_active.png */; };
+		B1DF1E4D19E973180080C247 /* intermittent_fastingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E2D19E973180080C247 /* intermittent_fastingtimer_active.png */; };
+		B1DF1E4E19E973180080C247 /* triangleArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E2F19E973180080C247 /* triangleArrow.png */; };
+		B1DF1E4F19E973180080C247 /* PopUp_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3019E973180080C247 /* PopUp_Background.png */; };
+		B1DF1E5019E973180080C247 /* protocoldividers_thin.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3119E973180080C247 /* protocoldividers_thin.png */; };
+		B1DF1E5119E973180080C247 /* x_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3219E973180080C247 /* x_icon.png */; };
+		B1DF1E5219E973180080C247 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3419E973180080C247 /* arrow.png */; };
+		B1DF1E5319E973180080C247 /* protocoldividers_thick.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3519E973180080C247 /* protocoldividers_thick.png */; };
+		B1DF1E5419E973180080C247 /* protocoldividers_thin.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3619E973180080C247 /* protocoldividers_thin.png */; };
+		B1DF1E5519E973180080C247 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3719E973180080C247 /* start_button.png */; };
+		B1DF1E5619E973180080C247 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3819E973180080C247 /* stop_button.png */; };
+		B1DF1E5719E973180080C247 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3A19E973180080C247 /* stop_button.png */; };
+		B1DF1E5819E973180080C247 /* enable_box.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3C19E973180080C247 /* enable_box.png */; };
+		B1DF1E5919E973180080C247 /* enable_box_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3D19E973180080C247 /* enable_box_selected.png */; };
+		B1DF1E5A19E973180080C247 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3E19E973180080C247 /* stop_button.png */; };
+		B1DF1E5B19E973180080C247 /* update_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E3F19E973180080C247 /* update_button.png */; };
+		B1DF1E5C19E973180080C247 /* arrow_small_down.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4219E973180080C247 /* arrow_small_down.png */; };
+		B1DF1E5D19E973180080C247 /* arrow_small_left.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4319E973180080C247 /* arrow_small_left.png */; };
+		B1DF1E5E19E973180080C247 /* arrow_small_right.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4419E973180080C247 /* arrow_small_right.png */; };
+		B1DF1E5F19E973180080C247 /* arrow_small_up.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4519E973180080C247 /* arrow_small_up.png */; };
+		B1DF1E6019E973180080C247 /* drawer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4619E973180080C247 /* drawer_icon.png */; };
+		B1DF1E6119E973180080C247 /* pattern_background.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4719E973180080C247 /* pattern_background.png */; };
+		B1DF1E6219E973180080C247 /* purplenav_rectangles.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4819E973180080C247 /* purplenav_rectangles.png */; };
+		B1DF1E6319E973180080C247 /* questionmark_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4919E973180080C247 /* questionmark_icon.png */; };
+		B1DF1E6419E973180080C247 /* topheader.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4A19E973180080C247 /* topheader.png */; };
+		B1DF1E6519E973180080C247 /* topstrip.png in Resources */ = {isa = PBXBuildFile; fileRef = B1DF1E4B19E973180080C247 /* topstrip.png */; };
+		B1DF1E6819E999160080C247 /* IntermittentFastingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DF1E6719E999160080C247 /* IntermittentFastingTableViewCell.m */; };
 		B1E3C9E2196E40C800659A15 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C9E1196E40C800659A15 /* ILTranslucentView.m */; };
 		B1E64206191BB1AA00E6E6E4 /* graphImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E64205191BB1AA00E6E6E4 /* graphImage.png */; };
 		B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E64207191BB4B700E6E6E4 /* pickerImage.png */; };
@@ -239,6 +270,8 @@
 		B13A9CA81924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep3.m; sourceTree = "<group>"; };
 		B13A9CAA1924AE2C009D1FD2 /* ParseLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLogInViewController.h; sourceTree = "<group>"; };
 		B13A9CAB1924AE2C009D1FD2 /* ParseLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLogInViewController.m; sourceTree = "<group>"; };
+		B14C3FB419DBC7A700071DDF /* SaveImageNSValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageNSValueTransformer.h; sourceTree = "<group>"; };
+		B14C3FB519DBC7A700071DDF /* SaveImageNSValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageNSValueTransformer.m; sourceTree = "<group>"; };
 		B156C3CF195FF43700C1E6AF /* DailyTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTrackerViewController.h; sourceTree = "<group>"; };
 		B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTrackerViewController.m; sourceTree = "<group>"; };
 		B156C3D21960014E00C1E6AF /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
@@ -290,14 +323,14 @@
 		B1681B5719174DF500923BB3 /* MyProfileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyProfileTests-Info.plist"; sourceTree = "<group>"; };
 		B1681B5919174DF500923BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
-		B168E3D119D5A705009A009F /* FoodTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrackerItem.h; sourceTree = "<group>"; };
-		B168E3D219D5A705009A009F /* FoodTrackerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerItem.m; sourceTree = "<group>"; };
-		B168E3D419D5A706009A009F /* RecordedWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordedWeight.h; sourceTree = "<group>"; };
-		B168E3D519D5A706009A009F /* RecordedWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordedWeight.m; sourceTree = "<group>"; };
-		B168E3D719D5A706009A009F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B168E3D819D5A706009A009F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B169080719D2A67B00DE6C5A /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		B169080819D2A67B00DE6C5A /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		B16A5BBA19EC06B2009BE533 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B16A5BBB19EC06B2009BE533 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B16A5BBD19EC06B3009BE533 /* FoodTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrackerItem.h; sourceTree = "<group>"; };
+		B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerItem.m; sourceTree = "<group>"; };
+		B16A5BC019EC06B3009BE533 /* RecordedWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordedWeight.h; sourceTree = "<group>"; };
+		B16A5BC119EC06B3009BE533 /* RecordedWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordedWeight.m; sourceTree = "<group>"; };
 		B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleViewController.h; sourceTree = "<group>"; };
 		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
 		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
@@ -427,6 +460,8 @@
 		B1CF736F197BD0A500E21F81 /* nav_rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_rectangle@2x.png"; sourceTree = "<group>"; };
 		B1CF7370197BD0A500E21F81 /* recipes_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipes_icon@2x.png"; sourceTree = "<group>"; };
 		B1CF7371197BD0A500E21F81 /* workouts_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workouts_icon@2x.png"; sourceTree = "<group>"; };
+		B1D4E72F19DECEF30093AA08 /* intermittent_eatingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_eatingtimer_active.png; sourceTree = "<group>"; };
+		B1D4E73019DECEF30093AA08 /* intermittent_fastingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_fastingtimer_active.png; sourceTree = "<group>"; };
 		B1D635761920B9CB004C3249 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		B1D635771920B9CB004C3249 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		B1DA3B281973D9A900DE3F3B /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
@@ -438,6 +473,36 @@
 		B1DA3B2E1973D9A900DE3F3B /* slideshow_circles_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slideshow_circles_filled@2x.png"; sourceTree = "<group>"; };
 		B1DA3B2F1973D9A900DE3F3B /* ss_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ss_logo@2x.png"; sourceTree = "<group>"; };
 		B1DA3B301973D9A900DE3F3B /* track_calories_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track_calories_icon@2x.png"; sourceTree = "<group>"; };
+		B1DF1E2719E96A110080C247 /* IntermittentFastingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntermittentFastingViewController.h; sourceTree = "<group>"; };
+		B1DF1E2819E96A110080C247 /* IntermittentFastingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntermittentFastingViewController.m; sourceTree = "<group>"; };
+		B1DF1E2C19E973180080C247 /* intermittent_eatingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_eatingtimer_active.png; sourceTree = "<group>"; };
+		B1DF1E2D19E973180080C247 /* intermittent_fastingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_fastingtimer_active.png; sourceTree = "<group>"; };
+		B1DF1E2F19E973180080C247 /* triangleArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangleArrow.png; sourceTree = "<group>"; };
+		B1DF1E3019E973180080C247 /* PopUp_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopUp_Background.png; sourceTree = "<group>"; };
+		B1DF1E3119E973180080C247 /* protocoldividers_thin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protocoldividers_thin.png; sourceTree = "<group>"; };
+		B1DF1E3219E973180080C247 /* x_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_icon.png; sourceTree = "<group>"; };
+		B1DF1E3419E973180080C247 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		B1DF1E3519E973180080C247 /* protocoldividers_thick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protocoldividers_thick.png; sourceTree = "<group>"; };
+		B1DF1E3619E973180080C247 /* protocoldividers_thin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protocoldividers_thin.png; sourceTree = "<group>"; };
+		B1DF1E3719E973180080C247 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
+		B1DF1E3819E973180080C247 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_button.png; sourceTree = "<group>"; };
+		B1DF1E3A19E973180080C247 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_button.png; sourceTree = "<group>"; };
+		B1DF1E3C19E973180080C247 /* enable_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enable_box.png; sourceTree = "<group>"; };
+		B1DF1E3D19E973180080C247 /* enable_box_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enable_box_selected.png; sourceTree = "<group>"; };
+		B1DF1E3E19E973180080C247 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_button.png; sourceTree = "<group>"; };
+		B1DF1E3F19E973180080C247 /* update_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_button.png; sourceTree = "<group>"; };
+		B1DF1E4219E973180080C247 /* arrow_small_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_small_down.png; sourceTree = "<group>"; };
+		B1DF1E4319E973180080C247 /* arrow_small_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_small_left.png; sourceTree = "<group>"; };
+		B1DF1E4419E973180080C247 /* arrow_small_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_small_right.png; sourceTree = "<group>"; };
+		B1DF1E4519E973180080C247 /* arrow_small_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_small_up.png; sourceTree = "<group>"; };
+		B1DF1E4619E973180080C247 /* drawer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawer_icon.png; sourceTree = "<group>"; };
+		B1DF1E4719E973180080C247 /* pattern_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern_background.png; sourceTree = "<group>"; };
+		B1DF1E4819E973180080C247 /* purplenav_rectangles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purplenav_rectangles.png; sourceTree = "<group>"; };
+		B1DF1E4919E973180080C247 /* questionmark_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionmark_icon.png; sourceTree = "<group>"; };
+		B1DF1E4A19E973180080C247 /* topheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topheader.png; sourceTree = "<group>"; };
+		B1DF1E4B19E973180080C247 /* topstrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topstrip.png; sourceTree = "<group>"; };
+		B1DF1E6619E999160080C247 /* IntermittentFastingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntermittentFastingTableViewCell.h; sourceTree = "<group>"; };
+		B1DF1E6719E999160080C247 /* IntermittentFastingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntermittentFastingTableViewCell.m; sourceTree = "<group>"; };
 		B1E3C9E0196E40C800659A15 /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTranslucentView.h; sourceTree = "<group>"; };
 		B1E3C9E1196E40C800659A15 /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTranslucentView.m; sourceTree = "<group>"; };
 		B1E64205191BB1AA00E6E6E4 /* graphImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graphImage.png; sourceTree = "<group>"; };
@@ -649,6 +714,10 @@
 				B1BCDF3B19C7097400BD6F29 /* AddFoodStep2TableViewCell.m */,
 				B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */,
 				B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */,
+				B1DF1E2719E96A110080C247 /* IntermittentFastingViewController.h */,
+				B1DF1E2819E96A110080C247 /* IntermittentFastingViewController.m */,
+				B1DF1E6619E999160080C247 /* IntermittentFastingTableViewCell.h */,
+				B1DF1E6719E999160080C247 /* IntermittentFastingTableViewCell.m */,
 				B16D1D2A199C9C7100CBE80C /* Recipe Section */,
 				B1D635761920B9CB004C3249 /* MoreViewController.h */,
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
@@ -663,6 +732,7 @@
 		B1681B3719174DF500923BB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1DF1E2A19E973180080C247 /* Intermittent Fasting - assets_standard */,
 				B1745F0C199BAF1C00C44221 /* Recipe - assets_retina */,
 				B178BF2C1990BBC100439A16 /* Daily Tracker - assets_retina */,
 				B1F895061988DE290057C4F9 /* Congrats Results - assets_retina */,
@@ -984,15 +1054,17 @@
 		B1BCE66E19C960EF001AF03C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				B14C3FB419DBC7A700071DDF /* SaveImageNSValueTransformer.h */,
+				B14C3FB519DBC7A700071DDF /* SaveImageNSValueTransformer.m */,
 				B169080719D2A67B00DE6C5A /* CoreDataStack.h */,
 				B169080819D2A67B00DE6C5A /* CoreDataStack.m */,
 				B11A07DC19A49FE40006A3FE /* DataModel.xcdatamodeld */,
-				B168E3D719D5A706009A009F /* User.h */,
-				B168E3D819D5A706009A009F /* User.m */,
-				B168E3D419D5A706009A009F /* RecordedWeight.h */,
-				B168E3D519D5A706009A009F /* RecordedWeight.m */,
-				B168E3D119D5A705009A009F /* FoodTrackerItem.h */,
-				B168E3D219D5A705009A009F /* FoodTrackerItem.m */,
+				B16A5BC019EC06B3009BE533 /* RecordedWeight.h */,
+				B16A5BC119EC06B3009BE533 /* RecordedWeight.m */,
+				B16A5BBD19EC06B3009BE533 /* FoodTrackerItem.h */,
+				B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */,
+				B16A5BBA19EC06B2009BE533 /* User.h */,
+				B16A5BBB19EC06B2009BE533 /* User.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -1029,6 +1101,8 @@
 		B1CF736A197BD0A500E21F81 /* Main Menu - assets_retina */ = {
 			isa = PBXGroup;
 			children = (
+				B1D4E72F19DECEF30093AA08 /* intermittent_eatingtimer_active.png */,
+				B1D4E73019DECEF30093AA08 /* intermittent_fastingtimer_active.png */,
 				B1CF736B197BD0A500E21F81 /* MainMenu - arrow@2x.png */,
 				B1CF736C197BD0A500E21F81 /* dailytracker_icon@2x.png */,
 				B1CF736D197BD0A500E21F81 /* more_icon@2x.png */,
@@ -1054,6 +1128,95 @@
 				B1DA3B301973D9A900DE3F3B /* track_calories_icon@2x.png */,
 			);
 			path = "Home - assets_retina";
+			sourceTree = "<group>";
+		};
+		B1DF1E2A19E973180080C247 /* Intermittent Fasting - assets_standard */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E2B19E973180080C247 /* (1) Main Navigation Menu Icons */,
+				B1DF1E2E19E973180080C247 /* (2) Intermittent Pop Up Explanation */,
+				B1DF1E3319E973180080C247 /* (3) Information Section */,
+				B1DF1E3919E973180080C247 /* (4) Timer Section */,
+				B1DF1E3B19E973180080C247 /* (5) Settings Section */,
+				B1DF1E4019E973180080C247 /* _for all screens */,
+			);
+			path = "Intermittent Fasting - assets_standard";
+			sourceTree = "<group>";
+		};
+		B1DF1E2B19E973180080C247 /* (1) Main Navigation Menu Icons */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E2C19E973180080C247 /* intermittent_eatingtimer_active.png */,
+				B1DF1E2D19E973180080C247 /* intermittent_fastingtimer_active.png */,
+			);
+			path = "(1) Main Navigation Menu Icons";
+			sourceTree = "<group>";
+		};
+		B1DF1E2E19E973180080C247 /* (2) Intermittent Pop Up Explanation */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E2F19E973180080C247 /* triangleArrow.png */,
+				B1DF1E3019E973180080C247 /* PopUp_Background.png */,
+				B1DF1E3119E973180080C247 /* protocoldividers_thin.png */,
+				B1DF1E3219E973180080C247 /* x_icon.png */,
+			);
+			path = "(2) Intermittent Pop Up Explanation";
+			sourceTree = "<group>";
+		};
+		B1DF1E3319E973180080C247 /* (3) Information Section */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E3419E973180080C247 /* arrow.png */,
+				B1DF1E3519E973180080C247 /* protocoldividers_thick.png */,
+				B1DF1E3619E973180080C247 /* protocoldividers_thin.png */,
+				B1DF1E3719E973180080C247 /* start_button.png */,
+				B1DF1E3819E973180080C247 /* stop_button.png */,
+			);
+			path = "(3) Information Section";
+			sourceTree = "<group>";
+		};
+		B1DF1E3919E973180080C247 /* (4) Timer Section */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E3A19E973180080C247 /* stop_button.png */,
+			);
+			path = "(4) Timer Section";
+			sourceTree = "<group>";
+		};
+		B1DF1E3B19E973180080C247 /* (5) Settings Section */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E3C19E973180080C247 /* enable_box.png */,
+				B1DF1E3D19E973180080C247 /* enable_box_selected.png */,
+				B1DF1E3E19E973180080C247 /* stop_button.png */,
+				B1DF1E3F19E973180080C247 /* update_button.png */,
+			);
+			path = "(5) Settings Section";
+			sourceTree = "<group>";
+		};
+		B1DF1E4019E973180080C247 /* _for all screens */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E4119E973180080C247 /* arrows */,
+				B1DF1E4619E973180080C247 /* drawer_icon.png */,
+				B1DF1E4719E973180080C247 /* pattern_background.png */,
+				B1DF1E4819E973180080C247 /* purplenav_rectangles.png */,
+				B1DF1E4919E973180080C247 /* questionmark_icon.png */,
+				B1DF1E4A19E973180080C247 /* topheader.png */,
+				B1DF1E4B19E973180080C247 /* topstrip.png */,
+			);
+			path = "_for all screens";
+			sourceTree = "<group>";
+		};
+		B1DF1E4119E973180080C247 /* arrows */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF1E4219E973180080C247 /* arrow_small_down.png */,
+				B1DF1E4319E973180080C247 /* arrow_small_left.png */,
+				B1DF1E4419E973180080C247 /* arrow_small_right.png */,
+				B1DF1E4519E973180080C247 /* arrow_small_up.png */,
+			);
+			path = arrows;
 			sourceTree = "<group>";
 		};
 		B1F895061988DE290057C4F9 /* Congrats Results - assets_retina */ = {
@@ -1187,11 +1350,13 @@
 				B1BE752C197BE356005C1979 /* deafult_profilepic@2x.png in Resources */,
 				B164AD951962D0DC00873D6B /* Oswald-Bold.otf in Resources */,
 				B164AD961962D0DC00873D6B /* Oswald-Light.otf in Resources */,
+				B1DF1E6219E973180080C247 /* purplenav_rectangles.png in Resources */,
 				B1CF7368197B97A400E21F81 /* pattern_background@2x.png in Resources */,
 				B1745F4C199BAF1C00C44221 /* watchvideo_button@2x.png in Resources */,
 				B1F8951E1988DE290057C4F9 /* pattern_background@2x.png in Resources */,
 				B178BF6B1990BBC100439A16 /* snackicon@2x.png in Resources */,
 				B178BF811990BBC100439A16 /* addicon@2x.png in Resources */,
+				B1DF1E5219E973180080C247 /* arrow.png in Resources */,
 				B178BF8E1990BBC100439A16 /* arrow@2x.png in Resources */,
 				B164AD921962C53400873D6B /* Oswald-Regular.otf in Resources */,
 				B164AD891962C11F00873D6B /* fitness_blurryBG@2x.png in Resources */,
@@ -1200,16 +1365,20 @@
 				B178BF7B1990BBC100439A16 /* divider@2x.png in Resources */,
 				B178BF6D1990BBC100439A16 /* addfoodbutton_activated@2x.png in Resources */,
 				B1681B4919174DF500923BB3 /* Images.xcassets in Resources */,
+				B1DF1E4D19E973180080C247 /* intermittent_fastingtimer_active.png in Resources */,
 				B126970D191A16E8002425C3 /* upArrow.png in Resources */,
 				B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */,
 				B178BF821990BBC100439A16 /* backgroundrectangle@2x.png in Resources */,
 				B1DA3B311973D9A900DE3F3B /* arrow@2x.png in Resources */,
 				B1745F41199BAF1C00C44221 /* thickerdivider@2x.png in Resources */,
 				B178BF741990BBC100439A16 /* menurectanglefull@2x.png in Resources */,
+				B1DF1E6419E973180080C247 /* topheader.png in Resources */,
 				B178BF631990BBC100439A16 /* breakfasticon@2x.png in Resources */,
 				B164AD831962C11F00873D6B /* weight_and_gender_lines@2x.png in Resources */,
 				B178BF7E1990BBC100439A16 /* selectedicon@2x.png in Resources */,
 				B178BF721990BBC100439A16 /* lunchicon@2x.png in Resources */,
+				B1DF1E6019E973180080C247 /* drawer_icon.png in Resources */,
+				B1DF1E6319E973180080C247 /* questionmark_icon.png in Resources */,
 				B19EF08419247E450000AC09 /* page1.png in Resources */,
 				B1DA3B321973D9A900DE3F3B /* login_button@2x.png in Resources */,
 				B178BF771990BBC100439A16 /* searchicon@2x.png in Resources */,
@@ -1222,8 +1391,10 @@
 				B1F8951D1988DE290057C4F9 /* intermittentfasting_rectangle@2x.png in Resources */,
 				B1F8951F1988DE290057C4F9 /* questionmark_icon@2x.png in Resources */,
 				B1DA3B341973D9A900DE3F3B /* reachgoals_icon@2x.png in Resources */,
+				B1D4E73219DECEF30093AA08 /* intermittent_fastingtimer_active.png in Resources */,
 				B178BF901990BBC100439A16 /* pattern_background@2x.png in Resources */,
 				B178BF831990BBC100439A16 /* divider@2x.png in Resources */,
+				B1DF1E4E19E973180080C247 /* triangleArrow.png in Resources */,
 				B178BF691990BBC100439A16 /* lunchicon@2x.png in Resources */,
 				B164AD841962C11F00873D6B /* height_lines@2x.png in Resources */,
 				B1F8951A1988DE290057C4F9 /* continue_button@2x.png in Resources */,
@@ -1233,6 +1404,7 @@
 				B1CF7376197BD0A500E21F81 /* nav_rectangle@2x.png in Resources */,
 				B1745F4D199BAF1C00C44221 /* arrow@2x.png in Resources */,
 				B1BE752D197BE356005C1979 /* drawer_icon@2x.png in Resources */,
+				B1DF1E5119E973180080C247 /* x_icon.png in Resources */,
 				B164AD8C1962C11F00873D6B /* x_icon@2x.png in Resources */,
 				B1745F46199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
 				B1745F43199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */,
@@ -1242,6 +1414,7 @@
 				B19EF08319247E450000AC09 /* page2.png in Resources */,
 				B122652C193D7F960037C6C9 /* SearchButton.png in Resources */,
 				B1DA3B351973D9A900DE3F3B /* signup_button@2x.png in Resources */,
+				B1DF1E5D19E973180080C247 /* arrow_small_left.png in Resources */,
 				B1CF7369197B97A400E21F81 /* user_avatar@2x.png in Resources */,
 				B1DA3B331973D9A900DE3F3B /* pattern_background@2x.png in Resources */,
 				B1CF7372197BD0A500E21F81 /* MainMenu - arrow@2x.png in Resources */,
@@ -1250,13 +1423,16 @@
 				B1F8951B1988DE290057C4F9 /* congrats_header_rectangle@2x.png in Resources */,
 				B1745F38199BAF1C00C44221 /* searchline@2x.png in Resources */,
 				B178BF6E1990BBC100439A16 /* breakfasticon@2x.png in Resources */,
+				B1D4E73119DECEF30093AA08 /* intermittent_eatingtimer_active.png in Resources */,
 				B178BF8B1990BBC100439A16 /* donebutton_activated@2x.png in Resources */,
 				B1CF7375197BD0A500E21F81 /* myprofile_icon@2x.png in Resources */,
+				B1DF1E6519E973180080C247 /* topstrip.png in Resources */,
 				B1745F3E199BAF1C00C44221 /* rectanglemenu@2x.png in Resources */,
 				B164AD8B1962C11F00873D6B /* questionmark_icon@2x.png in Resources */,
 				B19EF08219247E450000AC09 /* page3.png in Resources */,
 				B1F895231988DE290057C4F9 /* x_icon@2x.png in Resources */,
 				B1E64208191BB4B700E6E6E4 /* pickerImage.png in Resources */,
+				B1DF1E5A19E973180080C247 /* stop_button.png in Resources */,
 				B1BE7537197BEC90005C1979 /* upArrow@2x.png in Resources */,
 				B1681B3B19174DF500923BB3 /* InfoPlist.strings in Resources */,
 				B178BF7A1990BBC100439A16 /* backgroundrectangle@2x.png in Resources */,
@@ -1266,9 +1442,11 @@
 				B178BF661990BBC100439A16 /* dinnericon@2x.png in Resources */,
 				B178BF701990BBC100439A16 /* daterectangle@2x.png in Resources */,
 				B1DA3B381973D9A900DE3F3B /* ss_logo@2x.png in Resources */,
+				B1DF1E5C19E973180080C247 /* arrow_small_down.png in Resources */,
 				B1CF7373197BD0A500E21F81 /* dailytracker_icon@2x.png in Resources */,
 				B156C3D51960015200C1E6AF /* rightArrow.png in Resources */,
 				B178BF731990BBC100439A16 /* menurectangle@2x.png in Resources */,
+				B1DF1E4C19E973180080C247 /* intermittent_eatingtimer_active.png in Resources */,
 				B164AD821962C11F00873D6B /* field_line@2x.png in Resources */,
 				B1BE752F197BE356005C1979 /* myprofilenav_rectangles@2x.png in Resources */,
 				B1745F50199BAF1C00C44221 /* topheader@2x.png in Resources */,
@@ -1277,22 +1455,29 @@
 				B178BF871990BBC100439A16 /* thickerdivider@2x.png in Resources */,
 				B1F895201988DE290057C4F9 /* arrow@2x.png in Resources */,
 				B1745F35199BAF1C00C44221 /* divider@2x.png in Resources */,
+				B1DF1E5F19E973180080C247 /* arrow_small_up.png in Resources */,
 				B1F895191988DE290057C4F9 /* x_icon@2x.png in Resources */,
 				B164AD8F1962C11F00873D6B /* header_rectangle@2x.png in Resources */,
 				B178BF6F1990BBC100439A16 /* datearrow@2x.png in Resources */,
 				B178BF891990BBC100439A16 /* backgroundrectangle@2x.png in Resources */,
 				B178BF8A1990BBC100439A16 /* donebutton@2x.png in Resources */,
+				B1DF1E4F19E973180080C247 /* PopUp_Background.png in Resources */,
 				B178BF911990BBC100439A16 /* topheader@2x.png in Resources */,
 				B1745F45199BAF1C00C44221 /* divider@2x.png in Resources */,
+				B1DF1E6119E973180080C247 /* pattern_background.png in Resources */,
 				B1CF7374197BD0A500E21F81 /* more_icon@2x.png in Resources */,
 				B1745F49199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
 				B178BF7C1990BBC100439A16 /* donebutton@2x.png in Resources */,
 				B1745F3D199BAF1C00C44221 /* lunchicon@2x.png in Resources */,
+				B1DF1E5419E973180080C247 /* protocoldividers_thin.png in Resources */,
 				B1745F42199BAF1C00C44221 /* fieldline@2x.png in Resources */,
 				B126970F191A182B002425C3 /* downArrow.png in Resources */,
 				B178BF841990BBC100439A16 /* donebutton@2x.png in Resources */,
+				B1DF1E5919E973180080C247 /* enable_box_selected.png in Resources */,
+				B1DF1E5019E973180080C247 /* protocoldividers_thin.png in Resources */,
 				B1F895221988DE290057C4F9 /* intermittentfasting_blurryBG@2x.png in Resources */,
 				B1745F3A199BAF1C00C44221 /* breakfasticon@2x.png in Resources */,
+				B1DF1E5519E973180080C247 /* start_button.png in Resources */,
 				B1BE7531197BE356005C1979 /* update_button@2x.png in Resources */,
 				B178BF8F1990BBC100439A16 /* drawer_icon@2x.png in Resources */,
 				B1745F4A199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */,
@@ -1307,6 +1492,7 @@
 				B1745F51199BAF1C00C44221 /* topstrip@2x.png in Resources */,
 				B1F895211988DE290057C4F9 /* dividers@2x.png in Resources */,
 				B164AD851962C11F00873D6B /* weight_and_gender_lines@2x.png in Resources */,
+				B1DF1E5619E973180080C247 /* stop_button.png in Resources */,
 				B1745F34199BAF1C00C44221 /* mainmenurectangle@2x.png in Resources */,
 				B1269712191A1F72002425C3 /* separatorLine.png in Resources */,
 				B1CF7377197BD0A500E21F81 /* recipes_icon@2x.png in Resources */,
@@ -1315,9 +1501,11 @@
 				B164AD861962C11F00873D6B /* advanced_icon@2x.png in Resources */,
 				B164AD871962C11F00873D6B /* beginner_icon@2x.png in Resources */,
 				B1CF7366197B97A400E21F81 /* field_line@2x.png in Resources */,
+				B1DF1E5319E973180080C247 /* protocoldividers_thick.png in Resources */,
 				B164AD8E1962C11F00873D6B /* continue_button@2x.png in Resources */,
 				B1745F4B199BAF1C00C44221 /* myprofilenav_rectangles@2x.png in Resources */,
 				B1745F44199BAF1C00C44221 /* deafult_foodpic@2x.png in Resources */,
+				B1DF1E5819E973180080C247 /* enable_box.png in Resources */,
 				B1745F36199BAF1C00C44221 /* rectanglebackground@2x.png in Resources */,
 				B1745F4E199BAF1C00C44221 /* drawer_icon@2x.png in Resources */,
 				B164AD881962C11F00873D6B /* divider_lines@2x.png in Resources */,
@@ -1331,10 +1519,13 @@
 				B164AD8A1962C11F00873D6B /* hardcore_icon@2x.png in Resources */,
 				B1745F3F199BAF1C00C44221 /* snacksicon@2x.png in Resources */,
 				B178BF681990BBC100439A16 /* exerciseicon@2x.png in Resources */,
+				B1DF1E5719E973180080C247 /* stop_button.png in Resources */,
 				B1E64206191BB1AA00E6E6E4 /* graphImage.png in Resources */,
 				B178BF641990BBC100439A16 /* datearrow@2x.png in Resources */,
 				B1F8951C1988DE290057C4F9 /* intermittentfasting_line@2x.png in Resources */,
+				B1DF1E5B19E973180080C247 /* update_button.png in Resources */,
 				B1653C071918D21E007A73B7 /* drawerIcon.png in Resources */,
+				B1DF1E5E19E973180080C247 /* arrow_small_right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,11 +1580,11 @@
 				B1C5A0D219237DD300799705 /* InitialViewController.m in Sources */,
 				B11A07DE19A49FE40006A3FE /* DataModel.xcdatamodeld in Sources */,
 				B13A9CAC1924AE2C009D1FD2 /* ParseLogInViewController.m in Sources */,
+				B14C3FB619DBC7A700071DDF /* SaveImageNSValueTransformer.m in Sources */,
 				B1F895261988DF030057C4F9 /* ParseSignUpViewControllerStep6.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
 				B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */,
-				B168E3D619D5A706009A009F /* RecordedWeight.m in Sources */,
 				B1B8CE5B19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
 				B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */,
@@ -1401,20 +1592,23 @@
 				B1921142192634750017F4ED /* ParseSignUpViewControllerStep5.m in Sources */,
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
 				B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */,
-				B168E3D919D5A706009A009F /* User.m in Sources */,
+				B1DF1E6819E999160080C247 /* IntermittentFastingTableViewCell.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
 				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
 				B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */,
+				B1DF1E2919E96A110080C247 /* IntermittentFastingViewController.m in Sources */,
+				B16A5BBC19EC06B2009BE533 /* User.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */,
 				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
 				B1BCDF3C19C7097400BD6F29 /* AddFoodStep2TableViewCell.m in Sources */,
+				B16A5BBF19EC06B3009BE533 /* FoodTrackerItem.m in Sources */,
 				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
-				B168E3D319D5A705009A009F /* FoodTrackerItem.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
+				B16A5BC219EC06B3009BE533 /* RecordedWeight.m in Sources */,
 				B1E3C9E2196E40C800659A15 /* ILTranslucentView.m in Sources */,
 				B198D813199CB69100F39C68 /* RecipeSearchTableViewCell.m in Sources */,
 				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,

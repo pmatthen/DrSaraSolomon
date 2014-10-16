@@ -165,6 +165,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [self loginButtonTouched:self];
     
     return YES;
 }
@@ -180,6 +181,8 @@
 }
 
 - (IBAction)loginButtonTouched:(id)sender {
+    [usernameTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
     [PFUser logInWithUsernameInBackground:usernameTextField.text password:passwordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

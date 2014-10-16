@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *myTitleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *myCategoryImageView;
+@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @property BOOL isSelected;
 

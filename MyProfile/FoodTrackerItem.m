@@ -2,7 +2,7 @@
 //  FoodTrackerItem.m
 //  MyProfile
 //
-//  Created by Poulose Matthen on 26/09/14.
+//  Created by Poulose Matthen on 13/10/14.
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
@@ -11,12 +11,13 @@
 
 @implementation FoodTrackerItem
 
+@dynamic caloriesPerServing;
+@dynamic date;
+@dynamic identifier;
+@dynamic isToday;
+@dynamic mealType;
+@dynamic name;
 @dynamic numberOfServings;
 @dynamic servingSize;
-@dynamic name;
-@dynamic caloriesPerServing;
-@dynamic identifier;
-@dynamic date;
-@dynamic mealType;
 
 @end

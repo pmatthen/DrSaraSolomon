@@ -2,7 +2,7 @@
 //  User.h
 //  MyProfile
 //
-//  Created by Poulose Matthen on 26/09/14.
+//  Created by Poulose Matthen on 13/10/14.
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
@@ -22,5 +22,12 @@
 @property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSData * userPhoto;
+@property (nonatomic, retain) NSNumber * protocolTypeSelected;
+@property (nonatomic, retain) NSNumber * hourToBeginEating;
+@property (nonatomic, retain) NSNumber * fNotifications;
+@property (nonatomic, retain) NSNumber * eNotifications;
+@property (nonatomic, retain) NSNumber * hourToBeginFasting;
+@property (nonatomic, retain) NSNumber * minuteToBeginEating;
+@property (nonatomic, retain) NSNumber * minuteToBeginFasting;
 
 @end

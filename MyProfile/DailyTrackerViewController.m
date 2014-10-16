@@ -9,6 +9,7 @@
 #import "DailyTrackerViewController.h"
 #import "DailyTrackerTableViewCell.h"
 #import "AddFoodViewController.h"
+#import "FoodTrackerItem.h"
 
 @interface DailyTrackerViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -16,24 +17,29 @@
 @property (nonatomic, strong) NSArray *iconImagePathArray;
 @property UIImageView *separatorImageView;
 @property UIButton *addFoodButton;
-@property UIButton *addExerciseButton;
 @property BOOL isACellSelected;
 @property int currentSelection;
 @property UILabel *dateLabel;
 @property float dateInterval;
 @property NSNumber *addFoodButtonTag;
+@property NSMutableArray *foodTrackerItems;
+@property NSMutableArray *dataSource;
+@property NSDate *selectedDate;
+@property int caloriesConsumed;
+@property UILabel *caloriesConsumedLabel;
 
 @end
 
 @implementation DailyTrackerViewController
-@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, addExerciseButton, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval, addFoodButtonTag;
+@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval, addFoodButtonTag, foodTrackerItems, dataSource, selectedDate, caloriesConsumed, caloriesConsumedLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    selectedDate = [NSDate date];
+    
     rightArrowImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI);
-    [self addDateLabelSubView:[NSDate date]];
     dateInterval = 0;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 9, 100, 40)];
@@ -43,55 +49,48 @@
     
     [self.view addSubview:titleLabel];
     
-    UILabel *consumedLabel = [[UILabel alloc] init];
-    consumedLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
-    consumedLabel.textColor = [UIColor whiteColor];
-    consumedLabel.text = @"CONSUMED";
-    [consumedLabel sizeToFit];
-    consumedLabel.frame = CGRectMake(80 - (consumedLabel.frame.size.width/2), 186, consumedLabel.frame.size.width, consumedLabel.frame.size.height);
+    UILabel *calorieLabel = [[UILabel alloc] init];
+    calorieLabel.font = [UIFont fontWithName:@"Oswald" size:14];
+    calorieLabel.textColor = [UIColor whiteColor];
+    calorieLabel.text = @"CALORIES CONSUMED";
+    [calorieLabel sizeToFit];
+    calorieLabel.frame = CGRectMake(160 - (calorieLabel.frame.size.width/2), 185, calorieLabel.frame.size.width, calorieLabel.frame.size.height);
     
-    UILabel *burnedLabel = [[UILabel alloc] init];
-    burnedLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
-    burnedLabel.textColor = [UIColor whiteColor];
-    burnedLabel.text = @"BURNED";
-    [burnedLabel sizeToFit];
-    burnedLabel.frame = CGRectMake(240 - (burnedLabel.frame.size.width/2), 186, burnedLabel.frame.size.width, burnedLabel.frame.size.height);
+    caloriesConsumedLabel = [[UILabel alloc] init];
+    caloriesConsumedLabel.font = [UIFont fontWithName:@"Oswald" size:55];
+    caloriesConsumedLabel.textColor = [UIColor whiteColor];
+    caloriesConsumedLabel.text = @"0";
+    [caloriesConsumedLabel sizeToFit];
+    caloriesConsumedLabel.frame = CGRectMake(160 - (caloriesConsumedLabel.frame.size.width/2), 100, caloriesConsumedLabel.frame.size.width, caloriesConsumedLabel.frame.size.height);
     
-    UILabel *firstCalorieLabel = [[UILabel alloc] init];
-    firstCalorieLabel.font = [UIFont fontWithName:@"Oswald" size:14];
-    firstCalorieLabel.textColor = [UIColor whiteColor];
-    firstCalorieLabel.text = @"CALORIES";
-    [firstCalorieLabel sizeToFit];
-    firstCalorieLabel.frame = CGRectMake(80 - (firstCalorieLabel.frame.size.width/2), 150, firstCalorieLabel.frame.size.width, firstCalorieLabel.frame.size.height);
+    [self.view addSubview:calorieLabel];
+    [self.view addSubview:caloriesConsumedLabel];
     
-    UILabel *secondCalorieLabel = [[UILabel alloc] init];
-    secondCalorieLabel.font = [UIFont fontWithName:@"Oswald" size:14];
-    secondCalorieLabel.textColor = [UIColor whiteColor];
-    secondCalorieLabel.text = @"CALORIES";
-    [secondCalorieLabel sizeToFit];
-    secondCalorieLabel.frame = CGRectMake(240 - (secondCalorieLabel.frame.size.width/2), 150, secondCalorieLabel.frame.size.width, secondCalorieLabel.frame.size.height);
-    
-    [self.view addSubview:consumedLabel];
-    [self.view addSubview:burnedLabel];
-    [self.view addSubview:firstCalorieLabel];
-    [self.view addSubview:secondCalorieLabel];
-    
-    categoryArray = @[@"BREAKFAST", @"LUNCH", @"DINNER", @"SNACKS", @"EXERCISE"];
-    iconImagePathArray = @[@"breakfasticon@2x.png", @"lunchicon@2x.png", @"dinnericon@2x.png", @"snackicon@2x.png", @"exerciseicon@2x.png"];
+    categoryArray = @[@"BREAKFAST", @"LUNCH", @"DINNER", @"SNACKS"];
+    iconImagePathArray = @[@"breakfasticon@2x.png", @"lunchicon@2x.png", @"dinnericon@2x.png", @"snackicon@2x.png"];
     separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
     separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
     
     addFoodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 476, 320, 92)];
     [addFoodButton setImage:[UIImage imageNamed:@"addfoodbutton_activated@2x.png"] forState:UIControlStateNormal];
     [addFoodButton addTarget:self action:@selector(addFoodButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    addExerciseButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 92)];
-    addExerciseButton.imageView.image = [UIImage imageNamed:@"addfoodbutton_activated@2x.png"];
-    addExerciseButton.titleLabel.text = @"";
-    [addExerciseButton addTarget:self action:@selector(addExerciseButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     isACellSelected = NO;
     currentSelection = -1;
+    dateInterval = 0;
+    [addFoodButton removeFromSuperview];
+
+    dataSource = [self dataForMasterArray];
+    for (int i = 0; i <[dataSource count]; i++) {
+        NSLog(@"dataSource[%i] = %@", i, dataSource[i]);
+    }
+    
+    [self addDateLabelSubView:selectedDate];
+    [myTableView reloadData];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -120,7 +119,7 @@
     dateLabel.font = [UIFont fontWithName:@"Oswald" size:15];
     dateLabel.textColor = [UIColor whiteColor];
     
-    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+     NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
     NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
     
     if ([today day] == [otherDay day] &&
@@ -139,9 +138,115 @@
     dateLabel.frame = CGRectMake(xPosDate, dateLabel.frame.origin.y, dateLabel.frame.size.width, dateLabel.frame.size.height);
     
     [self.view addSubview:dateLabel];
+
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    selectedDate = [calendar dateFromComponents:otherDay];
+    
+    // Close up cells in myTableView upon new date selection.
+    currentSelection = -1;
+    [myTableView reloadData];
+    
+    [self calculateCaloriesConsumedLabel];
+}
+
+- (void) calculateCaloriesConsumedLabel {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:selectedDate];
+    [components setHour:0];
+    
+    NSString *selectedMidnightDate = [[calendar dateFromComponents:components] description];
+    
+    caloriesConsumed = 0;
+    for (int i = 0; i < [dataSource count]; i++) {
+        NSMutableDictionary *mealDictionary = [dataSource objectAtIndex:i];
+        if ([mealDictionary objectForKey:selectedMidnightDate] != nil) {
+            for (FoodTrackerItem *foodTrackerItem in [mealDictionary objectForKey:selectedMidnightDate]) {
+                caloriesConsumed += ([foodTrackerItem.numberOfServings intValue] * [foodTrackerItem.caloriesPerServing intValue]);
+            }
+        }
+    }
+    
+    [caloriesConsumedLabel removeFromSuperview];
+    
+    caloriesConsumedLabel.text = [NSString stringWithFormat:@"%d", caloriesConsumed];
+    [caloriesConsumedLabel sizeToFit];
+    caloriesConsumedLabel.frame = CGRectMake(160 - (caloriesConsumedLabel.frame.size.width/2), 100, caloriesConsumedLabel.frame.size.width, caloriesConsumedLabel.frame.size.height);
+    
+    [self.view addSubview:caloriesConsumedLabel];
+}
+
+- (NSMutableArray *) dataForMasterArray {
+    
+    [self populateArrayWithFoodTrackerItems];
+    
+    NSArray *breakfastArray = [[NSArray alloc] init];
+    NSArray *lunchArray = [[NSArray alloc] init];
+    NSArray *dinnerArray = [[NSArray alloc] init];
+    NSArray *snacksArray = [[NSArray alloc] init];
+
+    NSMutableArray *myDataSource = [[NSMutableArray alloc] init];
+    [myDataSource addObject:breakfastArray];
+    [myDataSource addObject:lunchArray];
+    [myDataSource addObject:dinnerArray];
+    [myDataSource addObject:snacksArray];
+    
+    for (int i = 0; i < [myDataSource count]; i++) {
+        myDataSource[i] = [self dataForMealArray:[NSNumber numberWithInt:i]];
+    }
+
+    return myDataSource;
+}
+
+- (NSMutableDictionary *) dataForMealArray:(NSNumber *)meal {
+    
+    NSMutableDictionary *myDataSource = [[NSMutableDictionary alloc] init];
+    
+    for (int i = 0; i < [foodTrackerItems count]; i++) {
+        FoodTrackerItem *foodTrackerItem = foodTrackerItems[i];
+        if ([foodTrackerItem.mealType isEqualToNumber:meal]) {
+            NSDate *date = foodTrackerItem.date;
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+            [components setHour:0];
+
+            NSString *midnightDate = [[calendar dateFromComponents:components] description];
+            NSMutableArray *section = [myDataSource objectForKey:midnightDate];
+            
+            if (!section) {
+                section = [[NSMutableArray alloc] init];
+                [myDataSource setObject:section forKey:midnightDate];
+            }
+            
+            [section addObject:foodTrackerItem];
+        }
+    }
+
+    return myDataSource;
+}
+
+- (void) populateArrayWithFoodTrackerItems {
+    // Loads all foodTrackItem objects into an Array in descending order of date created
+    
+    [foodTrackerItems removeAllObjects];
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    foodTrackerItems = [NSMutableArray arrayWithArray:[coreDataStack.managedObjectContext executeFetchRequest:[self foodTrackerItemFetchRequest] error:nil]];
+}
+
+- (NSFetchRequest *) foodTrackerItemFetchRequest {
+    // Just a fetchRequest.
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"FoodTrackerItem"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    
+    return fetchRequest;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [categoryArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     DailyTrackerTableViewCell *cell = (DailyTrackerTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"DailyTrackerCell"];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -155,11 +260,65 @@
     
     cell.isSelected = NO;
     
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:selectedDate];
+    [components setHour:0];
+    
+    NSString *selectedMidnightDate = [[calendar dateFromComponents:components] description];
+    NSMutableDictionary *mealDictionary = [dataSource objectAtIndex:indexPath.row];
+    
+    for (UIView *view in cell.myScrollView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    int heightOfScrollView = 0;
+    if ([mealDictionary objectForKey:selectedMidnightDate] != nil) {
+        for (FoodTrackerItem *foodTrackerItem in [mealDictionary objectForKey:selectedMidnightDate]) {
+            heightOfScrollView += 50;
+            [cell.myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
+            
+            UIImageView *dividerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 11)];
+            [dividerImageView setImage:[UIImage imageNamed:@"divider@2x.png"]];
+            
+            UILabel *numberOfServingsLabel = [[UILabel alloc] initWithFrame:CGRectMake(28, 12, 30, 38)];
+            numberOfServingsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+            numberOfServingsLabel.textColor = [UIColor whiteColor];
+            numberOfServingsLabel.text = [NSString stringWithFormat:@"%@", foodTrackerItem.numberOfServings];
+            
+            UILabel *xLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 12, 8, 38)];
+            xLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+            xLabel.textColor = [UIColor whiteColor];
+            xLabel.text = @"x";
+            
+            UILabel *foodTrackerItemDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(75, 12, 255, 38)];
+            foodTrackerItemDetailLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
+            foodTrackerItemDetailLabel.textColor = [UIColor whiteColor];
+            foodTrackerItemDetailLabel.text = [NSString stringWithFormat:@"%@ %@",foodTrackerItem.servingSize, foodTrackerItem.name];
+            
+            UILabel *calorieLabel = [[UILabel alloc] initWithFrame:CGRectMake(277, 12, 43, 38)];
+            calorieLabel.font = [UIFont fontWithName:@"Oswald" size:18];
+            calorieLabel.textColor = [UIColor whiteColor];
+            calorieLabel.text = [NSString stringWithFormat:@"%d", ([foodTrackerItem.caloriesPerServing intValue] * [foodTrackerItem.numberOfServings intValue])];
+            
+            UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, heightOfScrollView - 50, 320, 50)];
+            
+            [containerView addSubview:dividerImageView];
+            [containerView addSubview:numberOfServingsLabel];
+            [containerView addSubview:xLabel];
+            [containerView addSubview:foodTrackerItemDetailLabel];
+            [containerView addSubview:calorieLabel];
+            
+            [cell.myScrollView addSubview:containerView];
+        }
+    } else {
+        for (UIView *view in cell.myScrollView.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        [cell.myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
+    }
+    
     return cell;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [categoryArray count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -189,7 +348,6 @@
     
     [tableView beginUpdates];
     [tableView endUpdates];
-    
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
@@ -205,23 +363,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isACellSelected && currentSelection == indexPath.row) {
-        if (indexPath.row == 4) {
+        if (indexPath.row == 3) {
             return 356;
         }
-        return 284.8;
+        return (356 - 88);
     }
     else {
-        return 71.2;
+        return 88;
     }
 }
 
 -(void) addFoodButtonPressed:(UIButton *)sender {
     addFoodButtonTag = [NSNumber numberWithLong:sender.tag];
     [self performSegueWithIdentifier:@"AddFoodSegue" sender:self];
-}
-
--(void) addExerciseButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"AddExerciseSegue" sender:self];
 }
 
 - (IBAction)dateButtonPrevious:(id)sender {

@@ -25,8 +25,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"RECIPES", @"WORKOUTS", @"MORE"];
-    iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"recipes_icon@2x.png", @"workouts_icon@2x.png", @"more_icon@2x.png"];
+    categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"INTERMITTENT FASTING", @"RECIPES", @"MORE"];
+    iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"intermittent_eatingtimer_active.png", @"recipes_icon@2x.png", @"more_icon@2x.png"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -72,11 +72,15 @@
         currentUser.initialWeight = [[PFUser currentUser] objectForKey:@"weight"];
         currentUser.username = [[PFUser currentUser] objectForKey:@"username"];
         currentUser.gender = [[PFUser currentUser] objectForKey:@"gender"];
+        currentUser.protocolTypeSelected = 0;
+        currentUser.hourToBeginEating = 0;
+        currentUser.minuteToBeginEating = 0;
+        currentUser.hourToBeginFasting = 0;
+        currentUser.minuteToBeginFasting = 0;
+        currentUser.fNotifications = NO;
+        currentUser.eNotifications = NO;
 
         [coreDataStack saveContext];
-        
-        NSLog(@"Initial Weight = %@", currentUser.initialWeight);
-        
     }
 }
 
@@ -107,12 +111,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuViewTableViewCell *cell = (MenuViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
     
-    cell.categoryTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:26];
+    cell.categoryTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:20];
     cell.categoryTitleLabel.text = categoryArray[indexPath.row];
     cell.categoryTitleLabel.textColor = [UIColor whiteColor];
     cell.accessoryType = UITableViewCellAccessoryNone;
     
-    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(255, 40, 43, 48)];
+    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(255, 41, 43, 48)];
     arrowImageView.image = [UIImage imageNamed:@"MainMenu - arrow@2x.png"];
     [cell addSubview:arrowImageView];
     
@@ -137,10 +141,10 @@
             [self performSegueWithIdentifier:@"DailyTrackerSegue" sender:self];
             break;
         case 2:
-            [self performSegueWithIdentifier:@"RecipeSearchSegue" sender:self];
+            [self performSegueWithIdentifier:@"IntermittentFastingSegue" sender:self];
             break;
         case 3:
-            //
+            [self performSegueWithIdentifier:@"RecipeSearchSegue" sender:self];
             break;
         case 4:
             [self performSegueWithIdentifier:@"MoreSegue" sender:self];

@@ -6,16 +6,22 @@
 // project.
 
 
+// BEMSimpleLineGraph
+#define COCOAPODS_POD_AVAILABLE_BEMSimpleLineGraph
+#define COCOAPODS_VERSION_MAJOR_BEMSimpleLineGraph 3
+#define COCOAPODS_VERSION_MINOR_BEMSimpleLineGraph 1
+#define COCOAPODS_VERSION_PATCH_BEMSimpleLineGraph 0
+
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
 #define COCOAPODS_VERSION_MINOR_Bolts 1
-#define COCOAPODS_VERSION_PATCH_Bolts 2
+#define COCOAPODS_VERSION_PATCH_Bolts 3
 
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
-#define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 18
+#define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 19
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 0
 
 // FatSecretKit

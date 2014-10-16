@@ -148,6 +148,7 @@
 
 - (IBAction)doneButtonTouched:(id)sender {
     [self saveSelectedFoodItems];
+
     NSLog(@"Done!!");
 }
 
@@ -173,6 +174,7 @@
                         foodTrackerItem.date = [NSDate date];
                         foodTrackerItem.mealType = addFoodButtonTag;
                         [coreDataStack saveContext];
+                        [self goToDailyTrackerViewController];
                 }];
             } else if (mySegmentedControl.selectedSegmentIndex == 1) {
                 FSRecipe *tempRecipe = resultsArray[indexPath.row];
@@ -189,6 +191,7 @@
                     foodTrackerItem.date = [NSDate date];
                     foodTrackerItem.mealType = addFoodButtonTag;
                     [coreDataStack saveContext];
+                    [self goToDailyTrackerViewController];
                 }];
             } else if (mySegmentedControl.selectedSegmentIndex == 0) {
                 PFObject *PFTempRecipe = resultsArray[indexPath.row];
@@ -200,10 +203,14 @@
                 foodTrackerItem.date = [NSDate date];
                 foodTrackerItem.mealType = addFoodButtonTag;
                 [coreDataStack saveContext];
+                [self goToDailyTrackerViewController];
             }
         }
     }
     [self deselectAllCells];
+}
+
+- (void) goToDailyTrackerViewController {
     NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
     for (UIViewController *aViewController in allViewControllers) {
         if ([aViewController isKindOfClass:[DailyTrackerViewController class]]) {

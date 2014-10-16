@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>29F29495E78A450DBA8AE608</key>
+		<key>60722CF5C69942D79190BE7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F0CE32E99D04E65808BED82</key>
+		<key>70EA233FC8A14A4DA80C6AB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8572281D61B64F94B033BC7B</key>
+		<key>A6388AA85DE54FD0B1DA9296</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CB12A6B419444B3B5B0F415</key>
+		<key>A87B7574CA944C28817167A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D3FEBB4E015D487FA7D7ED73</key>
+		<key>B0088D18781E4A70A6163932</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6470C9E4A844E69A7171296</key>
+		<key>BE23704364424EDFB46D9337</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED97ED02709A4A7689B90726</key>
 		<dict>
 			<key>primary</key>
 			<true/>
