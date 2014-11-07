@@ -25,7 +25,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"INTERMITTENT FASTING", @"RECIPES", @"MORE"];
+    categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"INTERMITTENT FASTING", @"SARA'S RECIPES", @"MORE"];
     iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"intermittent_eatingtimer_active.png", @"recipes_icon@2x.png", @"more_icon@2x.png"];
 }
 
@@ -122,6 +122,7 @@
     
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_rectangle@2x.png"]];
     cell.myImageView.image = [UIImage imageNamed:iconImagepathArray[indexPath.row]];
+    cell.myImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     return cell;
 }

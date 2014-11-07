@@ -14,7 +14,7 @@
 @end
 
 @implementation ParseSignUpViewControllerStep6
-@synthesize inchesHeight, weight, gender, neat;
+@synthesize inchesHeight, weight, gender, neat, username, password;
 
 - (void)viewDidLoad
 {
@@ -49,18 +49,23 @@
 }
 
 - (IBAction)startGettingSexyButtonTouched:(id)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    
     // Retrieve the object by id
-    [query getObjectInBackgroundWithId:[[PFUser currentUser] objectId] block:^(PFObject *user, NSError *error) {
-        user[@"height"] = [NSNumber numberWithInt:inchesHeight];
-        user[@"weight"] = [NSNumber numberWithInt:weight];
-        user[@"gender"] = [NSNumber numberWithInt:gender];
-        user[@"neat"] = [NSNumber numberWithInt:neat];
-        
-        [user saveInBackground];
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+        if (!error) {
+            user[@"height"] = [NSNumber numberWithInt:inchesHeight];
+            user[@"weight"] = [NSNumber numberWithInt:weight];
+            user[@"gender"] = [NSNumber numberWithInt:gender];
+            user[@"neat"] = [NSNumber numberWithInt:neat];
+            
+            [user saveInBackground];
+            [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"error = %@", errorString);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"There was an error in the signup process, %@.", errorString] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
     }];
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -46,7 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     recordedWeights = [NSArray new];
     
     myCameraButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -68,8 +68,7 @@
     myPickerView.hidden = NO;
     myPickerView.delegate = self;
     
-    pickerViewView = [[UIView alloc] initWithFrame:CGRectMake(-20, -24, 320, 102)];
-    [pickerViewView setBackgroundColor:[UIColor greenColor]];
+    pickerViewView = [[UIView alloc] initWithFrame:CGRectMake(0, 62, 320, 102)];
     pickerViewView.clipsToBounds = YES;
     [pickerViewView addSubview:myPickerView];
     
@@ -77,17 +76,31 @@
 
     [self fillRecordedWeightsArray];
     [self fetchUser];
-    [myPickerView selectRow:[user.initialWeight intValue] inComponent:0 animated:NO];
     
-    arrayOfDates = [[NSMutableArray alloc] initWithArray:@[@"Oct 14", @"Oct 15", @"Oct 16", @"Oct 17", @"Oct 18", @"Oct 19", @"Oct 20", @"Oct 21", @"Oct 22", @"Oct 23", @"Oct 24", @"Oct 25", @"Oct 26", @"Oct 27", @"Oct 28", @"Oct 29", @"Oct 30", @"Oct 31", @"Nov 1", @"Nov 2", @"Nov 3", @"Nov 4", @"Nov 5", @"Nov 6", @"Nov 7", @"Nov 8", @"Nov 9", @"Nov 10"]];
-    arrayOfValues = [[NSMutableArray alloc] initWithArray:@[@145, @145, @144, @144, @142, @141, @143, @143, @145, @146, @145, @144, @144, @143, @143, @142, @141, @140, @139, @138, @138, @137, @137, @136, @135, @133, @131, @110]];
+    // Checks whether there are any recorded weights, and if so it sets the pickerView column to the latest record. If not, it set's the pickerView column to the users initial weight.
+    if ([recordedWeights count] > 0) {
+        RecordedWeight *latestRecordedWeight = [recordedWeights firstObject];
+        
+        for (RecordedWeight *tempRecordedWeight in recordedWeights) {
+            NSLog(@"tempRecordedWeight = %@", tempRecordedWeight.weight);
+            if ([latestRecordedWeight.date compare:tempRecordedWeight.date] == NSOrderedAscending) {
+                latestRecordedWeight = tempRecordedWeight;
+            }
+        }
+        [myPickerView selectRow:[latestRecordedWeight.weight intValue] inComponent:0 animated:NO];
+    } else {
+        [myPickerView selectRow:[user.initialWeight intValue] inComponent:0 animated:NO];
+    }
     
-    myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(40, 102, 240, 120)];
+    arrayOfDates = [[NSMutableArray alloc] initWithArray:@[@"", @"", @"", @""]];
+    arrayOfValues = [[NSMutableArray alloc] initWithArray:@[user.initialWeight, user.initialWeight, user.initialWeight, user.initialWeight]];
+    
+    myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(10, 78, 290, 180)];
     myGraph.dataSource = self;
     myGraph.delegate = self;
     
-    myGraph.colorTop = [UIColor colorWithRed:31.0/255.0 green:187.0/255.0 blue:166.0/255.0 alpha:1.0];
-    myGraph.colorBottom = [UIColor colorWithRed:31.0/255.0 green:187.0/255.0 blue:166.0/255.0 alpha:1.0];
+    myGraph.colorTop = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.0];
+    myGraph.colorBottom = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.0];
     myGraph.colorLine = [UIColor whiteColor];
     myGraph.colorXaxisLabel = [UIColor whiteColor];
     myGraph.colorYaxisLabel = [UIColor whiteColor];
@@ -100,7 +113,7 @@
     myGraph.alwaysDisplayDots = NO;
     myGraph.enableReferenceAxisLines = YES;
     myGraph.enableReferenceAxisFrame = YES;
-    myGraph.animationGraphStyle = BEMLineAnimationFade;
+    myGraph.animationGraphStyle = BEMLineAnimationNone;
     
     isFirstTime = YES;
     isFirstClick = YES;
@@ -136,6 +149,8 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [self calculateWeeklyWeightMeans:[NSNumber numberWithInt:4]];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -158,21 +173,19 @@
     NSError *error;
     NSArray *fetchRequestArray = [coreDataStack.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    user = fetchRequestArray[0];
+    user = [fetchRequestArray firstObject];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyProfileTableViewCell *cell = (MyProfileTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MyProfileCell"];
     
     cell.accessoryType = UITableViewCellAccessoryNone;
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.myTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
     cell.myTitleLabel.textColor = [UIColor whiteColor];
     cell.myTitleLabel.text = categoryArray[indexPath.row];
     
     cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor purpleColor];
 
     switch (indexPath.row) {
         {case 0:
@@ -214,12 +227,12 @@
             
             gainedOrLostLabel.font = [UIFont fontWithName:@"Oswald" size:30];
             gainedOrLostLabel.textColor = [UIColor whiteColor];
-            gainedOrLostLabel.frame = CGRectMake(0, 104, 100, 100);
+            gainedOrLostLabel.frame = CGRectMake(0, 80, 100, 100);
             [gainedOrLostLabel sizeToFit];
             
             motivationLabel.font = [UIFont fontWithName:@"Norican-Regular" size:22];
             motivationLabel.textColor = [UIColor whiteColor];
-            motivationLabel.frame = CGRectMake(0, 151, 100, 100);
+            motivationLabel.frame = CGRectMake(0, 127, 100, 100);
             [motivationLabel sizeToFit];
             motivationLabel.frame = CGRectMake(160 - motivationLabel.frame.size.width/2, motivationLabel.frame.origin.y, motivationLabel.frame.size.width, motivationLabel.frame.size.height);
             
@@ -244,6 +257,32 @@
             
             [cell.contentView addSubview:messageView];
             [cell.contentView addSubview:motivationLabel];
+            
+            UILabel *recommendedLabel = [[UILabel alloc] initWithFrame:CGRectMake(26, 190, 100, 50)];
+            recommendedLabel.font = [UIFont fontWithName:@"Norican-Regular" size:22];
+            recommendedLabel.textColor = [UIColor whiteColor];
+            recommendedLabel.text = @"Recommended";
+            [recommendedLabel sizeToFit];
+            
+            UILabel *calorieIntakeLabel = [[UILabel alloc] initWithFrame:CGRectMake(38, 214, 100, 50)];
+            calorieIntakeLabel.font = [UIFont fontWithName:@"Oswald-Light" size:17];
+            calorieIntakeLabel.textColor = [UIColor whiteColor];
+            calorieIntakeLabel.text = @"CALORIE INTAKE:";
+            [calorieIntakeLabel sizeToFit];
+            
+            UILabel *rangeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 187, 100, 100)];
+            rangeLabel.font = [UIFont fontWithName:@"Oswald" size:35];
+            rangeLabel.textColor = [UIColor whiteColor];
+            rangeLabel.text = [NSString stringWithFormat:@"%.f -%.f", ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:31 gender:[user.gender intValue] neat:[user.activityFactor intValue]] * .86), ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:31 gender:[user.gender intValue] neat:[user.activityFactor intValue]] * 1.14)];
+            [rangeLabel sizeToFit];
+            
+            UIView *calorieIntakeLineView = [[UIView alloc] initWithFrame:CGRectMake(150, 231, rangeLabel.frame.size.width + 2, 2)];
+            [calorieIntakeLineView setBackgroundColor:[UIColor whiteColor]];
+            
+            [cell.contentView addSubview:recommendedLabel];
+            [cell.contentView addSubview:calorieIntakeLabel];
+            [cell.contentView addSubview:rangeLabel];
+            [cell.contentView addSubview:calorieIntakeLineView];
             break;}
         {case 1:
             NSLog(@"");
@@ -253,22 +292,20 @@
             NSLog(@"");
             UIButton *updateButton = [[UIButton alloc] init];
             [updateButton setImage:[UIImage imageNamed:@"update_button.png"] forState:UIControlStateNormal];
-            [updateButton setBackgroundColor:[UIColor blueColor]];
-            [updateButton setFrame:CGRectMake(48, 81, 190, 85)];
+            [updateButton setFrame:CGRectMake(66, 168, 190, 85)];
             [updateButton addTarget:self
                        action:@selector(updateButtonTouched:)
              forControlEvents:UIControlEventTouchUpInside];
             
-            lbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(189, 33, 50, 50)];
+            lbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(212, 118, 50, 50)];
             lbsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:25];
             lbsLabel.textColor = [UIColor whiteColor];
             lbsLabel.text = @"lbs";
             [lbsLabel sizeToFit];
             
-            [cell.cellContentView addSubview:updateButton];
-            [cell.cellContentView addSubview:pickerViewView];
-            [cell.cellContentView addSubview:lbsLabel];
-            
+            [cell.contentView addSubview:updateButton];
+            [cell.contentView addSubview:pickerViewView];
+            [cell.contentView addSubview:lbsLabel];
             break;}
         {default:
             break;}
@@ -352,6 +389,112 @@
     return label;
 }
 
+-(void)calculateWeeklyWeightMeans:(NSNumber *)numberOfWeeks {
+    
+    NSMutableArray *initialRecordedWeightsMutableArray = [[NSMutableArray alloc] initWithArray:recordedWeights];
+    
+    int count = 0;
+    while ((count < [numberOfWeeks intValue]) && ([initialRecordedWeightsMutableArray count] > 0)) {
+        // Find the earliest recorded weight that is stored in the recordedWeights Array
+        RecordedWeight *earliestRecordedWeight = [initialRecordedWeightsMutableArray firstObject];
+        
+        for (RecordedWeight *tempRecordedWeight in initialRecordedWeightsMutableArray) {
+            if ([earliestRecordedWeight.date compare:tempRecordedWeight.date] == NSOrderedDescending) {
+                earliestRecordedWeight = tempRecordedWeight;
+            }
+        }
+        
+        // Find out what day of the week it is
+        int weekday = (int)[[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:earliestRecordedWeight.date] weekday];
+        
+        // Find out how days away from Sunday it is
+        int numberOfDaysPassedSunday = (1 - weekday) * -1;
+        
+        // Create an NSDate object that is the Sunday 00:00:00 preceding the earliest recorded weight, and use that to create an NSDate object that is the Saturday 23:59:59 following the earliest recorded weight.
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[earliestRecordedWeight.date dateByAddingTimeInterval:((numberOfDaysPassedSunday * (60 * 60 * 24)) * -1)]];
+        
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        
+        [comps setSecond:0];
+        [comps setMinute:0];
+        [comps setHour:0];
+        [comps setDay:[components day]];
+        [comps setMonth:[components month]];
+        [comps setYear:[components year]];
+        
+        NSDate *precedingSunday = [[NSCalendar currentCalendar] dateFromComponents:comps];
+        NSDate *followingSaturday = [precedingSunday dateByAddingTimeInterval:((60 * 60 * 24 * 7) + ((60 * 60 * 24) - 1))];
+        
+        // Update arrayOfDates with correct information ***I did this wrong. I should just, find the preceding Monday from today's date and subtract 7 days at a time to get the other 3 strings for the array. This will probably change the way the rest of the method is written as well!!***
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"MMM dd";
+        
+        NSString *dateString = [[NSString alloc] init];
+        dateString = [dateFormatter stringFromDate:precedingSunday];
+
+        // update dateString in arrayOfDates
+        [arrayOfDates setObject:dateString atIndexedSubscript:count];
+
+        // Remove objects that fall within these two NSDate objects from the initial mutable array and place them in a second mutable array, then calculate the average weight that week
+        NSMutableArray *secondaryRecordedWeightsMutableArray = [NSMutableArray new];
+        
+        for (RecordedWeight *tempRecordedWeight in initialRecordedWeightsMutableArray) {
+            
+            if ([self checkIfBetweenDate:precedingSunday andDate:followingSaturday date:tempRecordedWeight.date] == YES) {
+                [secondaryRecordedWeightsMutableArray addObject:tempRecordedWeight];
+            }
+        }
+        
+        for (int i = 0; i < [secondaryRecordedWeightsMutableArray count]; i++) {
+            [initialRecordedWeightsMutableArray removeObjectIdenticalTo:[secondaryRecordedWeightsMutableArray objectAtIndex:i]];
+        }
+        
+        int totalWeightInWeek = 0;
+        for (int i = 0; i < [secondaryRecordedWeightsMutableArray count]; i++) {
+            RecordedWeight *tempRecordedWeight = secondaryRecordedWeightsMutableArray[i];
+            totalWeightInWeek += [tempRecordedWeight.weight intValue];
+        }
+        
+        float averageForWeek = 0;
+        if ([secondaryRecordedWeightsMutableArray count] == 0) {
+            averageForWeek = 0;
+        } else {
+            averageForWeek = (float)totalWeightInWeek / (float)[secondaryRecordedWeightsMutableArray count];
+        }
+        
+        [arrayOfValues setObject:[arrayOfValues objectAtIndex:1] atIndexedSubscript:0];
+        [arrayOfValues setObject:[arrayOfValues objectAtIndex:2] atIndexedSubscript:1];
+        [arrayOfValues setObject:[arrayOfValues objectAtIndex:3] atIndexedSubscript:2];
+        [arrayOfValues setObject:[NSNumber numberWithInt:averageForWeek] atIndexedSubscript:3];
+        count += 1;
+        
+        NSLog(@"earliestRecordedWeight.date = %@", earliestRecordedWeight.date);
+        NSLog(@"weekday = %i", weekday);
+        NSLog(@"numberOfDaysPassedSunday = %i", numberOfDaysPassedSunday);
+        NSLog(@"precedingSunday = %@", precedingSunday);
+        NSLog(@"followingSaturday = %@", followingSaturday);
+        NSLog(@"averageForWeek = %f", averageForWeek);
+        NSLog(@"initialRecordedWeightsMutableArray count = %lu", (unsigned long)[initialRecordedWeightsMutableArray count]);
+        NSLog(@" ");
+    }
+    [myGraph reloadGraph];
+}
+
+- (BOOL)checkIfBetweenDate:(NSDate *)earlierDate andDate:(NSDate *)laterDate date:(NSDate *)date
+{
+    // first check that we are later than the earlierDate.
+    if ([date compare:earlierDate] == NSOrderedDescending) {
+        
+        // next check that we are earlier than the laterData
+        if ( [date compare:laterDate] == NSOrderedAscending ) {
+            return YES;
+        }
+    }
+    
+    // otherwise we are not
+    return NO;
+}
+
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     return (int)[arrayOfValues count];
 }
@@ -361,7 +504,7 @@
 }
 
 - (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
-    return 4;
+    return 0;
 }
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
@@ -427,7 +570,9 @@
     
     cameraIconImageView.hidden = YES;
     imageInstructionLabel.hidden = YES;
-    myCameraButton.imageView.image = chosenImage;
+
+    [myCameraButton setImage:chosenImage forState:UIControlStateNormal];
+    [myCameraButton setImage:chosenImage forState:UIControlStateHighlighted];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -477,6 +622,16 @@
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     
     return fetchRequest;
+}
+
+-(float)maintenanceLevelCalories:(int)weight heightInInches:(int)height age:(int)age gender:(int)gender neat:(int)neat {
+    
+    //Include neat into calculations with array.
+    if (gender == 0) {
+        return (655 + (4.35 * weight) + (4.7 * height) - (4.7 * age));
+    } else {
+        return (66 + (6.23 * weight) + (12.7 * height) - (6.8 * age));
+    }
 }
 
 @end

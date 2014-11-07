@@ -71,8 +71,8 @@
     separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
     separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
     
-    addFoodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 476, 320, 92)];
-    [addFoodButton setImage:[UIImage imageNamed:@"addfoodbutton_activated@2x.png"] forState:UIControlStateNormal];
+    addFoodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 497, 320, 71)];
+    [addFoodButton setImage:[UIImage imageNamed:@"Add_Food_Button@2x.png"] forState:UIControlStateNormal];
     [addFoodButton addTarget:self action:@selector(addFoodButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -366,7 +366,7 @@
         if (indexPath.row == 3) {
             return 356;
         }
-        return (356 - 88);
+        return (377 - 88);
     }
     else {
         return 88;
@@ -384,8 +384,17 @@
 }
 
 - (IBAction)dateButtonNext:(id)sender {
-    dateInterval = dateInterval + (24*60*60);
-    [self addDateLabelSubView:[NSDate dateWithTimeIntervalSinceNow:dateInterval]];
+    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate dateWithTimeIntervalSinceNow:(dateInterval + (24*60*60))]];
+    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    
+    if (([today day] + 1) == [otherDay day] &&
+        [today month] == [otherDay month] &&
+        [today year] == [otherDay year] &&
+        [today era] == [otherDay era]) {
+    } else {
+        dateInterval = dateInterval + (24*60*60);
+        [self addDateLabelSubView:[NSDate dateWithTimeIntervalSinceNow:dateInterval]];
+    }
 }
 
 - (IBAction)backButtonTouched:(id)sender {

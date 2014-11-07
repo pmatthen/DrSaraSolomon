@@ -106,6 +106,7 @@
 }
 
 - (IBAction)continueButtonTouched:(id)sender {
+    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
 }
 
 - (IBAction)popUpButtonTouched:(id)sender {

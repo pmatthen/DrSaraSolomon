@@ -41,12 +41,19 @@
     
     [self.view addSubview:titleLabel];
     
-    myImageView.contentMode = UIViewContentModeScaleAspectFit;
+    myImageView.contentMode = UIViewContentModeScaleAspectFill;
+    myImageView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
+    myImageView.layer.cornerRadius = myImageView.frame.size.height/2;
+    myImageView.clipsToBounds = YES;
+    [myImageView.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+    [myImageView.layer setBorderWidth:2.0];
+    
     [self downloadImageWithURL:[NSURL URLWithString:myRecipe.imageUrl] completionBlock:^(BOOL succeeded, UIImage *image) {
         if (succeeded) {
             myImageView.image = image;
         }
     }];
+    
     
     [[FSClient sharedClient] getRecipe:myRecipe.identifier completion:^(FSRecipe *recipe) {
         

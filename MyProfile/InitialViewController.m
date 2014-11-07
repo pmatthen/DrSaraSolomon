@@ -85,7 +85,7 @@
                 iconSubTitleLabel.font = [UIFont fontWithName:@"Oswald" size:12];
                 iconSubTitleLabel.frame = CGRectMake(93, 321, 80, 40);
                 iconSubTitleLabel.textColor = [UIColor whiteColor];
-                iconSubTitleLabel.text = @"WHETHER WEIGHT OR FITNESS";
+                iconSubTitleLabel.text = @"WHETHER WEIGHT OR HEALTH";
                 [iconSubTitleLabel sizeToFit];
                 break;
             default:
@@ -124,8 +124,8 @@
     cell.choiceTitleLabel.text = choiceArray[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryNone;
     
-    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(285, 17, 25, 24)];
-    arrowImageView.image = [UIImage imageNamed:@"arrow.png"];
+    UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(285, 17, 20, 20)];
+    arrowImageView.image = [UIImage imageNamed:@"arrow_small_right@2x.png"];
     [cell addSubview:arrowImageView];
     
     if (indexPath.row == 0) {

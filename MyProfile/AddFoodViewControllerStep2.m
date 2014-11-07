@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [mySegmentedControl setTintColor:[UIColor whiteColor]];
+    
     isSelectedArray = [NSMutableArray new];
     numberOfServingsArray = [NSMutableArray new];
     
