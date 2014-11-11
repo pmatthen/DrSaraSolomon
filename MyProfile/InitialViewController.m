@@ -8,6 +8,7 @@
 
 #import "InitialViewController.h"
 #import "InitialViewControlllerTableViewCell.h"
+#import "ParseSignUpViewControllerStep1.h"
 
 @interface InitialViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 

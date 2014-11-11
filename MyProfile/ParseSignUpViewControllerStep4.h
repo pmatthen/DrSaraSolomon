@@ -10,7 +10,7 @@
 
 @interface ParseSignUpViewControllerStep4 : UIViewController
 
-- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)startOverButtonTouched:(id)sender;
 - (IBAction)continueButtonTouched:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;

@@ -19,7 +19,7 @@
 @property NSString *username;
 @property NSString *password;
 
-- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)startOverButtonTouched:(id)sender;
 - (IBAction)continueButtonTouched:(id)sender;
 
 @end

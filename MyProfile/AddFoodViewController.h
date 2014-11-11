@@ -11,7 +11,6 @@
 @interface AddFoodViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
-@property NSNumber *addFoodButtonTag;
 
 - (IBAction)backButtonTouched:(id)sender;
 - (IBAction)searchButtonPressed:(id)sender;

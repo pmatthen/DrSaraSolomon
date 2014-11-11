@@ -12,7 +12,7 @@
 #define kOFFSET_FOR_KEYBOARD 216.0
 
 
-@interface ParseSignUpViewControllerStep1 ()
+@interface ParseSignUpViewControllerStep1 () <UITextFieldDelegate>
 
 @end
 
@@ -112,6 +112,14 @@
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    nameTextField.text = @"";
+    emailTextField.text = @"";
+    usernameTextField.text = @"";
+    passwordTextField.text = @"";
+    confirmPasswordTextField.text = @"";
+
+    [confirmPasswordTextField resignFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -198,22 +206,23 @@
 - (IBAction)continueButtonTouched:(id)sender {
     if ((![nameTextField.text  isEqual: @""]) && (![emailTextField.text  isEqual: @""]) && (![usernameTextField.text  isEqual: @""]) && (![passwordTextField.text  isEqual: @""]) && (![confirmPasswordTextField.text  isEqual: @""])) {
         if ([passwordTextField.text isEqual:confirmPasswordTextField.text]) {
-            PFUser *user = [PFUser user];
-            user.username = usernameTextField.text;
-            user.password = passwordTextField.text;
-            user.email = emailTextField.text;
-            user[@"name"] = nameTextField.text;
-            
-            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
-                } else {
-                    NSString *errorString = [error userInfo][@"error"];
-                    NSLog(@"error = %@", errorString);
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error in the signup process, please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alert show];
-                }
-            }];
+//            PFUser *user = [PFUser user];
+//            user.username = usernameTextField.text;
+//            user.password = passwordTextField.text;
+//            user.email = emailTextField.text;
+//            user[@"name"] = nameTextField.text;
+//            
+//            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+//                } else {
+//                    NSString *errorString = [error userInfo][@"error"];
+//                    NSLog(@"error = %@", errorString);
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error in the signup process, please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                    [alert show];
+//                }
+//            }];
+            [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
         }
         else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"Password and Confirm Password fields do not match" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -226,11 +235,10 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill out all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
-    
 }
 
 - (IBAction)backButtonTouched:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

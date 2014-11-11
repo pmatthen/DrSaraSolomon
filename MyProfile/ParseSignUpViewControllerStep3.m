@@ -8,6 +8,7 @@
 
 #import "ParseSignUpViewControllerStep3.h"
 #import "ParseSignUpViewControllerStep4.h"
+#import "ParseSignUpViewControllerStep1.h"
 
 @interface ParseSignUpViewControllerStep3 () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -135,8 +136,9 @@
     return label;
 }
 
-- (IBAction)backButtonTouched:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)startOverButtonTouched:(id)sender {
+    NSArray *array = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[array objectAtIndex:1] animated:YES];
 }
 
 - (IBAction)continueButtonTouched:(id)sender {

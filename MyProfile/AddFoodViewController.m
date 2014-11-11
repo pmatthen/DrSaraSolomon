@@ -14,7 +14,7 @@
 @end
 
 @implementation AddFoodViewController
-@synthesize searchTextField, addFoodButtonTag;
+@synthesize searchTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,7 +76,6 @@
     AddFoodViewControllerStep2 *addFoodViewControllerStep2 = (AddFoodViewControllerStep2 *) segue.destinationViewController;
     
     addFoodViewControllerStep2.searchText = searchTextField.text;
-    addFoodViewControllerStep2.addFoodButtonTag = addFoodButtonTag;
 }
 
 - (IBAction)searchButtonPressed:(id)sender {

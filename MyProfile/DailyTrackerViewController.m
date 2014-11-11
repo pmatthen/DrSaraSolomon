@@ -7,23 +7,16 @@
 //
 
 #import "DailyTrackerViewController.h"
-#import "DailyTrackerTableViewCell.h"
 #import "AddFoodViewController.h"
 #import "FoodTrackerItem.h"
 
-@interface DailyTrackerViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DailyTrackerViewController ()
 
-@property (nonatomic, strong) NSArray *categoryArray;
-@property (nonatomic, strong) NSArray *iconImagePathArray;
-@property UIImageView *separatorImageView;
 @property UIButton *addFoodButton;
-@property BOOL isACellSelected;
-@property int currentSelection;
 @property UILabel *dateLabel;
 @property float dateInterval;
-@property NSNumber *addFoodButtonTag;
 @property NSMutableArray *foodTrackerItems;
-@property NSMutableArray *dataSource;
+@property NSDictionary *dataSource;
 @property NSDate *selectedDate;
 @property int caloriesConsumed;
 @property UILabel *caloriesConsumedLabel;
@@ -31,7 +24,7 @@
 @end
 
 @implementation DailyTrackerViewController
-@synthesize categoryArray, iconImagePathArray, myTableView, separatorImageView, addFoodButton, isACellSelected, currentSelection, rightArrowImageView, dateLabel, dateInterval, addFoodButtonTag, foodTrackerItems, dataSource, selectedDate, caloriesConsumed, caloriesConsumedLabel;
+@synthesize addFoodButton, rightArrowImageView, dateLabel, dateInterval, foodTrackerItems, dataSource, selectedDate, caloriesConsumed, caloriesConsumedLabel, myScrollView;
 
 - (void)viewDidLoad
 {
@@ -45,7 +38,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 9, 100, 40)];
     titleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.text = @"DAILY TRACKER";
+    titleLabel.text = @"FEAST TRACKER";
     
     [self.view addSubview:titleLabel];
     
@@ -63,34 +56,25 @@
     [caloriesConsumedLabel sizeToFit];
     caloriesConsumedLabel.frame = CGRectMake(160 - (caloriesConsumedLabel.frame.size.width/2), 100, caloriesConsumedLabel.frame.size.width, caloriesConsumedLabel.frame.size.height);
     
-    [self.view addSubview:calorieLabel];
-    [self.view addSubview:caloriesConsumedLabel];
-    
-    categoryArray = @[@"BREAKFAST", @"LUNCH", @"DINNER", @"SNACKS"];
-    iconImagePathArray = @[@"breakfasticon@2x.png", @"lunchicon@2x.png", @"dinnericon@2x.png", @"snackicon@2x.png"];
-    separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separatorLine.png"]];
-    separatorImageView.frame = CGRectMake(0, 0, 320, 0.25);
-    
     addFoodButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 497, 320, 71)];
     [addFoodButton setImage:[UIImage imageNamed:@"Add_Food_Button@2x.png"] forState:UIControlStateNormal];
     [addFoodButton addTarget:self action:@selector(addFoodButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:calorieLabel];
+    [self.view addSubview:caloriesConsumedLabel];
+    [self.view addSubview:addFoodButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    isACellSelected = NO;
-    currentSelection = -1;
+
     dateInterval = 0;
-    [addFoodButton removeFromSuperview];
 
     dataSource = [self dataForMasterArray];
-    for (int i = 0; i <[dataSource count]; i++) {
-        NSLog(@"dataSource[%i] = %@", i, dataSource[i]);
-    }
+    NSLog(@"dataSource = %@", dataSource);
     
     [self addDateLabelSubView:selectedDate];
-    [myTableView reloadData];
+    [self updateFeastTracker];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -142,10 +126,6 @@
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     selectedDate = [calendar dateFromComponents:otherDay];
     
-    // Close up cells in myTableView upon new date selection.
-    currentSelection = -1;
-    [myTableView reloadData];
-    
     [self calculateCaloriesConsumedLabel];
 }
 
@@ -157,12 +137,9 @@
     NSString *selectedMidnightDate = [[calendar dateFromComponents:components] description];
     
     caloriesConsumed = 0;
-    for (int i = 0; i < [dataSource count]; i++) {
-        NSMutableDictionary *mealDictionary = [dataSource objectAtIndex:i];
-        if ([mealDictionary objectForKey:selectedMidnightDate] != nil) {
-            for (FoodTrackerItem *foodTrackerItem in [mealDictionary objectForKey:selectedMidnightDate]) {
-                caloriesConsumed += ([foodTrackerItem.numberOfServings intValue] * [foodTrackerItem.caloriesPerServing intValue]);
-            }
+    if ([dataSource objectForKey:selectedMidnightDate] != nil) {
+        for (FoodTrackerItem *foodTrackerItem in [dataSource objectForKey:selectedMidnightDate]) {
+            caloriesConsumed += ([foodTrackerItem.numberOfServings intValue] * [foodTrackerItem.caloriesPerServing intValue]);
         }
     }
     
@@ -175,50 +152,35 @@
     [self.view addSubview:caloriesConsumedLabel];
 }
 
-- (NSMutableArray *) dataForMasterArray {
+- (NSDictionary *) dataForMasterArray {
     
     [self populateArrayWithFoodTrackerItems];
-    
-    NSArray *breakfastArray = [[NSArray alloc] init];
-    NSArray *lunchArray = [[NSArray alloc] init];
-    NSArray *dinnerArray = [[NSArray alloc] init];
-    NSArray *snacksArray = [[NSArray alloc] init];
 
-    NSMutableArray *myDataSource = [[NSMutableArray alloc] init];
-    [myDataSource addObject:breakfastArray];
-    [myDataSource addObject:lunchArray];
-    [myDataSource addObject:dinnerArray];
-    [myDataSource addObject:snacksArray];
-    
-    for (int i = 0; i < [myDataSource count]; i++) {
-        myDataSource[i] = [self dataForMealArray:[NSNumber numberWithInt:i]];
-    }
+    NSDictionary *myDataSource = [[NSDictionary alloc] init];
+    myDataSource = [self dataForMealArray];
 
     return myDataSource;
 }
 
-- (NSMutableDictionary *) dataForMealArray:(NSNumber *)meal {
+- (NSMutableDictionary *) dataForMealArray {
     
     NSMutableDictionary *myDataSource = [[NSMutableDictionary alloc] init];
     
     for (int i = 0; i < [foodTrackerItems count]; i++) {
         FoodTrackerItem *foodTrackerItem = foodTrackerItems[i];
-        if ([foodTrackerItem.mealType isEqualToNumber:meal]) {
-            NSDate *date = foodTrackerItem.date;
-            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
-            [components setHour:0];
-
-            NSString *midnightDate = [[calendar dateFromComponents:components] description];
-            NSMutableArray *section = [myDataSource objectForKey:midnightDate];
-            
-            if (!section) {
-                section = [[NSMutableArray alloc] init];
-                [myDataSource setObject:section forKey:midnightDate];
-            }
-            
-            [section addObject:foodTrackerItem];
+        NSDate *date = foodTrackerItem.date;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+        [components setHour:0];
+        
+        NSString *midnightDate = [[calendar dateFromComponents:components] description];
+        NSMutableArray *section = [myDataSource objectForKey:midnightDate];
+        
+        if (!section) {
+            section = [[NSMutableArray alloc] init];
+            [myDataSource setObject:section forKey:midnightDate];
         }
+        [section addObject:foodTrackerItem];
     }
 
     return myDataSource;
@@ -241,33 +203,15 @@
     return fetchRequest;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [categoryArray count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    DailyTrackerTableViewCell *cell = (DailyTrackerTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"DailyTrackerCell"];
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.myTitleLabel.font = [UIFont fontWithName:@"Oswald" size:16];
-    cell.myTitleLabel.textColor = [UIColor whiteColor];
-    cell.myTitleLabel.text = categoryArray[indexPath.row];
-    
-    cell.myCategoryImageView.image = [UIImage imageNamed:iconImagePathArray[indexPath.row]];
-    cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
-    cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
-    
-    cell.isSelected = NO;
-    
+-(void)updateFeastTracker {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:selectedDate];
     [components setHour:0];
     
     NSString *selectedMidnightDate = [[calendar dateFromComponents:components] description];
-    NSMutableDictionary *mealDictionary = [dataSource objectAtIndex:indexPath.row];
+    NSDictionary *mealDictionary = dataSource;
     
-    for (UIView *view in cell.myScrollView.subviews) {
+    for (UIView *view in myScrollView.subviews) {
         [view removeFromSuperview];
     }
     
@@ -275,7 +219,7 @@
     if ([mealDictionary objectForKey:selectedMidnightDate] != nil) {
         for (FoodTrackerItem *foodTrackerItem in [mealDictionary objectForKey:selectedMidnightDate]) {
             heightOfScrollView += 50;
-            [cell.myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
+            [myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
             
             UIImageView *dividerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 11)];
             [dividerImageView setImage:[UIImage imageNamed:@"divider@2x.png"]];
@@ -294,6 +238,7 @@
             foodTrackerItemDetailLabel.font = [UIFont fontWithName:@"Oswald-Light" size:18];
             foodTrackerItemDetailLabel.textColor = [UIColor whiteColor];
             foodTrackerItemDetailLabel.text = [NSString stringWithFormat:@"%@ %@",foodTrackerItem.servingSize, foodTrackerItem.name];
+            NSLog(@"Name = %@", foodTrackerItem.name);
             
             UILabel *calorieLabel = [[UILabel alloc] initWithFrame:CGRectMake(277, 12, 43, 38)];
             calorieLabel.font = [UIFont fontWithName:@"Oswald" size:18];
@@ -308,79 +253,24 @@
             [containerView addSubview:foodTrackerItemDetailLabel];
             [containerView addSubview:calorieLabel];
             
-            [cell.myScrollView addSubview:containerView];
+            [myScrollView addSubview:containerView];
         }
     } else {
-        for (UIView *view in cell.myScrollView.subviews) {
+        for (UIView *view in myScrollView.subviews) {
             [view removeFromSuperview];
         }
-        
-        [cell.myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
-    }
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DailyTrackerTableViewCell* cell = (DailyTrackerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.isSelected = !cell.isSelected;
-    
-    if (cell.isSelected) {
-        [separatorImageView removeFromSuperview];
-        [addFoodButton removeFromSuperview];
-        
-        [cell.contentView addSubview:separatorImageView];
-        addFoodButton.tag = indexPath.row;
-        [self.view addSubview:addFoodButton];
-        cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
-        cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2 + M_PI);
-        cell.myTitleLabel.text = categoryArray[indexPath.row];
-        
-        isACellSelected = YES;
-        currentSelection = (int) indexPath.row;
-    } else {
-        [addFoodButton removeFromSuperview];
-        cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
-        cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
-        cell.myTitleLabel.text = categoryArray[indexPath.row];
-        isACellSelected = NO;
-    }
-    
-    [tableView beginUpdates];
-    [tableView endUpdates];
-    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DailyTrackerTableViewCell *cell = (DailyTrackerTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.myImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
-    cell.myImageView.layer.affineTransform = CGAffineTransformMakeRotation(M_PI/2);
-    cell.myTitleLabel.text = categoryArray[indexPath.row];
-    
-    [tableView beginUpdates];
-    [tableView endUpdates];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (isACellSelected && currentSelection == indexPath.row) {
-        if (indexPath.row == 3) {
-            return 356;
-        }
-        return (377 - 88);
-    }
-    else {
-        return 88;
+        [myScrollView setContentSize:CGSizeMake(320, heightOfScrollView)];
     }
 }
 
 -(void) addFoodButtonPressed:(UIButton *)sender {
-    addFoodButtonTag = [NSNumber numberWithLong:sender.tag];
     [self performSegueWithIdentifier:@"AddFoodSegue" sender:self];
 }
 
 - (IBAction)dateButtonPrevious:(id)sender {
     dateInterval = dateInterval - (24*60*60);
     [self addDateLabelSubView:[NSDate dateWithTimeIntervalSinceNow:dateInterval]];
+    [self updateFeastTracker];
 }
 
 - (IBAction)dateButtonNext:(id)sender {
@@ -394,16 +284,12 @@
     } else {
         dateInterval = dateInterval + (24*60*60);
         [self addDateLabelSubView:[NSDate dateWithTimeIntervalSinceNow:dateInterval]];
+        [self updateFeastTracker];
     }
 }
 
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AddFoodViewController *nextStepController = (AddFoodViewController *) segue.destinationViewController;
-    nextStepController.addFoodButtonTag = addFoodButtonTag;
 }
 
 @end

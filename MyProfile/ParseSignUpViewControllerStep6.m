@@ -7,14 +7,14 @@
 //
 
 #import "ParseSignUpViewControllerStep6.h"
-#import "ParseSignUpViewControllerStep7.h"
+#import "MenuViewController.h"
 
 @interface ParseSignUpViewControllerStep6 ()
 
 @end
 
 @implementation ParseSignUpViewControllerStep6
-@synthesize inchesHeight, weight, gender, neat, username, password;
+@synthesize inchesHeight, weight, gender, neat, username, password, name, email;
 
 - (void)viewDidLoad
 {
@@ -44,41 +44,46 @@
     return YES;
 }
 
-- (IBAction)backButtonTouched:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)startGettingSexyButtonTouched:(id)sender {
-    // Retrieve the object by id
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+    PFUser *user = [PFUser user];
+    
+    user.username = username;
+    user.password = password;
+    user.email = email;
+    user[@"name"] = name;
+    user[@"height"] = [NSNumber numberWithInt:inchesHeight];
+    user[@"weight"] = [NSNumber numberWithInt:weight];
+    user[@"gender"] = [NSNumber numberWithInt:gender];
+    user[@"neat"] = [NSNumber numberWithInt:neat];
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            user[@"height"] = [NSNumber numberWithInt:inchesHeight];
-            user[@"weight"] = [NSNumber numberWithInt:weight];
-            user[@"gender"] = [NSNumber numberWithInt:gender];
-            user[@"neat"] = [NSNumber numberWithInt:neat];
-            
-            [user saveInBackground];
-            [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
+            NSLog(@"User signed up successfully");
         } else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"error = %@", errorString);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"There was an error in the signup process, %@.", errorString] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error in the signup process, please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }
+        
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+            if (!error) {
+                if (user) {
+                    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                    MenuViewController *myMenuViewController = [MenuViewController new];
+                    myMenuViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MenuViewNavigationController"];
+                    [self presentViewController:myMenuViewController animated:NO completion:nil];
+                } else {
+                    NSLog(@"error = %@", error);
+                }
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"error = %@", errorString);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"There was an error in the signup process, %@.", errorString] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
     }];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ParseSignUpViewControllerStep7 *nextStepController = (ParseSignUpViewControllerStep7 *) segue.destinationViewController;
-    
-    nextStepController.name = self.name;
-    nextStepController.email = self.email;
-    nextStepController.username = self.username;
-    nextStepController.password = self.password;
-    nextStepController.weight = self.weight;
-    nextStepController.inchesHeight = self.inchesHeight;
-    nextStepController.gender = self.gender;
-    nextStepController.neat = self.neat;
 }
 
 @end

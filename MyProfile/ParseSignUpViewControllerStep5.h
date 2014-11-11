@@ -10,7 +10,7 @@
 
 @interface ParseSignUpViewControllerStep5 : UIViewController
 
-- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)startOverButtonTouched:(id)sender;
 - (IBAction)continueButtonTouched:(id)sender;
 - (IBAction)popUpButtonTouched:(id)sender;
 

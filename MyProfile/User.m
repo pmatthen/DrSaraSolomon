@@ -2,7 +2,7 @@
 //  User.m
 //  MyProfile
 //
-//  Created by Poulose Matthen on 13/10/14.
+//  Created by Poulose Matthen on 07/11/14.
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
@@ -13,20 +13,20 @@
 
 @dynamic activityFactor;
 @dynamic email;
+@dynamic eNotifications;
+@dynamic fNotifications;
 @dynamic gender;
 @dynamic height;
+@dynamic hourToBeginEating;
+@dynamic hourToBeginFasting;
 @dynamic initialWeight;
 @dynamic maintenenceCalorieLevel;
-@dynamic name;
-@dynamic objectId;
-@dynamic username;
-@dynamic userPhoto;
-@dynamic protocolTypeSelected;
-@dynamic hourToBeginEating;
-@dynamic fNotifications;
-@dynamic eNotifications;
-@dynamic hourToBeginFasting;
 @dynamic minuteToBeginEating;
 @dynamic minuteToBeginFasting;
+@dynamic name;
+@dynamic objectId;
+@dynamic protocolTypeSelected;
+@dynamic username;
+@dynamic userPhoto;
 
 @end

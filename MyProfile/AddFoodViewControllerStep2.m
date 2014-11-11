@@ -27,7 +27,7 @@
 @end
 
 @implementation AddFoodViewControllerStep2
-@synthesize searchTextField, searchText, myTableView, mySegmentedControl, resultsArray, query, isSelectedArray, numberOfServingsArray, addFoodButtonTag;
+@synthesize searchTextField, searchText, myTableView, mySegmentedControl, resultsArray, query, isSelectedArray, numberOfServingsArray;
 
 - (void)viewDidLoad
 {
@@ -89,8 +89,8 @@
         cell.myTableViewCellTextLabel.text = [tempRecipe.name lowercaseString];
     } else if (mySegmentedControl.selectedSegmentIndex == 2) {
         FSFood *tempFood = resultsArray[indexPath.row];
+
         cell.myTableViewCellTextLabel.text = [tempFood.name lowercaseString];
-        
         cell.servingSizeLabel.textColor = [UIColor whiteColor];
         cell.servingSizeLabel.font = [UIFont fontWithName:@"Oswald-Light" size:9];
         
@@ -174,7 +174,6 @@
                         foodTrackerItem.identifier = [NSNumber numberWithLong:tempFood.identifier];
                         foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
                         foodTrackerItem.date = [NSDate date];
-                        foodTrackerItem.mealType = addFoodButtonTag;
                         [coreDataStack saveContext];
                         [self goToDailyTrackerViewController];
                 }];
@@ -191,7 +190,6 @@
                     foodTrackerItem.identifier = [NSNumber numberWithLong:tempRecipe.identifier];
                     foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
                     foodTrackerItem.date = [NSDate date];
-                    foodTrackerItem.mealType = addFoodButtonTag;
                     [coreDataStack saveContext];
                     [self goToDailyTrackerViewController];
                 }];
@@ -203,7 +201,6 @@
                 foodTrackerItem.identifier = [NSNumber numberWithInt:0];
                 foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
                 foodTrackerItem.date = [NSDate date];
-                foodTrackerItem.mealType = addFoodButtonTag;
                 [coreDataStack saveContext];
                 [self goToDailyTrackerViewController];
             }

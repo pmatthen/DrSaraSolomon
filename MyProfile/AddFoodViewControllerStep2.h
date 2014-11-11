@@ -17,7 +17,6 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *mySegmentedControl;
 
 @property (strong, nonatomic) NSString *searchText;
-@property (strong, nonatomic) NSNumber *addFoodButtonTag;
 
 - (IBAction)backButtonTouched:(id)sender;
 - (IBAction)searchButtonTouched:(id)sender;

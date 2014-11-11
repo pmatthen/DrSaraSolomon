@@ -11,8 +11,8 @@
 
 @interface DailyTrackerViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property (strong, nonatomic) IBOutlet UIImageView *rightArrowImageView;
+@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 - (IBAction)dateButtonPrevious:(id)sender;
 - (IBAction)dateButtonNext:(id)sender;

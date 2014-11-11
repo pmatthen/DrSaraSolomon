@@ -10,7 +10,6 @@
 
 @interface ParseSignUpViewControllerStep6 : UIViewController
 
-- (IBAction)backButtonTouched:(id)sender;
 - (IBAction)startGettingSexyButtonTouched:(id)sender;
 
 @property NSString *name;

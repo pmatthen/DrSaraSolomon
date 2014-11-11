@@ -22,15 +22,8 @@
 @implementation MenuViewController
 @synthesize myTableView, categoryArray, iconImagepathArray;
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    
-    categoryArray = @[@"MY PROFILE", @"DAILY TRACKER", @"INTERMITTENT FASTING", @"SARA'S RECIPES", @"MORE"];
-    iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"intermittent_eatingtimer_active.png", @"recipes_icon@2x.png", @"more_icon@2x.png"];
-}
-
 -(void)viewWillAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
@@ -38,16 +31,22 @@
         UINavigationController *myInitialNavigationController = [UINavigationController new];
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         myInitialNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
-
+        
         [self presentViewController:myInitialNavigationController animated:animated completion:nil];
     } else {
-        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:[[PFUser currentUser] objectId] forKey:@"loggedOnUserID"];
         [defaults synchronize];
         
         [self initializeCoreDataUser];
     }
+}
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    categoryArray = @[@"MY PROFILE", @"FEAST TRACKER", @"INTERMITTENT FASTING", @"SARA'S RECIPES", @"MORE"];
+    iconImagepathArray = @[@"myprofile_icon@2x.png", @"dailytracker_icon@2x.png", @"intermittent_eatingtimer_active.png", @"recipes_icon@2x.png", @"more_icon@2x.png"];
 }
 
 - (void) initializeCoreDataUser {
@@ -77,8 +76,8 @@
         currentUser.minuteToBeginEating = 0;
         currentUser.hourToBeginFasting = 0;
         currentUser.minuteToBeginFasting = 0;
-        currentUser.fNotifications = NO;
-        currentUser.eNotifications = NO;
+        currentUser.fNotifications = [NSNumber numberWithBool:NO];
+        currentUser.eNotifications = [NSNumber numberWithBool:NO];
 
         [coreDataStack saveContext];
     }

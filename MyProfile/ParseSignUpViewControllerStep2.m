@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
+#import "ParseSignUpViewControllerStep1.h"
 #import "ParseSignUpViewControllerStep2.h"
 #import "ParseSignUpViewControllerStep3.h"
 
@@ -110,8 +111,9 @@
     return label;
 }
 
-- (IBAction)backButtonTouched:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)startOverButtonTouched:(id)sender {
+    NSArray *array = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[array objectAtIndex:1] animated:YES];
 }
 
 - (IBAction)continueButtonTouched:(id)sender {

@@ -24,7 +24,6 @@
 		B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */; };
 		B156C3D31960014E00C1E6AF /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D21960014E00C1E6AF /* leftArrow.png */; };
 		B156C3D51960015200C1E6AF /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B156C3D41960015200C1E6AF /* rightArrow.png */; };
-		B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */; };
 		B156C3DB1960398000C1E6AF /* AddFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3DA1960398000C1E6AF /* AddFoodViewController.m */; };
 		B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B156C3DD19603D1400C1E6AF /* AddExerciseViewController.m */; };
 		B164AD821962C11F00873D6B /* field_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B164AD6E1962C11F00873D6B /* field_line@2x.png */; };
@@ -63,9 +62,6 @@
 		B1681B5A19174DF500923BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1681B5819174DF500923BB3 /* InfoPlist.strings */; };
 		B1681B5C19174DF500923BB3 /* MyProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1681B5B19174DF500923BB3 /* MyProfileTests.m */; };
 		B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B169080819D2A67B00DE6C5A /* CoreDataStack.m */; };
-		B16A5BBC19EC06B2009BE533 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BBB19EC06B2009BE533 /* User.m */; };
-		B16A5BBF19EC06B3009BE533 /* FoodTrackerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */; };
-		B16A5BC219EC06B3009BE533 /* RecordedWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B16A5BC119EC06B3009BE533 /* RecordedWeight.m */; };
 		B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */; };
 		B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16AB98B1947100B002FC2BF /* RecipeSampleTableViewCell.m */; };
 		B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D1D28199C9C5C00CBE80C /* RecipeSearchViewController.m */; };
@@ -180,6 +176,9 @@
 		B1CF7376197BD0A500E21F81 /* nav_rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF736F197BD0A500E21F81 /* nav_rectangle@2x.png */; };
 		B1CF7377197BD0A500E21F81 /* recipes_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF7370197BD0A500E21F81 /* recipes_icon@2x.png */; };
 		B1CF7378197BD0A500E21F81 /* workouts_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CF7371197BD0A500E21F81 /* workouts_icon@2x.png */; };
+		B1D420B91A0CCC5200ABFB0B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D420B81A0CCC5200ABFB0B /* User.m */; };
+		B1D420BC1A0CCC5300ABFB0B /* FoodTrackerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D420BB1A0CCC5300ABFB0B /* FoodTrackerItem.m */; };
+		B1D420BF1A0CCC5300ABFB0B /* RecordedWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D420BE1A0CCC5300ABFB0B /* RecordedWeight.m */; };
 		B1D4E73119DECEF30093AA08 /* intermittent_eatingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D4E72F19DECEF30093AA08 /* intermittent_eatingtimer_active.png */; };
 		B1D4E73219DECEF30093AA08 /* intermittent_fastingtimer_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D4E73019DECEF30093AA08 /* intermittent_fastingtimer_active.png */; };
 		B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D635771920B9CB004C3249 /* MoreViewController.m */; };
@@ -237,7 +236,6 @@
 		B1F895221988DE290057C4F9 /* intermittentfasting_blurryBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F895151988DE290057C4F9 /* intermittentfasting_blurryBG@2x.png */; };
 		B1F895231988DE290057C4F9 /* x_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F895161988DE290057C4F9 /* x_icon@2x.png */; };
 		B1F895261988DF030057C4F9 /* ParseSignUpViewControllerStep6.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F895251988DF030057C4F9 /* ParseSignUpViewControllerStep6.m */; };
-		B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F895281988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m */; };
 		B1F99DF919FF4BFB0033A245 /* arrow_small_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F99DF519FF4BFB0033A245 /* arrow_small_down@2x.png */; };
 		B1F99DFA19FF4BFB0033A245 /* arrow_small_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F99DF619FF4BFB0033A245 /* arrow_small_left@2x.png */; };
 		B1F99DFB19FF4BFB0033A245 /* arrow_small_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F99DF719FF4BFB0033A245 /* arrow_small_right@2x.png */; };
@@ -281,8 +279,6 @@
 		B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTrackerViewController.m; sourceTree = "<group>"; };
 		B156C3D21960014E00C1E6AF /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
 		B156C3D41960015200C1E6AF /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
-		B156C3D6196006FA00C1E6AF /* DailyTrackerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyTrackerTableViewCell.h; sourceTree = "<group>"; };
-		B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyTrackerTableViewCell.m; sourceTree = "<group>"; };
 		B156C3D91960398000C1E6AF /* AddFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodViewController.h; sourceTree = "<group>"; };
 		B156C3DA1960398000C1E6AF /* AddFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewController.m; sourceTree = "<group>"; };
 		B156C3DC19603D1400C1E6AF /* AddExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExerciseViewController.h; sourceTree = "<group>"; };
@@ -330,12 +326,6 @@
 		B1681B5B19174DF500923BB3 /* MyProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileTests.m; sourceTree = "<group>"; };
 		B169080719D2A67B00DE6C5A /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		B169080819D2A67B00DE6C5A /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
-		B16A5BBA19EC06B2009BE533 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B16A5BBB19EC06B2009BE533 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		B16A5BBD19EC06B3009BE533 /* FoodTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrackerItem.h; sourceTree = "<group>"; };
-		B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerItem.m; sourceTree = "<group>"; };
-		B16A5BC019EC06B3009BE533 /* RecordedWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordedWeight.h; sourceTree = "<group>"; };
-		B16A5BC119EC06B3009BE533 /* RecordedWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordedWeight.m; sourceTree = "<group>"; };
 		B16AB98719470E2C002FC2BF /* RecipeSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleViewController.h; sourceTree = "<group>"; };
 		B16AB98819470E2C002FC2BF /* RecipeSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSampleViewController.m; sourceTree = "<group>"; };
 		B16AB98A1947100B002FC2BF /* RecipeSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSampleTableViewCell.h; sourceTree = "<group>"; };
@@ -463,6 +453,12 @@
 		B1CF736F197BD0A500E21F81 /* nav_rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_rectangle@2x.png"; sourceTree = "<group>"; };
 		B1CF7370197BD0A500E21F81 /* recipes_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipes_icon@2x.png"; sourceTree = "<group>"; };
 		B1CF7371197BD0A500E21F81 /* workouts_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workouts_icon@2x.png"; sourceTree = "<group>"; };
+		B1D420B71A0CCC5200ABFB0B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B1D420B81A0CCC5200ABFB0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B1D420BA1A0CCC5300ABFB0B /* FoodTrackerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrackerItem.h; sourceTree = "<group>"; };
+		B1D420BB1A0CCC5300ABFB0B /* FoodTrackerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerItem.m; sourceTree = "<group>"; };
+		B1D420BD1A0CCC5300ABFB0B /* RecordedWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordedWeight.h; sourceTree = "<group>"; };
+		B1D420BE1A0CCC5300ABFB0B /* RecordedWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordedWeight.m; sourceTree = "<group>"; };
 		B1D4E72F19DECEF30093AA08 /* intermittent_eatingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_eatingtimer_active.png; sourceTree = "<group>"; };
 		B1D4E73019DECEF30093AA08 /* intermittent_fastingtimer_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intermittent_fastingtimer_active.png; sourceTree = "<group>"; };
 		B1D635761920B9CB004C3249 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -525,8 +521,6 @@
 		B1F895161988DE290057C4F9 /* x_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_icon@2x.png"; sourceTree = "<group>"; };
 		B1F895241988DF030057C4F9 /* ParseSignUpViewControllerStep6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep6.h; sourceTree = "<group>"; };
 		B1F895251988DF030057C4F9 /* ParseSignUpViewControllerStep6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep6.m; sourceTree = "<group>"; };
-		B1F895271988F58A0057C4F9 /* ParseSignUpViewControllerStep7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSignUpViewControllerStep7.h; sourceTree = "<group>"; };
-		B1F895281988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSignUpViewControllerStep7.m; sourceTree = "<group>"; };
 		B1F99DF519FF4BFB0033A245 /* arrow_small_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_small_down@2x.png"; sourceTree = "<group>"; };
 		B1F99DF619FF4BFB0033A245 /* arrow_small_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_small_left@2x.png"; sourceTree = "<group>"; };
 		B1F99DF719FF4BFB0033A245 /* arrow_small_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_small_right@2x.png"; sourceTree = "<group>"; };
@@ -712,8 +706,6 @@
 				B126970A191A1363002425C3 /* MyProfileTableViewCell.m */,
 				B156C3CF195FF43700C1E6AF /* DailyTrackerViewController.h */,
 				B156C3D0195FF43700C1E6AF /* DailyTrackerViewController.m */,
-				B156C3D6196006FA00C1E6AF /* DailyTrackerTableViewCell.h */,
-				B156C3D7196006FA00C1E6AF /* DailyTrackerTableViewCell.m */,
 				B156C3D91960398000C1E6AF /* AddFoodViewController.h */,
 				B156C3DA1960398000C1E6AF /* AddFoodViewController.m */,
 				B1B8CE5919C6DDAF00FEB20C /* AddFoodViewControllerStep2.h */,
@@ -731,6 +723,8 @@
 				B1D635771920B9CB004C3249 /* MoreViewController.m */,
 				B1E3C9E0196E40C800659A15 /* ILTranslucentView.h */,
 				B1E3C9E1196E40C800659A15 /* ILTranslucentView.m */,
+				B14C3FB419DBC7A700071DDF /* SaveImageNSValueTransformer.h */,
+				B14C3FB519DBC7A700071DDF /* SaveImageNSValueTransformer.m */,
 				B1681B4819174DF500923BB3 /* Images.xcassets */,
 				B1681B3719174DF500923BB3 /* Supporting Files */,
 			);
@@ -1031,8 +1025,6 @@
 				B1921141192634750017F4ED /* ParseSignUpViewControllerStep5.m */,
 				B1F895241988DF030057C4F9 /* ParseSignUpViewControllerStep6.h */,
 				B1F895251988DF030057C4F9 /* ParseSignUpViewControllerStep6.m */,
-				B1F895271988F58A0057C4F9 /* ParseSignUpViewControllerStep7.h */,
-				B1F895281988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m */,
 			);
 			name = ParseSignUpViewControllers;
 			sourceTree = "<group>";
@@ -1063,17 +1055,15 @@
 		B1BCE66E19C960EF001AF03C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				B14C3FB419DBC7A700071DDF /* SaveImageNSValueTransformer.h */,
-				B14C3FB519DBC7A700071DDF /* SaveImageNSValueTransformer.m */,
 				B169080719D2A67B00DE6C5A /* CoreDataStack.h */,
 				B169080819D2A67B00DE6C5A /* CoreDataStack.m */,
 				B11A07DC19A49FE40006A3FE /* DataModel.xcdatamodeld */,
-				B16A5BC019EC06B3009BE533 /* RecordedWeight.h */,
-				B16A5BC119EC06B3009BE533 /* RecordedWeight.m */,
-				B16A5BBD19EC06B3009BE533 /* FoodTrackerItem.h */,
-				B16A5BBE19EC06B3009BE533 /* FoodTrackerItem.m */,
-				B16A5BBA19EC06B2009BE533 /* User.h */,
-				B16A5BBB19EC06B2009BE533 /* User.m */,
+				B1D420BD1A0CCC5300ABFB0B /* RecordedWeight.h */,
+				B1D420BE1A0CCC5300ABFB0B /* RecordedWeight.m */,
+				B1D420BA1A0CCC5300ABFB0B /* FoodTrackerItem.h */,
+				B1D420BB1A0CCC5300ABFB0B /* FoodTrackerItem.m */,
+				B1D420B71A0CCC5200ABFB0B /* User.h */,
+				B1D420B81A0CCC5200ABFB0B /* User.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -1607,8 +1597,8 @@
 				B14C3FB619DBC7A700071DDF /* SaveImageNSValueTransformer.m in Sources */,
 				B1F895261988DF030057C4F9 /* ParseSignUpViewControllerStep6.m in Sources */,
 				B13A9CA619249976009D1FD2 /* InitialViewControlllerTableViewCell.m in Sources */,
+				B1D420BF1A0CCC5300ABFB0B /* RecordedWeight.m in Sources */,
 				B1681B4719174DF500923BB3 /* MenuViewController.m in Sources */,
-				B156C3D8196006FA00C1E6AF /* DailyTrackerTableViewCell.m in Sources */,
 				B1B8CE5B19C6DDAF00FEB20C /* AddFoodViewControllerStep2.m in Sources */,
 				B192113F192634620017F4ED /* ParseSignUpViewControllerStep4.m in Sources */,
 				B16AB98C1947100B002FC2BF /* RecipeSampleTableViewCell.m in Sources */,
@@ -1617,24 +1607,22 @@
 				B126970B191A1363002425C3 /* MyProfileTableViewCell.m in Sources */,
 				B169080919D2A67B00DE6C5A /* CoreDataStack.m in Sources */,
 				B1DF1E6819E999160080C247 /* IntermittentFastingTableViewCell.m in Sources */,
+				B1D420B91A0CCC5200ABFB0B /* User.m in Sources */,
 				B1681B4119174DF500923BB3 /* AppDelegate.m in Sources */,
-				B1F895291988F58A0057C4F9 /* ParseSignUpViewControllerStep7.m in Sources */,
 				B16D1D29199C9C5C00CBE80C /* RecipeSearchViewController.m in Sources */,
 				B1DF1E2919E96A110080C247 /* IntermittentFastingViewController.m in Sources */,
-				B16A5BBC19EC06B2009BE533 /* User.m in Sources */,
 				B1653BFD1918BFAF007A73B7 /* MyProfileViewController.m in Sources */,
 				B16AB98919470E2C002FC2BF /* RecipeSampleViewController.m in Sources */,
 				B1745F54199BB37900C44221 /* RecipeTableViewCell.m in Sources */,
 				B156C3D1195FF43700C1E6AF /* DailyTrackerViewController.m in Sources */,
 				B1BCDF3C19C7097400BD6F29 /* AddFoodStep2TableViewCell.m in Sources */,
-				B16A5BBF19EC06B3009BE533 /* FoodTrackerItem.m in Sources */,
 				B156C3DE19603D1400C1E6AF /* AddExerciseViewController.m in Sources */,
 				B192113C192634520017F4ED /* ParseSignUpViewControllerStep2.m in Sources */,
 				B1B7948C1917CEBF007ADE7B /* MenuViewTableViewCell.m in Sources */,
 				B1D635781920B9CC004C3249 /* MoreViewController.m in Sources */,
-				B16A5BC219EC06B3009BE533 /* RecordedWeight.m in Sources */,
 				B1E3C9E2196E40C800659A15 /* ILTranslucentView.m in Sources */,
 				B198D813199CB69100F39C68 /* RecipeSearchTableViewCell.m in Sources */,
+				B1D420BC1A0CCC5300ABFB0B /* FoodTrackerItem.m in Sources */,
 				B13A9CA91924AE1A009D1FD2 /* ParseSignUpViewControllerStep3.m in Sources */,
 				B1681B3D19174DF500923BB3 /* main.m in Sources */,
 				B156C3DB1960398000C1E6AF /* AddFoodViewController.m in Sources */,

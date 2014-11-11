@@ -63,7 +63,7 @@
     
     
     UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(285, 15, 25, 24)];
-    arrowImageView.image = [UIImage imageNamed:@"arrow@2x.png"];
+    arrowImageView.image = [UIImage imageNamed:@"arrow_small_right@2x.png"];
     [loginButton addSubview:arrowImageView];
     
     [self.view addSubview:stepsCountLabelA];

@@ -8,6 +8,7 @@
 
 #import "ParseSignUpViewControllerStep5.h"
 #import "ParseSignUpViewControllerStep6.h"
+#import "ParseSignUpViewControllerStep1.h"
 #import "ILTranslucentView.h"
 
 @interface ParseSignUpViewControllerStep5 () <UIPickerViewDelegate, UIPickerViewDataSource> {
@@ -100,13 +101,12 @@
     return label;
 }
 
-- (IBAction)backButtonTouched:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    
+- (IBAction)startOverButtonTouched:(id)sender {
+    NSArray *array = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[array objectAtIndex:1] animated:YES];
 }
 
 - (IBAction)continueButtonTouched:(id)sender {
-    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
 }
 
 - (IBAction)popUpButtonTouched:(id)sender {

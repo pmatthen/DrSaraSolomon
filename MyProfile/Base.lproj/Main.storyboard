@@ -391,57 +391,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menurectanglefull.png" translatesAutoresizingMaskIntoConstraints="NO" id="4lo-je-n8A">
                                 <rect key="frame" x="0.0" y="212" width="320" height="356"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MKJ-ej-1fw">
-                                <rect key="frame" x="0.0" y="212" width="320" height="356"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DailyTrackerCell" id="emC-gN-G1Z" customClass="DailyTrackerTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emC-gN-G1Z" id="RDg-pn-q21">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menurectangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJ8-Jg-BFf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menurectanglefull.png" translatesAutoresizingMaskIntoConstraints="NO" id="ajo-to-QM9">
-                                                    <rect key="frame" x="0.0" y="71" width="320" height="285"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BREAKFAST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TO-TZ-HRF">
-                                                    <rect key="frame" x="75" y="36" width="181" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWG-RC-2jc">
-                                                    <rect key="frame" x="274" y="30" width="26" height="25"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lvy-Pc-khm">
-                                                    <rect key="frame" x="20" y="25" width="40" height="38"/>
-                                                </imageView>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkE-Qt-3ZC">
-                                                    <rect key="frame" x="0.0" y="98" width="320" height="285"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="V2Q-4x-KW5" id="abe-D8-ARg"/>
-                                                    </connections>
-                                                </scrollView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="myCategoryImageView" destination="Lvy-Pc-khm" id="z9N-WG-8pw"/>
-                                            <outlet property="myImageView" destination="HWG-RC-2jc" id="324-KN-dcP"/>
-                                            <outlet property="myScrollView" destination="IkE-Qt-3ZC" id="wzb-06-nn5"/>
-                                            <outlet property="myTitleLabel" destination="5TO-TZ-HRF" id="AQf-fn-LBm"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="V2Q-4x-KW5" id="z1R-hu-ggW"/>
-                                    <outlet property="delegate" destination="V2Q-4x-KW5" id="DRA-kn-e58"/>
-                                </connections>
-                            </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="separatorLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mhe-m5-jkQ">
                                 <rect key="frame" x="1" y="212" width="320" height="1"/>
                             </imageView>
@@ -481,12 +430,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="4cT-Bb-GuH">
                                 <rect key="frame" x="0.0" y="172" width="320" height="10"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOb-Sa-UAJ">
+                                <rect key="frame" x="0.0" y="207" width="320" height="286"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4MM-sI-e7F"/>
                     <connections>
-                        <outlet property="myTableView" destination="MKJ-ej-1fw" id="xx0-gk-dTT"/>
+                        <outlet property="myScrollView" destination="dOb-Sa-UAJ" id="ecn-cb-i3j"/>
                         <outlet property="rightArrowImageView" destination="qm4-5g-3lM" id="QFp-r1-laW"/>
                         <segue destination="9LN-TB-71a" kind="push" identifier="AddFoodSegue" id="MXJ-UM-Lb1"/>
                     </connections>
@@ -765,7 +717,7 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLT-od-WvC">
-                                                    <rect key="frame" x="60" y="27" width="100" height="21"/>
+                                                    <rect key="frame" x="60" y="27" width="170" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -951,7 +903,7 @@
                         <outlet property="myScrollView" destination="akn-K3-WDm" id="IVM-j6-puN"/>
                         <outlet property="myTableView" destination="1yy-rk-7rm" id="lfq-Qe-1ST"/>
                         <segue destination="Jc9-Bc-A7k" kind="push" identifier="LogInSegue" id="8UC-Kp-KQ3"/>
-                        <segue destination="8zR-pL-c1q" kind="push" identifier="SignUpSegue" id="dBc-3X-z2v"/>
+                        <segue destination="8zR-pL-c1q" kind="push" identifier="SignUpSegue" id="Njr-Hh-AJk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwt-NR-wBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1049,7 +1001,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4D-KP-MUt">
-                                <rect key="frame" x="74" y="490" width="175" height="60"/>
+                                <rect key="frame" x="74" y="480" width="175" height="60"/>
                                 <state key="normal" image="continue_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1058,13 +1010,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJR-md-mDa">
-                                <rect key="frame" x="12" y="10" width="33" height="24"/>
+                                <rect key="frame" x="12" y="10" width="62" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
+                                <state key="normal" title="START OVER">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="US6-Yl-Y1v" eventType="touchUpInside" id="0Wg-E0-v9O"/>
+                                    <action selector="startOverButtonTouched:" destination="US6-Yl-Y1v" eventType="touchUpInside" id="KP4-vn-KJg"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVA-Pf-yEd">
@@ -1075,23 +1027,18 @@
                                 </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAr-7C-AL8">
-                                <rect key="frame" x="0.0" y="108" width="192" height="7"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pU-6U-tva">
-                                <rect key="frame" x="53" y="229" width="97" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ol-3q-PvD">
-                                <rect key="frame" x="170" y="229" width="97" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpZ-Hn-v5o">
-                                <rect key="frame" x="53" y="430" width="97" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6q-F7-NQG">
-                                <rect key="frame" x="170" y="430" width="97" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1105,7 +1052,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hX-OM-9bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872" y="2215"/>
+            <point key="canvasLocation" x="2872" y="2247"/>
         </scene>
         <!--Parse Sign Up View Controller Step2-->
         <scene sceneID="93L-VZ-F1b">
@@ -1126,17 +1073,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QG-Ck-G76">
-                                <rect key="frame" x="12" y="10" width="33" height="24"/>
+                                <rect key="frame" x="12" y="10" width="62" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
+                                <state key="normal" title="START OVER">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="hcd-0x-IyN" eventType="touchUpInside" id="C9I-Wi-ego"/>
+                                    <action selector="startOverButtonTouched:" destination="hcd-0x-IyN" eventType="touchUpInside" id="xpl-4J-hNA"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMp-Hp-PAY">
-                                <rect key="frame" x="0.0" y="108" width="128" height="7"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-1S-joI">
@@ -1149,11 +1095,9 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jy7-ho-l1q">
-                                <rect key="frame" x="53" y="229" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-Um-maR">
-                                <rect key="frame" x="53" y="430" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7NW-KW-naO">
@@ -1174,12 +1118,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xqo-Ie-Cyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2491" y="2215"/>
+            <point key="canvasLocation" x="2491" y="2247"/>
         </scene>
         <!--Parse Sign Up View Controller Step1-->
         <scene sceneID="lwu-Jl-33m">
             <objects>
-                <viewController id="8zR-pL-c1q" customClass="ParseSignUpViewControllerStep1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Step1" id="8zR-pL-c1q" customClass="ParseSignUpViewControllerStep1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZlW-9h-I81"/>
                         <viewControllerLayoutGuide type="bottom" id="hiZ-ka-HSv"/>
@@ -1205,7 +1149,6 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBX-9v-Hxo">
-                                <rect key="frame" x="0.0" y="108" width="64" height="7"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="jaZ-9h-Yqc">
@@ -1288,7 +1231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8B-47-qRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114" y="2215"/>
+            <point key="canvasLocation" x="2114" y="2247"/>
         </scene>
         <!--Parse Sign Up View Controller Step5-->
         <scene sceneID="09s-79-4ex">
@@ -1309,17 +1252,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCb-A3-2vo">
-                                <rect key="frame" x="12" y="10" width="33" height="24"/>
+                                <rect key="frame" x="12" y="10" width="62" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
+                                <state key="normal" title="START OVER">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="rQn-GN-zfZ" eventType="touchUpInside" id="fE6-YE-ekl"/>
+                                    <action selector="startOverButtonTouched:" destination="rQn-GN-zfZ" eventType="touchUpInside" id="E0L-Jn-e8n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-CF-iMZ">
-                                <rect key="frame" x="74" y="490" width="175" height="60"/>
+                                <rect key="frame" x="74" y="480" width="175" height="60"/>
                                 <state key="normal" image="continue_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1336,15 +1279,12 @@
                                 </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJU-au-gW2">
-                                <rect key="frame" x="53" y="229" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Fp-Qc-6dI">
-                                <rect key="frame" x="53" y="430" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KrN-Fz-gfY">
-                                <rect key="frame" x="0.0" y="108" width="320" height="7"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bh-d5-Nsr">
@@ -1366,7 +1306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qap-UV-Sk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="2215"/>
+            <point key="canvasLocation" x="3650" y="2247"/>
         </scene>
         <!--Parse Sign Up View Controller Step6-->
         <scene sceneID="H8q-vn-3ZB">
@@ -1390,17 +1330,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startGettingSexyButtonTouched:" destination="1r9-qO-LBq" eventType="touchUpInside" id="Wha-Ya-iaz"/>
-                                    <segue destination="GEm-zz-gII" kind="push" identifier="NextStepSegue" id="exI-Fd-TUS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHf-rX-7p8">
-                                <rect key="frame" x="12" y="10" width="33" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonTouched:" destination="1r9-qO-LBq" eventType="touchUpInside" id="up0-8a-k5d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1410,60 +1339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eA-U2-Ct9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4046" y="2215"/>
-        </scene>
-        <!--Parse Sign Up View Controller Step7-->
-        <scene sceneID="XQQ-q5-ga6">
-            <objects>
-                <viewController id="GEm-zz-gII" customClass="ParseSignUpViewControllerStep7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MjQ-Ec-sDd"/>
-                        <viewControllerLayoutGuide type="bottom" id="kVd-Ds-edt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="73j-25-38V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pattern_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="gSy-HJ-wPw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="congrats_header_rectangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="6iT-1e-f18">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fl-kf-gwV">
-                                <rect key="frame" x="0.0" y="109" width="320" height="7"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-of-99j">
-                                <rect key="frame" x="12" y="10" width="30" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonTouched:" destination="GEm-zz-gII" eventType="touchUpInside" id="Z8F-a1-mZs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-TC-mhT">
-                                <rect key="frame" x="103" y="518" width="115" height="30"/>
-                                <state key="normal" title="Continue To App">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="continueButtonTouched:" destination="GEm-zz-gII" eventType="touchUpInside" id="1Jt-iA-kRf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="dtk-Ts-AdF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G9q-0c-ohl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4440" y="2215"/>
+            <point key="canvasLocation" x="4046" y="2247"/>
         </scene>
         <!--Parse Sign Up View Controller Step4-->
         <scene sceneID="rQI-6A-TK3">
@@ -1484,17 +1360,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps8-cr-Q5G">
-                                <rect key="frame" x="12" y="10" width="33" height="24"/>
+                                <rect key="frame" x="12" y="10" width="62" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="BACK">
+                                <state key="normal" title="START OVER">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTouched:" destination="49T-I8-zXf" eventType="touchUpInside" id="EST-7c-nqH"/>
+                                    <action selector="startOverButtonTouched:" destination="49T-I8-zXf" eventType="touchUpInside" id="DGz-Cl-3ff"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQE-xi-fHj">
-                                <rect key="frame" x="74" y="490" width="175" height="60"/>
+                                <rect key="frame" x="74" y="480" width="175" height="60"/>
                                 <state key="normal" image="continue_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1510,15 +1386,12 @@
                                 </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jk-Ff-gue">
-                                <rect key="frame" x="53" y="229" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDa-7q-Xxu">
-                                <rect key="frame" x="53" y="430" width="214" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kt-dC-sQ0">
-                                <rect key="frame" x="0.0" y="108" width="254" height="7"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1532,7 +1405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zl8-fy-eUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3262" y="2215"/>
+            <point key="canvasLocation" x="3262" y="2247"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chL-ly-HKU">
@@ -1559,7 +1432,6 @@
     <resources>
         <image name="addicon.png" width="26" height="26"/>
         <image name="congrats_fireworks_background.png" width="320" height="568"/>
-        <image name="congrats_header_rectangle.png" width="320" height="115"/>
         <image name="continue_button.png" width="189" height="59"/>
         <image name="datearrow.png" width="12" height="12"/>
         <image name="daterectangle.png" width="320" height="50"/>
@@ -1570,7 +1442,6 @@
         <image name="field_line.png" width="198" height="18"/>
         <image name="header_rectangle.png" width="320" height="115"/>
         <image name="mainheaderrectangle.png" width="320" height="177"/>
-        <image name="menurectangle.png" width="319" height="71"/>
         <image name="menurectanglefull.png" width="320" height="284"/>
         <image name="myLeftArrow.png" width="13" height="12"/>
         <image name="myprofile_header.png" width="320" height="54"/>
