@@ -1,26 +1,25 @@
 //
-//  ParseSignUpViewController.h
+//  ParseSignUpViewControllerStep2.h
 //  MyProfile
 //
-//  Created by Vanaja Matthen on 15/05/14.
+//  Created by Vanaja Matthen on 16/05/14.
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/Parse.h"
 
-@interface ParseSignUpViewControllerStep3 : UIViewController
-
-- (IBAction)startOverButtonTouched:(id)sender;
-- (IBAction)continueButtonTouched:(id)sender;
+@interface ParseSignUpViewControllerStep2 : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 
-@property NSMutableArray *feetHeightArray;
-@property NSMutableArray *inchesHeightArray;
+@property NSMutableArray *weightArray;
 @property NSString *name;
 @property NSString *email;
 @property NSString *username;
 @property NSString *password;
-@property int weight;
+
+- (IBAction)startOverButtonTouched:(id)sender;
+- (IBAction)continueButtonTouched:(id)sender;
 
 @end
