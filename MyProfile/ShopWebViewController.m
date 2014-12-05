@@ -13,25 +13,39 @@
 @end
 
 @implementation ShopWebViewController
+@synthesize myWebView, url, titleString;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 9, 250, 40)];
+    titleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = titleString;
+    
+    [self.view addSubview:titleLabel];
+
+    NSURLRequest *myURLRequest = [NSURLRequest requestWithURL:url];
+    [myWebView loadRequest:myURLRequest];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewDidLayoutSubviews
+{
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
 }
-*/
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    [webView.scrollView setContentSize: CGSizeMake(webView.frame.size.width, webView.scrollView.contentSize.height)];
+}
+
+- (IBAction)backButtonTouched:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

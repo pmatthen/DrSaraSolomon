@@ -6,12 +6,11 @@
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
-#import "ParseSignUpViewControllerStep5.h"
 #import "ParseSignUpViewControllerStep6.h"
-#import "ParseSignUpViewControllerStep1.h"
+#import "ParseSignUpViewControllerStep7.h"
 #import "ILTranslucentView.h"
 
-@interface ParseSignUpViewControllerStep5 () <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface ParseSignUpViewControllerStep6 () <UIPickerViewDelegate, UIPickerViewDataSource> {
     ILTranslucentView *translucentView;
     UIButton *closePopUpViewButton;
     UIColor *myFontColor;
@@ -19,7 +18,7 @@
 
 @end
 
-@implementation ParseSignUpViewControllerStep5
+@implementation ParseSignUpViewControllerStep6
 @synthesize myPickerView, neatArray;
 
 - (void)viewDidLoad
@@ -28,10 +27,8 @@
     
     [super viewDidLoad];
     
-    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i, inchesHeight = %i, gender = %i", self.name, self.email, self.username, self.password, self.weight, self.inchesHeight, self.gender);
-
     neatArray = [NSArray new];
-    neatArray = @[@"beginner", @"advanced", @"hardcore"];
+    neatArray = @[@"sedentary", @"lightly active", @"moderately active", @"very active", @"extremely active"];
     
     UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(89, 56, 140, 35)];
     stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
@@ -54,13 +51,13 @@
     UILabel *stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 149, 60, 40)];
     stepLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
     stepLabel.textColor = myFontColor;
-    stepLabel.text = @"Step 5";
+    stepLabel.text = @"Step 6";
     [stepLabel sizeToFit];
     
     UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(134, 163, 60, 40)];
     instructionsLabel.font = [UIFont fontWithName:@"Oswald-Light" size:16];
     instructionsLabel.textColor = myFontColor;
-    instructionsLabel.text = @"ENTER FITNESSLEVEL";
+    instructionsLabel.text = @"ENTER FITNESS LEVEL";
     [instructionsLabel sizeToFit];
     
     [self.view addSubview:stepsCountLabelA];
@@ -87,14 +84,14 @@
 }
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    return 100;
+    return 60;
 }
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UILabel *label = [[UILabel alloc] init];
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont fontWithName:@"Oswald" size:57];
+    label.font = [UIFont fontWithName:@"Oswald" size:40];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = neatArray[row];
     
@@ -120,77 +117,121 @@
     [closePopUpViewButton setImage:[UIImage imageNamed:@"x_icon@2x.png"] forState:UIControlStateNormal];
     [closePopUpViewButton addTarget:self action:@selector(closePopUpViewButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *popUpTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 128, 150, 80)];
+    UILabel *popUpTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 48, 150, 80)];
     popUpTitleLabel.font = [UIFont fontWithName:@"Oswald" size:26];
     popUpTitleLabel.textColor = myFontColor;
     popUpTitleLabel.text = @"FITNESS LEVELS";
     [popUpTitleLabel sizeToFit];
     
-    UILabel *beginnerLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 201, 80, 80)];
-    beginnerLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
-    beginnerLabel.textColor = myFontColor;
-    beginnerLabel.text = @"Beginner";
-    [beginnerLabel sizeToFit];
+    UILabel *sedentaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 121, 80, 80)];
+    sedentaryLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
+    sedentaryLabel.textColor = myFontColor;
+    sedentaryLabel.text = @"Sedentary";
+    [sedentaryLabel sizeToFit];
     
-    UILabel *beginnerDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 227, 80, 80)];
-    beginnerDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
-    beginnerDescriptionLabel.textColor = myFontColor;
-    beginnerDescriptionLabel.text = @"Exercises 0-2 times a week";
-    [beginnerDescriptionLabel sizeToFit];
+    UILabel *sedentaryDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 147, 80, 80)];
+    sedentaryDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:11];
+    sedentaryDescriptionLabel.textColor = myFontColor;
+    sedentaryDescriptionLabel.text = @"little or no exercise";
+    [sedentaryDescriptionLabel sizeToFit];
     
-    UIImageView *beginnerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beginner_icon@2x.png"]];
-    beginnerImageView.frame = CGRectMake(62, 199, 52, 52);
+    UIImageView *sedentaryImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beginner_icon@2x.png"]];
+    sedentaryImageView.frame = CGRectMake(62, 129, 52, 52);
     
-    UIView *separatorView1 = [[UIView alloc] initWithFrame:CGRectMake(67, 270, 194 , 2)];
+    UIView *separatorView1 = [[UIView alloc] initWithFrame:CGRectMake(67, 190, 194 , 2)];
     separatorView1.backgroundColor = myFontColor;
     
-    UILabel *advancedLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 291, 80, 80)];
-    advancedLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
-    advancedLabel.textColor = myFontColor;
-    advancedLabel.text = @"Advanced";
-    [advancedLabel sizeToFit];
+    UILabel *lightlyActiveLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 211, 80, 80)];
+    lightlyActiveLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
+    lightlyActiveLabel.textColor = myFontColor;
+    lightlyActiveLabel.text = @"Lightly Active";
+    [lightlyActiveLabel sizeToFit];
     
-    UILabel *advancedDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 317, 80, 80)];
-    advancedDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
-    advancedDescriptionLabel.textColor = myFontColor;
-    advancedDescriptionLabel.text = @"Exercises 3-5 times a week";
-    [advancedDescriptionLabel sizeToFit];
+    UILabel *lightlyActiveDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 237, 80, 80)];
+    lightlyActiveDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:11];
+    lightlyActiveDescriptionLabel.textColor = myFontColor;
+    lightlyActiveDescriptionLabel.text = @"easy exercise/sports 1-3 days/week";
+    [lightlyActiveDescriptionLabel sizeToFit];
     
-    UIImageView *advancedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"advanced_icon@2x.png"]];
-    advancedImageView.frame = CGRectMake(62, 289, 55, 49);
+    UIImageView *lightlyActiveImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"advanced_icon@2x.png"]];
+    lightlyActiveImageView.frame = CGRectMake(62, 209, 55, 49);
     
-    UIView *separatorView2 = [[UIView alloc] initWithFrame:CGRectMake(67, 360, 194 , 2)];
+    UIView *separatorView2 = [[UIView alloc] initWithFrame:CGRectMake(67, 280, 194 , 2)];
     separatorView2.backgroundColor = myFontColor;
     
-    UILabel *hardcoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 379, 80, 80)];
-    hardcoreLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
-    hardcoreLabel.textColor = myFontColor;
-    hardcoreLabel.text = @"Hardcore";
-    [hardcoreLabel sizeToFit];
+    UILabel *moderatelyActiveLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 299, 80, 80)];
+    moderatelyActiveLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
+    moderatelyActiveLabel.textColor = myFontColor;
+    moderatelyActiveLabel.text = @"Moderately Active";
+    [moderatelyActiveLabel sizeToFit];
     
-    UILabel *hardcoreDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 405, 80, 80)];
-    hardcoreDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
-    hardcoreDescriptionLabel.textColor = myFontColor;
-    hardcoreDescriptionLabel.text = @"Exercises 7+ times a week";
-    [hardcoreDescriptionLabel sizeToFit];
+    UILabel *moderatelyActiveDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 325, 80, 80)];
+    moderatelyActiveDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:11];
+    moderatelyActiveDescriptionLabel.textColor = myFontColor;
+    moderatelyActiveDescriptionLabel.text = @"moderate exercise/sports 3-5 days/week";
+    [moderatelyActiveDescriptionLabel sizeToFit];
     
-    UIImageView *hardcoreImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hardcore_icon@2x.png"]];
-    hardcoreImageView.frame = CGRectMake(62, 377, 50, 52);
+    UIImageView *moderatelyActiveImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hardcore_icon@2x.png"]];
+    moderatelyActiveImageView.frame = CGRectMake(62, 297, 50, 52);
+    
+    UIView *separatorView3 = [[UIView alloc] initWithFrame:CGRectMake(67, 368, 194 , 2)];
+    separatorView3.backgroundColor = myFontColor;
+    
+    UILabel *veryActiveLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 387, 80, 80)];
+    veryActiveLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
+    veryActiveLabel.textColor = myFontColor;
+    veryActiveLabel.text = @"Very Active";
+    [veryActiveLabel sizeToFit];
+    
+    UILabel *veryActiveDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 413, 80, 80)];
+    veryActiveDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:11];
+    veryActiveDescriptionLabel.textColor = myFontColor;
+    veryActiveDescriptionLabel.text = @"hard exercise/sports 6-7 days/week";
+    [veryActiveDescriptionLabel sizeToFit];
+    
+    UIImageView *veryActiveImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fourthlevel_icon@2x.png"]];
+    veryActiveImageView.frame = CGRectMake(62, 385, 50, 52);
+    
+    UIView *separatorView4 = [[UIView alloc] initWithFrame:CGRectMake(67, 456, 194 , 2)];
+    separatorView4.backgroundColor = myFontColor;
+    
+    UILabel *extremelyActiveLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 475, 80, 80)];
+    extremelyActiveLabel.font = [UIFont fontWithName:@"Norican-Regular" size:20];
+    extremelyActiveLabel.textColor = myFontColor;
+    extremelyActiveLabel.text = @"Extremely Active";
+    [extremelyActiveLabel sizeToFit];
+    
+    UILabel *extremelyActiveDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 501, 80, 80)];
+    extremelyActiveDescriptionLabel.font = [UIFont fontWithName:@"Oswald-Light" size:11];
+    extremelyActiveDescriptionLabel.textColor = myFontColor;
+    extremelyActiveDescriptionLabel.text = @"very hard exercise/sports and physical job";
+    [extremelyActiveDescriptionLabel sizeToFit];
+    
+    UIImageView *extremelyActiveImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fifthlevel_icon@2x.png"]];
+    extremelyActiveImageView.frame = CGRectMake(62, 474, 50, 52);
     
     [self.view addSubview:translucentView];
     [translucentView addSubview:closePopUpViewButton];
     [translucentView addSubview:popUpTitleLabel];
-    [translucentView addSubview:beginnerLabel];
-    [translucentView addSubview:beginnerDescriptionLabel];
-    [translucentView addSubview:beginnerImageView];
+    [translucentView addSubview:sedentaryLabel];
+    [translucentView addSubview:sedentaryDescriptionLabel];
+    [translucentView addSubview:sedentaryImageView];
     [translucentView addSubview:separatorView1];
-    [translucentView addSubview:advancedLabel];
-    [translucentView addSubview:advancedDescriptionLabel];
-    [translucentView addSubview:advancedImageView];
+    [translucentView addSubview:lightlyActiveLabel];
+    [translucentView addSubview:lightlyActiveDescriptionLabel];
+    [translucentView addSubview:lightlyActiveImageView];
     [translucentView addSubview:separatorView2];
-    [translucentView addSubview:hardcoreLabel];
-    [translucentView addSubview:hardcoreDescriptionLabel];
-    [translucentView addSubview:hardcoreImageView];
+    [translucentView addSubview:moderatelyActiveLabel];
+    [translucentView addSubview:moderatelyActiveDescriptionLabel];
+    [translucentView addSubview:moderatelyActiveImageView];
+    [translucentView addSubview:separatorView3];
+    [translucentView addSubview:veryActiveLabel];
+    [translucentView addSubview:veryActiveDescriptionLabel];
+    [translucentView addSubview:veryActiveImageView];
+    [translucentView addSubview:separatorView4];
+    [translucentView addSubview:extremelyActiveLabel];
+    [translucentView addSubview:extremelyActiveDescriptionLabel];
+    [translucentView addSubview:extremelyActiveImageView];
 }
 
 -(void) closePopUpViewButtonPressed:(UIButton *)sender {
@@ -198,13 +239,14 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ParseSignUpViewControllerStep6 *nextStepController = (ParseSignUpViewControllerStep6 *) segue.destinationViewController;
+    ParseSignUpViewControllerStep7 *nextStepController = (ParseSignUpViewControllerStep7 *) segue.destinationViewController;
     
     nextStepController.name = self.name;
     nextStepController.email = self.email;
     nextStepController.username = self.username;
     nextStepController.password = self.password;
     nextStepController.weight = self.weight;
+    nextStepController.age = self.age;
     nextStepController.inchesHeight = self.inchesHeight;
     nextStepController.gender = self.gender;
     nextStepController.neat = (int)[myPickerView selectedRowInComponent:0];

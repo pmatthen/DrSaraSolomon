@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataStack.h"
+#import "Parse/Parse.h"
 
 @interface DailyTrackerViewController : UIViewController
 

@@ -6,21 +6,19 @@
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
-#import "ParseSignUpViewControllerStep6.h"
+#import "ParseSignUpViewControllerStep7.h"
 #import "MenuViewController.h"
 
-@interface ParseSignUpViewControllerStep6 ()
+@interface ParseSignUpViewControllerStep7 ()
 
 @end
 
-@implementation ParseSignUpViewControllerStep6
-@synthesize inchesHeight, weight, gender, neat, username, password, name, email;
+@implementation ParseSignUpViewControllerStep7
+@synthesize inchesHeight, weight, age, gender, neat, username, password, name, email;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i, inchesHeight = %i, gender = %i, neat = %i", self.name, self.email, self.username, self.password, self.weight, self.inchesHeight, self.gender, self.neat);
 
     UILabel *congratsLabel = [[UILabel alloc] initWithFrame:CGRectMake(49, 190, 150, 150)];
     congratsLabel.font = [UIFont fontWithName:@"Norican-Regular" size:37];
@@ -53,6 +51,7 @@
     user[@"name"] = name;
     user[@"height"] = [NSNumber numberWithInt:inchesHeight];
     user[@"weight"] = [NSNumber numberWithInt:weight];
+    user[@"age"] = [NSNumber numberWithInt:age];
     user[@"gender"] = [NSNumber numberWithInt:gender];
     user[@"neat"] = [NSNumber numberWithInt:neat];
     
@@ -86,4 +85,8 @@
     }];
 }
 
+- (IBAction)startOverButtonTouched:(id)sender {
+    NSArray *array = [self.navigationController viewControllers];
+    [self.navigationController popToViewController:[array objectAtIndex:1] animated:YES];
+}
 @end

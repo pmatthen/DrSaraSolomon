@@ -10,4 +10,14 @@
 
 @interface ParseSignUpViewControllerStep2 : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
+@property NSMutableArray *ageArray;
+@property NSString *name;
+@property NSString *email;
+@property NSString *username;
+@property NSString *password;
+
+- (IBAction)startOverButtonTouched:(id)sender;
+- (IBAction)continueButtonTouched:(id)sender;
+
 @end

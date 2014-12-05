@@ -10,4 +10,13 @@
 
 @interface NewsletterViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+
+@property (strong, nonatomic) IBOutlet UISwitch *iFSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *recipeSwitch;
+
+- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)joinButtonTouched:(id)sender;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface ShopTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *categoryTitleLabel;
+
 @end

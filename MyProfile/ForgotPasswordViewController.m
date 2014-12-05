@@ -13,25 +13,26 @@
 @end
 
 @implementation ForgotPasswordViewController
+@synthesize emailTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)resetPasswordButtonPressed:(id)sender {
+    if ([emailTextField.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter an email address" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        [PFUser requestPasswordResetForEmailInBackground:emailTextField.text];
+        emailTextField.text = @"";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password Reset Mail Sent" message:@"An email with instructions on how to reset your password has been sent" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
 
 @end

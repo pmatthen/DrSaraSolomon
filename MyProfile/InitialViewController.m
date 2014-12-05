@@ -10,6 +10,8 @@
 #import "InitialViewControlllerTableViewCell.h"
 #import "ParseSignUpViewControllerStep1.h"
 
+#define DURATION_BEFORE_SLIDE_TRANSITION 2.0
+
 @interface InitialViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -102,7 +104,13 @@
     
     myScrollView.contentSize = CGSizeMake(width, myScrollView.frame.size.height);
     
-    [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:DURATION_BEFORE_SLIDE_TRANSITION];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(nextSlide:) object:nil];
+    [myScrollView setContentOffset:CGPointMake(0, myScrollView.contentOffset.y) animated:YES];
+    [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:DURATION_BEFORE_SLIDE_TRANSITION];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -116,6 +124,7 @@
     
     if (scrollView.isDragging) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(nextSlide:) object:nil];
+        [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:DURATION_BEFORE_SLIDE_TRANSITION];
     }
 }
 
@@ -172,7 +181,10 @@
     
     if (myScrollView.contentOffset.x < 640) {
          [myScrollView setContentOffset:CGPointMake(myScrollView.contentOffset.x + 320, myScrollView.contentOffset.y) animated:YES];
-        [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:3.0];
+        [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:DURATION_BEFORE_SLIDE_TRANSITION];
+    } else {
+        [myScrollView setContentOffset:CGPointMake(0, myScrollView.contentOffset.y) animated:YES];
+        [self performSelector:@selector(nextSlide:) withObject:nil afterDelay:DURATION_BEFORE_SLIDE_TRANSITION];
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParseSignUpViewControllerStep6 : UIViewController
+@interface ParseSignUpViewControllerStep7 : UIViewController
 
 - (IBAction)startGettingSexyButtonTouched:(id)sender;
 
@@ -17,8 +17,11 @@
 @property NSString *username;
 @property NSString *password;
 @property int weight;
+@property int age;
 @property int inchesHeight;
 @property int gender;
 @property int neat;
+
+- (IBAction)startOverButtonTouched:(id)sender;
 
 @end

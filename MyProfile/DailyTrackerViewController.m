@@ -9,6 +9,8 @@
 #import "DailyTrackerViewController.h"
 #import "AddFoodViewController.h"
 #import "FoodTrackerItem.h"
+#import "User.h"
+#import "CoreDataStack.h"
 
 @interface DailyTrackerViewController ()
 
@@ -20,15 +22,20 @@
 @property NSDate *selectedDate;
 @property int caloriesConsumed;
 @property UILabel *caloriesConsumedLabel;
+@property User *user;
+@property CoreDataStack *coreDataStack;
 
 @end
 
 @implementation DailyTrackerViewController
-@synthesize addFoodButton, rightArrowImageView, dateLabel, dateInterval, foodTrackerItems, dataSource, selectedDate, caloriesConsumed, caloriesConsumedLabel, myScrollView;
+@synthesize addFoodButton, rightArrowImageView, dateLabel, dateInterval, foodTrackerItems, dataSource, selectedDate, caloriesConsumed, caloriesConsumedLabel, myScrollView, user, coreDataStack;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    coreDataStack = [CoreDataStack defaultStack];
+    [self fetchUser];
     
     selectedDate = [NSDate date];
     
@@ -166,21 +173,27 @@
     
     NSMutableDictionary *myDataSource = [[NSMutableDictionary alloc] init];
     
-    for (int i = 0; i < [foodTrackerItems count]; i++) {
-        FoodTrackerItem *foodTrackerItem = foodTrackerItems[i];
-        NSDate *date = foodTrackerItem.date;
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
-        [components setHour:0];
-        
-        NSString *midnightDate = [[calendar dateFromComponents:components] description];
-        NSMutableArray *section = [myDataSource objectForKey:midnightDate];
-        
-        if (!section) {
-            section = [[NSMutableArray alloc] init];
-            [myDataSource setObject:section forKey:midnightDate];
+    if ([foodTrackerItems count] > 0) {
+        for (int i = 0; i < [foodTrackerItems count] - 1; i++) {
+            FoodTrackerItem *foodTrackerItem = foodTrackerItems[i];
+            NSDate *date = user.dateCreated;
+            if (foodTrackerItem.date != nil) {
+                date = foodTrackerItem.date;
+            }
+            
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+            [components setHour:0];
+            
+            NSString *midnightDate = [[calendar dateFromComponents:components] description];
+            NSMutableArray *section = [myDataSource objectForKey:midnightDate];
+            
+            if (!section) {
+                section = [[NSMutableArray alloc] init];
+                [myDataSource setObject:section forKey:midnightDate];
+            }
+            [section addObject:foodTrackerItem];
         }
-        [section addObject:foodTrackerItem];
     }
 
     return myDataSource;
@@ -290,6 +303,18 @@
 
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void) fetchUser {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"(objectId == %@)", [[PFUser currentUser] objectId]];
+    [fetchRequest setPredicate:userNamePredicate];
+    NSEntityDescription *userEntityDescription = [NSEntityDescription entityForName:@"User" inManagedObjectContext:coreDataStack.managedObjectContext];
+    [fetchRequest setEntity:userEntityDescription];
+    NSError *error;
+    NSArray *fetchRequestArray = [coreDataStack.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    user = [fetchRequestArray firstObject];
 }
 
 @end

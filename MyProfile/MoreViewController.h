@@ -11,7 +11,10 @@
 
 @interface MoreViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
+
 - (IBAction)backButtonTouched:(id)sender;
 - (IBAction)logoutButtonTouched:(id)sender;
+- (IBAction)resetDataButtonTouched:(id)sender;
 
 @end

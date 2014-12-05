@@ -7,17 +7,29 @@
 //
 
 #import "MoreViewController.h"
+#import "MoreTableViewCell.h"
 
-@interface MoreViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface MoreViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *categoryArray;
 
 @end
 
 @implementation MoreViewController
+@synthesize myTableView, categoryArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    categoryArray = @[@"WORKOUTS", @"SHOP", @"NEWSLETTER", @"ABOUT"];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 9, 100, 40)];
+    titleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = @"MORE";
+    
+    [self.view addSubview:titleLabel];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -32,6 +44,44 @@
     }
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [categoryArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MoreCell"];
+    
+    cell.categoryTitleLabel.font = [UIFont fontWithName:@"Oswald-Light" size:20];
+    cell.categoryTitleLabel.text = categoryArray[indexPath.row];
+    cell.categoryTitleLabel.textColor = [UIColor whiteColor];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        [self performSegueWithIdentifier:@"ShopSegue" sender:self];
+    }
+    if (indexPath.row == 2) {
+        [self performSegueWithIdentifier:@"NewsletterSegue" sender:self];
+    }
+    if (indexPath.row == 3) {
+        [self performSegueWithIdentifier:@"AboutSegue" sender:self];
+    }
+}
+
 - (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -43,6 +93,9 @@
     myInitialNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
     
     [self presentViewController:myInitialNavigationController animated:NO completion:nil];
+}
+
+- (IBAction)resetDataButtonTouched:(id)sender {
 }
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user

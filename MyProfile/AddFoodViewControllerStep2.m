@@ -16,6 +16,7 @@
 #import <FatSecretKit/FSServing.h>
 #import <FatSecretKit/FSRecipeServings.h>
 #import "FoodTrackerItem.h"
+#import "RecipeSampleViewController.h"
 
 @interface AddFoodViewControllerStep2 () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -23,11 +24,12 @@
 @property (nonatomic, strong) NSMutableArray *isSelectedArray;
 @property (nonatomic, strong) NSMutableArray *numberOfServingsArray;
 @property (nonatomic, strong) PFQuery *query;
+@property (nonatomic, strong) FSRecipe *recipeToSend;
 
 @end
 
 @implementation AddFoodViewControllerStep2
-@synthesize searchTextField, searchText, myTableView, mySegmentedControl, resultsArray, query, isSelectedArray, numberOfServingsArray;
+@synthesize searchTextField, searchText, myTableView, mySegmentedControl, resultsArray, query, isSelectedArray, numberOfServingsArray, recipeToSend;
 
 - (void)viewDidLoad
 {
@@ -70,6 +72,7 @@
         [self searchButtonTouched:self];
     } else {
         numberOfServingsArray[textField.tag - 1] = [NSNumber numberWithInt:[textField.text intValue]];
+        NSLog(@"NUMBER OF SERVINGS 1 at row %li = %@",(textField.tag - 1), numberOfServingsArray[textField.tag - 1]);
         [myTableView reloadData];
     }
     
@@ -80,6 +83,7 @@
     AddFoodStep2TableViewCell *cell = (AddFoodStep2TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"AddFoodStep2Cell"];
     
     cell.servingSizeLabel.text = @"";
+    cell.selectionButtonImageView.tag = indexPath.row;
     
     if (mySegmentedControl.selectedSegmentIndex == 0) {
         PFObject *PFTempRecipe = resultsArray[indexPath.row];
@@ -107,10 +111,10 @@
     cell.myTableViewCellTextLabel.font = [UIFont fontWithName:@"Oswald-Light" size:15];
     
     if (isSelectedArray[indexPath.row] == [NSNumber numberWithBool:YES]) {
-        cell.selectionImageView.image = [UIImage imageNamed:@"selectedicon@2x.png"];
+        [cell.selectionButtonImageView setImage:[UIImage imageNamed:@"selectedicon@2x.png"] forState:UIControlStateNormal];
         cell.selectionHighlightImageView.hidden = NO;
     } else {
-        cell.selectionImageView.image = [UIImage imageNamed:@"addicon@2x.png"];
+        [cell.selectionButtonImageView setImage:[UIImage imageNamed:@"addicon@2x.png"] forState:UIControlStateNormal];
         cell.selectionHighlightImageView.hidden = YES;
     }
     
@@ -122,6 +126,7 @@
     [servingsLabel sizeToFit];
     
     cell.servingsTextField.text = [numberOfServingsArray[indexPath.row] description];
+    NSLog(@"NUMBER OF SERVINGS 2 at row %li = %@",indexPath.row, numberOfServingsArray[indexPath.row]);
     cell.servingsTextField.textColor = [UIColor whiteColor];
     cell.servingsTextField.font = [UIFont fontWithName:@"Oswald-Light" size:14];
     [cell.servingsTextField sizeToFit];
@@ -137,15 +142,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (isSelectedArray[indexPath.row] == [NSNumber numberWithBool:NO]) {
-        isSelectedArray[indexPath.row] = [NSNumber numberWithBool:YES];
-    } else {
-        isSelectedArray[indexPath.row] = [NSNumber numberWithBool:NO];
-        numberOfServingsArray[indexPath.row] = [NSNumber numberWithInt:1];
+    if (mySegmentedControl.selectedSegmentIndex == 1) {
+        recipeToSend = resultsArray[indexPath.row];
+        [self performSegueWithIdentifier:@"RecipeSampleSegue" sender:self];
     }
-    
-    [myTableView reloadData];
 }
 
 - (IBAction)doneButtonTouched:(id)sender {
@@ -164,6 +164,8 @@
             
             if (mySegmentedControl.selectedSegmentIndex == 2) {
                 FSFood *tempFood = resultsArray[indexPath.row];
+                foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
+                NSLog(@"NUMBER OF SERVINGS 3 at row %li = %@",indexPath.row, numberOfServingsArray[indexPath.row]);
                 [[FSClient sharedClient] getFood:tempFood.identifier completion:^(FSFood *food) {
                     if ([food.servings count] > 0) {
                         FSServing *tempServing = food.servings[0];
@@ -172,23 +174,22 @@
                     }
                         foodTrackerItem.name = tempFood.name;
                         foodTrackerItem.identifier = [NSNumber numberWithLong:tempFood.identifier];
-                        foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
                         foodTrackerItem.date = [NSDate date];
                         [coreDataStack saveContext];
                         [self goToDailyTrackerViewController];
                 }];
             } else if (mySegmentedControl.selectedSegmentIndex == 1) {
                 FSRecipe *tempRecipe = resultsArray[indexPath.row];
+                foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
+                NSLog(@"NUMBER OF SERVINGS 3 at row %li = %@",indexPath.row, numberOfServingsArray[indexPath.row]);
                 [[FSClient sharedClient] getRecipe:tempRecipe.identifier completion:^(FSRecipe *recipe) {
                     if ([recipe.servings count] > 0) {
                         FSRecipeServings *tempRecipeServings = recipe.servings[0];
                         foodTrackerItem.caloriesPerServing = [NSNumber numberWithFloat:[tempRecipeServings caloriesValue]];
                     }
-                    
                     foodTrackerItem.servingSize = @"1";
                     foodTrackerItem.name = tempRecipe.name;
                     foodTrackerItem.identifier = [NSNumber numberWithLong:tempRecipe.identifier];
-                    foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
                     foodTrackerItem.date = [NSDate date];
                     [coreDataStack saveContext];
                     [self goToDailyTrackerViewController];
@@ -200,6 +201,7 @@
                 foodTrackerItem.name = PFTempRecipe[@"name"];
                 foodTrackerItem.identifier = [NSNumber numberWithInt:0];
                 foodTrackerItem.numberOfServings = numberOfServingsArray[indexPath.row];
+                NSLog(@"NUMBER OF SERVINGS 3 at row %li = %@",indexPath.row, numberOfServingsArray[indexPath.row]);
                 foodTrackerItem.date = [NSDate date];
                 [coreDataStack saveContext];
                 [self goToDailyTrackerViewController];
@@ -256,6 +258,18 @@
     }
 }
 
+- (IBAction)selectionButtonClicked:(UIButton *)sender {
+    NSLog(@"You clicked the add button at row %ld", (long)sender.tag);
+    if (isSelectedArray[sender.tag] == [NSNumber numberWithBool:NO]) {
+        isSelectedArray[sender.tag] = [NSNumber numberWithBool:YES];
+    } else {
+        isSelectedArray[sender.tag] = [NSNumber numberWithBool:NO];
+        numberOfServingsArray[sender.tag] = [NSNumber numberWithInt:1];
+    }
+    
+    [myTableView reloadData];
+}
+
 - (void) deselectAllCells {
     [isSelectedArray removeAllObjects];
     [numberOfServingsArray removeAllObjects];
@@ -267,9 +281,15 @@
         NSIndexPath * indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         AddFoodStep2TableViewCell *cell = (AddFoodStep2TableViewCell *) [myTableView cellForRowAtIndexPath:indexPath];
 
-        cell.selectionImageView.image = [UIImage imageNamed:@"addicon@2x.png"];
+        cell.selectionButtonImageView.imageView.image = [UIImage imageNamed:@"addicon@2x.png"];
         cell.selectionHighlightImageView.hidden = YES;
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    RecipeSampleViewController *recipeSampleViewController = (RecipeSampleViewController *) segue.destinationViewController;
+    
+    recipeSampleViewController.myRecipe = recipeToSend;
 }
 
 @end

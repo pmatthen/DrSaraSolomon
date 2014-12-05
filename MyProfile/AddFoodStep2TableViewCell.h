@@ -11,7 +11,7 @@
 @interface AddFoodStep2TableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *myTableViewCellTextLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *selectionImageView;
+@property (strong, nonatomic) IBOutlet UIButton *selectionButtonImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *selectionHighlightImageView;
 @property (strong, nonatomic) IBOutlet UITextField *servingsTextField;
 @property (strong, nonatomic) IBOutlet UILabel *servingSizeLabel;

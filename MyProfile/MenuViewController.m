@@ -64,22 +64,23 @@
         NSLog(@"User nil");
         User *currentUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:coreDataStack.managedObjectContext];
         currentUser.objectId = [[PFUser currentUser] objectId];
+        currentUser.dateCreated = [[PFUser currentUser] createdAt];
         currentUser.name = [[PFUser currentUser] objectForKey:@"name"];
         currentUser.activityFactor = [[PFUser currentUser] objectForKey:@"neat"];
         currentUser.email = [[PFUser currentUser] objectForKey:@"email"];
         currentUser.height = [[PFUser currentUser] objectForKey:@"height"];
         currentUser.initialWeight = [[PFUser currentUser] objectForKey:@"weight"];
+        currentUser.age = [[PFUser currentUser] objectForKey:@"age"];
         currentUser.username = [[PFUser currentUser] objectForKey:@"username"];
         currentUser.gender = [[PFUser currentUser] objectForKey:@"gender"];
         currentUser.protocolTypeSelected = 0;
-        currentUser.hourToBeginEating = 0;
-        currentUser.minuteToBeginEating = 0;
-        currentUser.hourToBeginFasting = 0;
-        currentUser.minuteToBeginFasting = 0;
+        currentUser.initialBeginFastingTime = [NSDate date];
         currentUser.fNotifications = [NSNumber numberWithBool:NO];
         currentUser.eNotifications = [NSNumber numberWithBool:NO];
 
         [coreDataStack saveContext];
+        
+        NSLog(@"createdAt = %@", currentUser.dateCreated);
     }
 }
 

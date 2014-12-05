@@ -6,16 +6,15 @@
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
-#import "ParseSignUpViewControllerStep1.h"
-#import "ParseSignUpViewControllerStep2.h"
 #import "ParseSignUpViewControllerStep3.h"
+#import "ParseSignUpViewControllerStep4.h"
 
-@interface ParseSignUpViewControllerStep2 () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ParseSignUpViewControllerStep3 () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
 
-@implementation ParseSignUpViewControllerStep2
-@synthesize weightArray, name, email, username, password, myPickerView;
+@implementation ParseSignUpViewControllerStep3
+@synthesize weightArray, name, email, username, password, age, myPickerView;
 
 - (void)viewDidLoad
 {
@@ -51,7 +50,7 @@
     UILabel *stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 149, 60, 40)];
     stepLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
     stepLabel.textColor = myFontColor;
-    stepLabel.text = @"Step 2";
+    stepLabel.text = @"Step 3";
     [stepLabel sizeToFit];
     
     UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(132, 163, 60, 40)];
@@ -72,8 +71,6 @@
     [self.view addSubview:stepLabel];
     [self.view addSubview:instructionsLabel];
     [self.view addSubview:lbsLabel];
-    
-    NSLog(@"%@, %@, %@, %@", name, email, username, password);
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -121,12 +118,13 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ParseSignUpViewControllerStep3 *nextStepController = (ParseSignUpViewControllerStep3 *) segue.destinationViewController;
+    ParseSignUpViewControllerStep4 *nextStepController = (ParseSignUpViewControllerStep4 *) segue.destinationViewController;
     
     nextStepController.name = name;
     nextStepController.email = email;
     nextStepController.username = username;
     nextStepController.password = password;
+    nextStepController.age = age;
     nextStepController.weight = (int)[myPickerView selectedRowInComponent:0];
 }
 

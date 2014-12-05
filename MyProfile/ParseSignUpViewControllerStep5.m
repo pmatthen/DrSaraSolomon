@@ -6,22 +6,19 @@
 //  Copyright (c) 2014 Dr. Sara Solomon Fitness. All rights reserved.
 //
 
-#import "ParseSignUpViewControllerStep4.h"
 #import "ParseSignUpViewControllerStep5.h"
-#import "ParseSignUpViewControllerStep1.h"
+#import "ParseSignUpViewControllerStep6.h"
 
-@interface ParseSignUpViewControllerStep4 () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ParseSignUpViewControllerStep5 () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
 
-@implementation ParseSignUpViewControllerStep4
+@implementation ParseSignUpViewControllerStep5
 @synthesize myPickerView, genderArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"name = %@, email = %@, username = %@, password = %@, weight = %i, inchesHeight = %i", self.name, self.email, self.username, self.password, self.weight, self.inchesHeight);
     
     UIColor *myFontColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
 
@@ -49,7 +46,7 @@
     UILabel *stepLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 149, 60, 40)];
     stepLabel.font = [UIFont fontWithName:@"Norican-Regular" size:31];
     stepLabel.textColor = myFontColor;
-    stepLabel.text = @"Step 4";
+    stepLabel.text = @"Step 5";
     [stepLabel sizeToFit];
     
     UILabel *instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(132, 163, 60, 40)];
@@ -110,13 +107,14 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ParseSignUpViewControllerStep5 *nextStepController = (ParseSignUpViewControllerStep5 *) segue.destinationViewController;
+    ParseSignUpViewControllerStep6 *nextStepController = (ParseSignUpViewControllerStep6 *) segue.destinationViewController;
     
     nextStepController.name = self.name;
     nextStepController.email = self.email;
     nextStepController.username = self.username;
     nextStepController.password = self.password;
     nextStepController.weight = self.weight;
+    nextStepController.age = self.age;
     nextStepController.inchesHeight = self.inchesHeight;
     nextStepController.gender = (int)[myPickerView selectedRowInComponent:0];
 }

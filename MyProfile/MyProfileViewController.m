@@ -48,6 +48,8 @@
     [super viewDidLoad];
         
     recordedWeights = [NSArray new];
+    coreDataStack = [CoreDataStack defaultStack];
+    [self fetchUser];
     
     myCameraButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     myCameraButton.imageView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
@@ -72,10 +74,9 @@
     pickerViewView.clipsToBounds = YES;
     [pickerViewView addSubview:myPickerView];
     
-    coreDataStack = [CoreDataStack defaultStack];
+    
 
     [self fillRecordedWeightsArray];
-    [self fetchUser];
     
     // Checks whether there are any recorded weights, and if so it sets the pickerView column to the latest record. If not, it set's the pickerView column to the users initial weight.
     if ([recordedWeights count] > 0) {
@@ -90,10 +91,15 @@
         [myPickerView selectRow:[latestRecordedWeight.weight intValue] inComponent:0 animated:NO];
     } else {
         [myPickerView selectRow:[user.initialWeight intValue] inComponent:0 animated:NO];
+        RecordedWeight *latestRecordedWeight = [[RecordedWeight alloc] initWithEntity:[NSEntityDescription entityForName:@"RecordedWeight" inManagedObjectContext:coreDataStack.managedObjectContext] insertIntoManagedObjectContext:coreDataStack.managedObjectContext];
+        [latestRecordedWeight setDate:user.dateCreated];
+        [latestRecordedWeight setWeight:user.initialWeight];
     }
     
     arrayOfDates = [[NSMutableArray alloc] initWithArray:@[@"", @"", @"", @""]];
-    arrayOfValues = [[NSMutableArray alloc] initWithArray:@[user.initialWeight, user.initialWeight, user.initialWeight, user.initialWeight]];
+    arrayOfValues = [[NSMutableArray alloc] initWithArray:@[@0, @0, @0, @0]];
+    
+    [self calculateWeeklyWeightMeans:[NSNumber numberWithInt:4]];
     
     myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(10, 78, 290, 180)];
     myGraph.dataSource = self;
@@ -273,7 +279,7 @@
             UILabel *rangeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 187, 100, 100)];
             rangeLabel.font = [UIFont fontWithName:@"Oswald" size:35];
             rangeLabel.textColor = [UIColor whiteColor];
-            rangeLabel.text = [NSString stringWithFormat:@"%.f -%.f", ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:31 gender:[user.gender intValue] neat:[user.activityFactor intValue]] * .86), ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:31 gender:[user.gender intValue] neat:[user.activityFactor intValue]] * 1.14)];
+            rangeLabel.text = [NSString stringWithFormat:@"%.f -%.f", ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:[user.age intValue] gender:[user.gender intValue] neat:[user.activityFactor intValue]] * .86), ([self maintenanceLevelCalories:[user.initialWeight intValue] heightInInches:[user.height intValue] age:31 gender:[user.gender intValue] neat:[user.activityFactor intValue]] * 1.14)];
             [rangeLabel sizeToFit];
             
             UIView *calorieIntakeLineView = [[UIView alloc] initWithFrame:CGRectMake(150, 231, rangeLabel.frame.size.width + 2, 2)];
@@ -391,92 +397,135 @@
 
 -(void)calculateWeeklyWeightMeans:(NSNumber *)numberOfWeeks {
     
+    // 1. Using the date the user created his account, generate the precedingSunday and followingSaturday variables.
+    NSDate *createdAtDate = user.dateCreated;
+    
+        // Find out what day of the week it is
+    int whichDay = (int)[[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:createdAtDate] weekday];
+    
+        // Find out how days away from Sunday it is
+    int numberOfDaysPassedSunday = (1 - whichDay) * -1;
+    
+        // Create an NSDate object that is the Sunday 00:00:00 preceding the earliest recorded weight, and use that to create an NSDate object that is the Saturday 23:59:59 following the earliest recorded weight.
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[createdAtDate dateByAddingTimeInterval:((numberOfDaysPassedSunday * (60 * 60 * 24)) * -1)]];
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    
+    [comps setSecond:0];
+    [comps setMinute:0];
+    [comps setHour:0];
+    [comps setDay:[components day]];
+    [comps setMonth:[components month]];
+    [comps setYear:[components year]];
+    
+    NSDate *firstPrecedingSunday = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    NSDate *firstFollowingSaturday = [firstPrecedingSunday dateByAddingTimeInterval:((60 * 60 * 24 * 7) + ((60 * 60 * 24) - 1))];
+    
+    // 1. END
+    
+    // 2. Find the latest RecordedWeight record, and generate precedingSunday and followingSaturday variables.
+    
     NSMutableArray *initialRecordedWeightsMutableArray = [[NSMutableArray alloc] initWithArray:recordedWeights];
     
-    int count = 0;
-    while ((count < [numberOfWeeks intValue]) && ([initialRecordedWeightsMutableArray count] > 0)) {
-        // Find the earliest recorded weight that is stored in the recordedWeights Array
-        RecordedWeight *earliestRecordedWeight = [initialRecordedWeightsMutableArray firstObject];
-        
-        for (RecordedWeight *tempRecordedWeight in initialRecordedWeightsMutableArray) {
-            if ([earliestRecordedWeight.date compare:tempRecordedWeight.date] == NSOrderedDescending) {
-                earliestRecordedWeight = tempRecordedWeight;
-            }
+    RecordedWeight *latestRecordedWeight = [[RecordedWeight alloc] initWithEntity:[NSEntityDescription entityForName:@"RecordedWeight" inManagedObjectContext:coreDataStack.managedObjectContext] insertIntoManagedObjectContext:coreDataStack.managedObjectContext];
+    [latestRecordedWeight setDate:user.dateCreated];
+    [latestRecordedWeight setWeight:user.initialWeight];
+    
+    for (RecordedWeight *tempRecordedWeight in initialRecordedWeightsMutableArray) {
+        if ([latestRecordedWeight.date compare:tempRecordedWeight.date] == NSOrderedAscending) {
+            latestRecordedWeight = tempRecordedWeight;
         }
-        
+    }
+    
+    NSLog(@"latestRecordedWeight = %@", latestRecordedWeight);
+    
         // Find out what day of the week it is
-        int weekday = (int)[[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:earliestRecordedWeight.date] weekday];
-        
+    whichDay = (int)[[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:latestRecordedWeight.date] weekday];
+    
         // Find out how days away from Sunday it is
-        int numberOfDaysPassedSunday = (1 - weekday) * -1;
-        
-        // Create an NSDate object that is the Sunday 00:00:00 preceding the earliest recorded weight, and use that to create an NSDate object that is the Saturday 23:59:59 following the earliest recorded weight.
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[earliestRecordedWeight.date dateByAddingTimeInterval:((numberOfDaysPassedSunday * (60 * 60 * 24)) * -1)]];
-        
-        NSDateComponents *comps = [[NSDateComponents alloc] init];
-        
-        [comps setSecond:0];
-        [comps setMinute:0];
-        [comps setHour:0];
-        [comps setDay:[components day]];
-        [comps setMonth:[components month]];
-        [comps setYear:[components year]];
-        
-        NSDate *precedingSunday = [[NSCalendar currentCalendar] dateFromComponents:comps];
-        NSDate *followingSaturday = [precedingSunday dateByAddingTimeInterval:((60 * 60 * 24 * 7) + ((60 * 60 * 24) - 1))];
-        
-        // Update arrayOfDates with correct information ***I did this wrong. I should just, find the preceding Monday from today's date and subtract 7 days at a time to get the other 3 strings for the array. This will probably change the way the rest of the method is written as well!!***
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"MMM dd";
-        
-        NSString *dateString = [[NSString alloc] init];
-        dateString = [dateFormatter stringFromDate:precedingSunday];
-
-        // update dateString in arrayOfDates
-        [arrayOfDates setObject:dateString atIndexedSubscript:count];
-
-        // Remove objects that fall within these two NSDate objects from the initial mutable array and place them in a second mutable array, then calculate the average weight that week
-        NSMutableArray *secondaryRecordedWeightsMutableArray = [NSMutableArray new];
-        
+    numberOfDaysPassedSunday = (1 - whichDay) * -1;
+    
+        // Create an NSDate object that is the Sunday 00:00:00 preceding the earliest recorded weight, and use that to create an NSDate object that is the Saturday 23:59:59 following the latest recorded weight.
+    NSDateComponents *lastComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[latestRecordedWeight.date dateByAddingTimeInterval:((numberOfDaysPassedSunday * (60 * 60 * 24)) * -1)]];
+    
+    NSDateComponents *lastComps = [[NSDateComponents alloc] init];
+    
+    [lastComps setSecond:0];
+    [lastComps setMinute:0];
+    [lastComps setHour:0];
+    [lastComps setDay:[lastComponents day]];
+    [lastComps setMonth:[lastComponents month]];
+    [lastComps setYear:[lastComponents year]];
+    
+    NSDate *lastPrecedingSunday = [[NSCalendar currentCalendar] dateFromComponents:lastComps];
+    NSDate *lastFollowingSaturday = [lastPrecedingSunday dateByAddingTimeInterval:((60 * 60 * 24 * 7) + ((60 * 60 * 24) - 1))];
+    
+    // 2. END
+    
+    // 3. Calculate weekly weight averages, starting from the first week, and ending on the last week.
+    
+    NSDate *tempPrecedingSunday = firstPrecedingSunday;
+    NSDate *tempFollowingSaturday = firstFollowingSaturday;
+    NSMutableArray *weeklyWeightAverageArray = [NSMutableArray new];
+    
+    int index = 0;
+    while ([[tempPrecedingSunday dateByAddingTimeInterval:-(60 * 60 * 24 * 7)] compare:lastPrecedingSunday] != NSOrderedSame) {
+        int count = 0;
+        int totalWeight = 0;
         for (RecordedWeight *tempRecordedWeight in initialRecordedWeightsMutableArray) {
-            
-            if ([self checkIfBetweenDate:precedingSunday andDate:followingSaturday date:tempRecordedWeight.date] == YES) {
-                [secondaryRecordedWeightsMutableArray addObject:tempRecordedWeight];
+            if ([self checkIfBetweenDate:tempPrecedingSunday andDate:tempFollowingSaturday date:tempRecordedWeight.date] == YES) {
+                count += 1;
+                totalWeight += [tempRecordedWeight.weight intValue];
             }
-        }
-        
-        for (int i = 0; i < [secondaryRecordedWeightsMutableArray count]; i++) {
-            [initialRecordedWeightsMutableArray removeObjectIdenticalTo:[secondaryRecordedWeightsMutableArray objectAtIndex:i]];
-        }
-        
-        int totalWeightInWeek = 0;
-        for (int i = 0; i < [secondaryRecordedWeightsMutableArray count]; i++) {
-            RecordedWeight *tempRecordedWeight = secondaryRecordedWeightsMutableArray[i];
-            totalWeightInWeek += [tempRecordedWeight.weight intValue];
         }
         
         float averageForWeek = 0;
-        if ([secondaryRecordedWeightsMutableArray count] == 0) {
+        if (count == 0) {
             averageForWeek = 0;
         } else {
-            averageForWeek = (float)totalWeightInWeek / (float)[secondaryRecordedWeightsMutableArray count];
+            averageForWeek = (float)totalWeight / (float)count;
         }
         
-        [arrayOfValues setObject:[arrayOfValues objectAtIndex:1] atIndexedSubscript:0];
-        [arrayOfValues setObject:[arrayOfValues objectAtIndex:2] atIndexedSubscript:1];
-        [arrayOfValues setObject:[arrayOfValues objectAtIndex:3] atIndexedSubscript:2];
-        [arrayOfValues setObject:[NSNumber numberWithInt:averageForWeek] atIndexedSubscript:3];
-        count += 1;
+        NSLog(@"averageForWeek #%i = %f", index, averageForWeek);
         
-        NSLog(@"earliestRecordedWeight.date = %@", earliestRecordedWeight.date);
-        NSLog(@"weekday = %i", weekday);
-        NSLog(@"numberOfDaysPassedSunday = %i", numberOfDaysPassedSunday);
-        NSLog(@"precedingSunday = %@", precedingSunday);
-        NSLog(@"followingSaturday = %@", followingSaturday);
-        NSLog(@"averageForWeek = %f", averageForWeek);
-        NSLog(@"initialRecordedWeightsMutableArray count = %lu", (unsigned long)[initialRecordedWeightsMutableArray count]);
-        NSLog(@" ");
+        [weeklyWeightAverageArray addObject:[NSNumber numberWithFloat:averageForWeek]];
+        
+        tempPrecedingSunday = [tempPrecedingSunday dateByAddingTimeInterval:(60 * 60 * 24 * 7)];
+        tempFollowingSaturday = [tempFollowingSaturday dateByAddingTimeInterval:(60 * 60 * 24 * 7)];
+        index += 1;
     }
+    
+    // 3. END
+    
+    // 4. Store latest average value from weeklyWeightAverageArray in the 4th position of the arrayOfValues. If the average is 0 (records didn't exist that week), use the value from the previous week. Repeat if necessary untill beginning of array is reached. In this case use the value of the users initialWeight.
+    int backwardCount = 0;
+    if ([weeklyWeightAverageArray count] > 0) {
+        backwardCount = (int)[weeklyWeightAverageArray count] - 1;
+    }
+
+    for (int i = 4 - 1; i >= 0; i--) {
+        BOOL isSet = NO;
+        while (isSet == NO && backwardCount >= 0) {
+            if (weeklyWeightAverageArray[backwardCount] > 0) {
+                [arrayOfValues setObject:weeklyWeightAverageArray[backwardCount] atIndexedSubscript:i];
+                isSet = YES;
+                backwardCount -= 1;
+            } else {
+                backwardCount -= 1;
+            }
+        }
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        NSLog(@"arrayOfValue[%i] = %@", i, arrayOfValues[i]);
+        if ([[arrayOfValues objectAtIndex:i] integerValue] == 0) {
+            [arrayOfValues setObject:user.initialWeight atIndexedSubscript:i];
+            NSLog(@"user.initialWeight = %@", user.initialWeight);
+        }
+    }
+    
+    // 4. END
+    
     [myGraph reloadGraph];
 }
 
@@ -610,6 +659,9 @@
     weight.date = [NSDate date];
     
     [coreDataStack saveContext];
+    [self fillRecordedWeightsArray];
+    [self calculateWeeklyWeightMeans:[NSNumber numberWithInt:4]];
+    [myGraph reloadGraph];
     [myTableView reloadData];
 }
 
@@ -626,11 +678,32 @@
 
 -(float)maintenanceLevelCalories:(int)weight heightInInches:(int)height age:(int)age gender:(int)gender neat:(int)neat {
     
+    float neatValue = 0;
+    switch (neat) {
+        case 0:
+            neatValue = 1.2;
+            break;
+        case 1:
+            neatValue = 1.375;
+            break;
+        case 2:
+            neatValue = 1.55;
+            break;
+        case 3:
+            neatValue = 1.725;
+            break;
+        case 4:
+            neatValue = 1.9;
+            break;
+        default:
+            break;
+    }
+    
     //Include neat into calculations with array.
     if (gender == 0) {
-        return (655 + (4.35 * weight) + (4.7 * height) - (4.7 * age));
+        return (655 + (4.35 * weight) + (4.7 * height) - (4.7 * age)) * neatValue;
     } else {
-        return (66 + (6.23 * weight) + (12.7 * height) - (6.8 * age));
+        return (66 + (6.23 * weight) + (12.7 * height) - (6.8 * age)) * neatValue;
     }
 }
 

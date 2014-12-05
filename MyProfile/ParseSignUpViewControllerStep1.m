@@ -11,7 +11,6 @@
 
 #define kOFFSET_FOR_KEYBOARD 216.0
 
-
 @interface ParseSignUpViewControllerStep1 () <UITextFieldDelegate>
 
 @end
@@ -32,7 +31,7 @@
     UILabel *stepsCountLabelA = [[UILabel alloc] initWithFrame:CGRectMake(60, 56, 140, 35)];
     stepsCountLabelA.font = [UIFont fontWithName:@"Oswald-Light" size:18];
     stepsCountLabelA.textColor = [UIColor whiteColor];
-    stepsCountLabelA.text = @"Just 4 more steps to a ";
+    stepsCountLabelA.text = @"Just 5 more steps to a ";
     [stepsCountLabelA sizeToFit];
     
     UILabel *stepsCountLabelB = [[UILabel alloc] initWithFrame:CGRectMake(193, 50, 40, 35)];
@@ -96,22 +95,10 @@
     passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
     
     confirmPasswordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"confirm password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName : [UIFont fontWithName:@"Oswald-Light" size:16]}];
-    
-
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
     
     nameTextField.text = @"";
     emailTextField.text = @"";
@@ -120,45 +107,6 @@
     confirmPasswordTextField.text = @"";
 
     [confirmPasswordTextField resignFirstResponder];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-}
-
--(void)keyboardWillShow {
-    
-    NSLog(@"Keyboard Will Show.");
-    // Animate the current view out of the way
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
-}
-
--(void)keyboardWillHide {
-    NSLog(@"Keyboard Will Hide.");
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
 }
 
 //method to move the view up/down whenever the keyboard is shown/dismissed
@@ -193,6 +141,15 @@
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self setViewMovedUp:YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self setViewMovedUp:NO];
+}
+
 -(void)dismissKeyboard {
     for (UITextField *myTextField in self.view.subviews) {
         [myTextField resignFirstResponder];
@@ -206,22 +163,6 @@
 - (IBAction)continueButtonTouched:(id)sender {
     if ((![nameTextField.text  isEqual: @""]) && (![emailTextField.text  isEqual: @""]) && (![usernameTextField.text  isEqual: @""]) && (![passwordTextField.text  isEqual: @""]) && (![confirmPasswordTextField.text  isEqual: @""])) {
         if ([passwordTextField.text isEqual:confirmPasswordTextField.text]) {
-//            PFUser *user = [PFUser user];
-//            user.username = usernameTextField.text;
-//            user.password = passwordTextField.text;
-//            user.email = emailTextField.text;
-//            user[@"name"] = nameTextField.text;
-//            
-//            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (!error) {
-//                    [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
-//                } else {
-//                    NSString *errorString = [error userInfo][@"error"];
-//                    NSLog(@"error = %@", errorString);
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error in the signup process, please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//            }];
             [self performSegueWithIdentifier:@"NextStepSegue" sender:self];
         }
         else {

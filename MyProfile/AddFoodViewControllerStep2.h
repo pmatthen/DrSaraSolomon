@@ -22,5 +22,6 @@
 - (IBAction)searchButtonTouched:(id)sender;
 - (IBAction)doneButtonTouched:(id)sender;
 - (IBAction)indexChanged:(id)sender;
+- (IBAction)selectionButtonClicked:(id)sender;
 
 @end

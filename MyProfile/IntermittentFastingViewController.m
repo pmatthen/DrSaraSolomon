@@ -10,6 +10,8 @@
 #import "IntermittentFastingTableViewCell.h"
 #import "CoreDataStack.h"
 #import "User.h"
+#import "ILTranslucentView.h"
+#import "ProtocolTimingViewController.h"
 
 @interface IntermittentFastingViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -24,11 +26,13 @@
 @property BOOL eNotifications;
 @property CoreDataStack *coreDataStack;
 @property User *user;
+@property ILTranslucentView *translucentView;
+@property UIButton *closePopUpViewButton;
 
 @end
 
 @implementation IntermittentFastingViewController
-@synthesize protocolArray, myPickerView, myTableView, categoryArray, isFirstTime, isFirstClick, currentSelection, protocolTitleLabels, protocolInformationViews, protocolTitleSelection, fNotifications, eNotifications, user, coreDataStack;
+@synthesize protocolArray, myPickerView, myTableView, categoryArray, isFirstTime, isFirstClick, currentSelection, protocolTitleLabels, protocolInformationViews, protocolTitleSelection, fNotifications, eNotifications, user, coreDataStack, translucentView, closePopUpViewButton;
 
 - (void)viewDidLoad
 {
@@ -143,12 +147,12 @@
             
             UIButton *leftArrowTouched = [[UIButton alloc] initWithFrame:CGRectMake(40, 90, 22, 20)];
             leftArrowTouched.tag = 1;
-            [leftArrowTouched setImage:[UIImage imageNamed:@"triangleArrow.png"] forState:UIControlStateNormal];
+            [leftArrowTouched setImage:[UIImage imageNamed:@"triangle_arrow@2x.png"] forState:UIControlStateNormal];
             [leftArrowTouched addTarget:self action:@selector(protocolArrowTouched:) forControlEvents:UIControlEventTouchUpInside];
             
             UIButton *rightArrowTouched = [[UIButton alloc] initWithFrame:CGRectMake(258, 90, 22, 20)];
             rightArrowTouched.tag = 2;
-            [rightArrowTouched setImage:[UIImage imageNamed:@"triangleArrow.png"] forState:UIControlStateNormal];
+            [rightArrowTouched setImage:[UIImage imageNamed:@"triangle_arrow@2x.png"] forState:UIControlStateNormal];
             rightArrowTouched.layer.affineTransform = CGAffineTransformMakeRotation(M_PI);
             [rightArrowTouched addTarget:self action:@selector(protocolArrowTouched:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -169,6 +173,7 @@
             break;}
         {case 1:
             NSLog(@"");
+            
             break;}
         {case 2:
             NSLog(@"");
@@ -503,6 +508,116 @@
 }
 
 - (IBAction)protocolHelpButtonTouched:(id)sender {
+    translucentView = [[ILTranslucentView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+    translucentView.translucentAlpha = 1;
+    translucentView.translucentStyle = UIBarStyleBlack;
+    translucentView.translucentTintColor = [UIColor clearColor];
+    translucentView.backgroundColor = [UIColor clearColor];
+    
+    closePopUpViewButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 18, 39, 38)];
+    [closePopUpViewButton setImage:[UIImage imageNamed:@"x_icon@2x.png"] forState:UIControlStateNormal];
+    [closePopUpViewButton addTarget:self action:@selector(closePopUpViewButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *welcomeToLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 102, 150, 150)];
+    welcomeToLabel.font = [UIFont fontWithName:@"Norican-Regular" size:22];
+    welcomeToLabel.textColor = [UIColor whiteColor];
+    welcomeToLabel.text = @"Welcome to";
+    [welcomeToLabel sizeToFit];
+    welcomeToLabel.frame = CGRectMake(160 - welcomeToLabel.frame.size.width/2, welcomeToLabel.frame.origin.y, welcomeToLabel.frame.size.width, welcomeToLabel.frame.size.height);
+    
+    UILabel *intermittentFastingLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 128, 150, 150)];
+    intermittentFastingLabel.font = [UIFont fontWithName:@"Oswald" size:25];
+    intermittentFastingLabel.textColor = [UIColor whiteColor];
+    intermittentFastingLabel.text = @"INTERMITTENT FASTING";
+    [intermittentFastingLabel sizeToFit];
+    intermittentFastingLabel.frame = CGRectMake(160 - intermittentFastingLabel.frame.size.width/2, intermittentFastingLabel.frame.origin.y, intermittentFastingLabel.frame.size.width, intermittentFastingLabel.frame.size.height);
+    
+    UILabel *hereYouCanLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 207, 150, 150)];
+    hereYouCanLabel.font = [UIFont fontWithName:@"Oswald-Light" size:15];
+    hereYouCanLabel.textColor = [UIColor whiteColor];
+    hereYouCanLabel.text = @"HERE YOU CAN...";
+    [hereYouCanLabel sizeToFit];
+    hereYouCanLabel.frame = CGRectMake(160 - hereYouCanLabel.frame.size.width/2, hereYouCanLabel.frame.origin.y, hereYouCanLabel.frame.size.width, hereYouCanLabel.frame.size.height);
+    
+    UIImageView *protocolDividerImage1 = [[UIImageView alloc] initWithFrame:CGRectMake(47, 187, 229, 20)];
+    [protocolDividerImage1 setImage:[UIImage imageNamed:@"protocoldividers_thin.png"]];
+    
+    UIImageView *protocolDividerImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(47, 228, 229, 20)];
+    [protocolDividerImage2 setImage:[UIImage imageNamed:@"protocoldividers_thin.png"]];
+
+    UILabel *bulletPoint1 = [[UILabel alloc] initWithFrame:CGRectMake(36, 254, 20, 20)];
+    bulletPoint1.font = [UIFont fontWithName:@"Oswald-Light" size:20];
+    bulletPoint1.textColor = [UIColor whiteColor];
+    bulletPoint1.text = @".";
+
+    UILabel *bulletPoint2 = [[UILabel alloc] initWithFrame:CGRectMake(36, 321.5, 20, 20)];
+    bulletPoint2.font = [UIFont fontWithName:@"Oswald-Light" size:20];
+    bulletPoint2.textColor = [UIColor whiteColor];
+    bulletPoint2.text = @".";
+    
+    UILabel *bulletPoint3 = [[UILabel alloc] initWithFrame:CGRectMake(36, 352, 20, 20)];
+    bulletPoint3.font = [UIFont fontWithName:@"Oswald-Light" size:20];
+    bulletPoint3.textColor = [UIColor whiteColor];
+    bulletPoint3.text = @".";
+    
+    UILabel *bulletPoint4 = [[UILabel alloc] initWithFrame:CGRectMake(36, 419.5, 20, 20)];
+    bulletPoint4.font = [UIFont fontWithName:@"Oswald-Light" size:20];
+    bulletPoint4.textColor = [UIColor whiteColor];
+    bulletPoint4.text = @".";
+    
+    UILabel *bulletPoint1Text = [[UILabel alloc] initWithFrame:CGRectMake(46, 262, 228, 100)];
+    bulletPoint1Text.lineBreakMode = NSLineBreakByWordWrapping;
+    bulletPoint1Text.numberOfLines = 0;
+    bulletPoint1Text.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    bulletPoint1Text.textColor = [UIColor whiteColor];
+    bulletPoint1Text.text = @"Start your recommended fasting protocol or change it to another one that you feel suits your needs";
+    [bulletPoint1Text sizeToFit];
+    
+    UILabel *bulletPoint2Text = [[UILabel alloc] initWithFrame:CGRectMake(46, (bulletPoint1Text.frame.origin.y + bulletPoint1Text.frame.size.height + 12), 228, 100)];
+    bulletPoint2Text.lineBreakMode = NSLineBreakByWordWrapping;
+    bulletPoint2Text.numberOfLines = 0;
+    bulletPoint2Text.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    bulletPoint2Text.textColor = [UIColor whiteColor];
+    bulletPoint2Text.text = @"Get information about each fasting protocol";
+    [bulletPoint2Text sizeToFit];
+    
+    UILabel *bulletPoint3Text = [[UILabel alloc] initWithFrame:CGRectMake(46, (bulletPoint2Text.frame.origin.y + bulletPoint2Text.frame.size.height + 12), 228, 100)];
+    bulletPoint3Text.lineBreakMode = NSLineBreakByWordWrapping;
+    bulletPoint3Text.numberOfLines = 0;
+    bulletPoint3Text.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    bulletPoint3Text.textColor = [UIColor whiteColor];
+    bulletPoint3Text.text = @"Keep track of your FASTING and EATING times via the timer feature that tells you how much time you have to FAST or EAT";
+    [bulletPoint3Text sizeToFit];
+    
+    UILabel *bulletPoint4Text = [[UILabel alloc] initWithFrame:CGRectMake(46, (bulletPoint3Text.frame.origin.y + bulletPoint3Text.frame.size.height + 12), 228, 100)];
+    bulletPoint4Text.lineBreakMode = NSLineBreakByWordWrapping;
+    bulletPoint4Text.numberOfLines = 0;
+    bulletPoint4Text.font = [UIFont fontWithName:@"Oswald-Light" size:13];
+    bulletPoint4Text.textColor = [UIColor whiteColor];
+    bulletPoint4Text.text = @"Enable push notifications for FASTING and EATING so you are reminded every hour of how much time you have left to eat or fast";
+    [bulletPoint4Text sizeToFit];
+    
+    NSLog(@"YY = %f", bulletPoint4Text.frame.origin.y);
+    
+    [self.view addSubview:translucentView];
+    [translucentView addSubview:closePopUpViewButton];
+    [translucentView addSubview:intermittentFastingLabel];
+    [translucentView addSubview:hereYouCanLabel];
+    [translucentView addSubview:protocolDividerImage1];
+    [translucentView addSubview:protocolDividerImage2];
+    [translucentView addSubview:welcomeToLabel];
+    [translucentView addSubview:bulletPoint1];
+    [translucentView addSubview:bulletPoint2];
+    [translucentView addSubview:bulletPoint3];
+    [translucentView addSubview:bulletPoint4];
+    [translucentView addSubview:bulletPoint1Text];
+    [translucentView addSubview:bulletPoint2Text];
+    [translucentView addSubview:bulletPoint3Text];
+    [translucentView addSubview:bulletPoint4Text];
+}
+
+-(void) closePopUpViewButtonPressed:(UIButton *)sender {
+    [translucentView removeFromSuperview];
 }
 
 -(void) protocolArrowTouched:(UIButton *)sender {
@@ -543,5 +658,13 @@
 }
 
 - (IBAction)startButtonTouched:(id)sender {
+    [self performSegueWithIdentifier:@"ProtocolSegue" sender:self];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ProtocolTimingViewController *myProtocolTimingViewController = (ProtocolTimingViewController *) segue.destinationViewController;
+    
+    myProtocolTimingViewController.protocolSelection = (int)[myPickerView selectedRowInComponent:0] + 1;
+}
+
 @end

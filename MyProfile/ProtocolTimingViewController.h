@@ -10,4 +10,11 @@
 
 @interface ProtocolTimingViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIPickerView *myEatingPickerView;
+@property (strong, nonatomic) IBOutlet UIPickerView *myFastingPickerView;
+@property int protocolSelection;
+
+- (IBAction)backButtonTouched:(id)sender;
+- (IBAction)updateSettingsButtonTouched:(id)sender;
+
 @end

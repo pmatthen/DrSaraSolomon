@@ -10,4 +10,8 @@
 
 @interface ShopViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
+
+- (IBAction)backButtonTouched:(id)sender;
+
 @end

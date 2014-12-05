@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParseSignUpViewControllerStep4 : UIViewController
+@interface ParseSignUpViewControllerStep5 : UIViewController
 
 - (IBAction)startOverButtonTouched:(id)sender;
 - (IBAction)continueButtonTouched:(id)sender;
@@ -20,6 +20,7 @@
 @property NSString *email;
 @property NSString *username;
 @property NSString *password;
+@property int age;
 @property int weight;
 @property int inchesHeight;
 

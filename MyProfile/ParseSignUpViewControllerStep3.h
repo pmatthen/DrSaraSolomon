@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface ParseSignUpViewControllerStep2 : UIViewController
+@interface ParseSignUpViewControllerStep3 : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
 
@@ -18,6 +18,7 @@
 @property NSString *email;
 @property NSString *username;
 @property NSString *password;
+@property int age;
 
 - (IBAction)startOverButtonTouched:(id)sender;
 - (IBAction)continueButtonTouched:(id)sender;
